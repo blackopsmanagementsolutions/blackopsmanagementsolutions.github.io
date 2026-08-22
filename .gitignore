@@ -8,3 +8,6 @@ desktop.ini
 # Scratch
 *.tmp
 scratch/
+
+# Agent instructions — local only, never publish (this repo is world-readable)
+CLAUDE.md
