@@ -1,0 +1,33 @@
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+color:#222;background:#fafaf8}
+a{color:#1a4f8a}
+header.site{border-bottom:2px solid #222;padding:14px 20px;display:flex;flex-wrap:wrap;
+gap:12px 20px;align-items:center;background:#fff;position:sticky;top:0;z-index:5}
+.brand{font-weight:700;font-size:15px;line-height:1.25}
+.brand small{display:block;font-weight:400;font-size:11px;color:#666}
+nav.main{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;flex:1}
+.ctas{display:flex;gap:8px;flex-wrap:wrap}
+.cta{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+padding:8px 12px;border:2px solid #222;text-decoration:none;color:#222}
+.cta.alt{background:#222;color:#fff}
+main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+.crumb{font-size:12px;color:#777;margin:0 0 14px}
+h1{font-size:30px;line-height:1.15;margin:0 0 8px}
+.purpose{background:#fff;border-left:4px solid #222;padding:12px 16px;margin:0 0 8px;
+font-size:15px}
+.aud{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;
+text-transform:uppercase;border:1px solid #999;padding:3px 7px;color:#555;margin:0 0 18px}
+section.blk{border:1px dashed #bbb;background:#fff;padding:14px 16px;margin:0 0 10px}
+section.blk h2{font-size:15px;margin:0 0 4px;display:flex;gap:10px;align-items:baseline}
+section.blk h2 span.n{font-size:12px;color:#999;font-weight:700;min-width:20px}
+section.blk p{margin:0;font-size:14px;color:#555;padding-left:30px}
+.persist{position:fixed;right:14px;bottom:14px;background:#222;color:#fff;
+padding:12px 16px;font-size:13px;font-weight:700;text-decoration:none;z-index:9}
+footer.site{border-top:2px solid #222;margin-top:40px;padding:18px 20px;font-size:12px;
+color:#666;background:#fff}
+ul.pages{list-style:none;padding:0;margin:0 0 24px}
+ul.pages li{border-bottom:1px solid #ddd;padding:9px 0;display:flex;gap:12px;
+flex-wrap:wrap;align-items:baseline}
+ul.pages a{font-weight:600;min-width:230px}
+ul.pages em{color:#666;font-style:normal;font-size:13px}
