@@ -92,25 +92,25 @@
       for (var k = 0; k < 2; k++) {
         var a0 = ang + k * Math.PI;
         // wide soft body
-        cone(a0, 0.20, [
-          [0,   'rgba(255,236,203,.42)'],
-          [.26, 'rgba(250,224,182,.24)'],
-          [.62, 'rgba(232,199,150,.11)'],
-          [1,   'rgba(232,199,150,0)']
+        cone(a0, 0.235, [
+          [0,   'rgba(255,238,208,.62)'],
+          [.26, 'rgba(251,227,188,.38)'],
+          [.62, 'rgba(234,203,157,.19)'],
+          [1,   'rgba(234,203,157,0)']
         ]);
         // bright core, so the beam has an edge instead of a haze
-        cone(a0, 0.055, [
-          [0,   'rgba(255,245,224,.46)'],
-          [.35, 'rgba(255,238,206,.22)'],
-          [.8,  'rgba(245,220,175,.06)'],
-          [1,   'rgba(245,220,175,0)']
+        cone(a0, 0.062, [
+          [0,   'rgba(255,250,236,.70)'],
+          [.35, 'rgba(255,242,214,.38)'],
+          [.8,  'rgba(247,225,184,.13)'],
+          [1,   'rgba(247,225,184,0)']
         ]);
       }
 
       // the lamp itself
       var lg = x.createRadialGradient(ox, oy, 0, ox, oy, h * .62);
-      lg.addColorStop(0,  'rgba(255,243,216,.40)');
-      lg.addColorStop(.5, 'rgba(255,238,208,.13)');
+      lg.addColorStop(0,  'rgba(255,246,224,.58)');
+      lg.addColorStop(.5, 'rgba(255,240,212,.20)');
       lg.addColorStop(1,  'rgba(255,238,208,0)');
       x.fillStyle = lg; x.fillRect(0, 0, w, h);
     }
