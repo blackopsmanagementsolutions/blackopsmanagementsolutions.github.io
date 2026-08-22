@@ -185,8 +185,10 @@ figcaption{font-size:13.5px;color:var(--ink-3);margin-top:12px;max-width:44ch}
 .pin-head{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:clamp(28px,5vw,54px)}
 .pin-count{font-family:var(--serif);font-size:clamp(52px,9vw,110px);line-height:.8;
   color:var(--ochre);font-variant-numeric:tabular-nums;min-width:2.2ch}
-.pin-track{position:relative;min-height:190px}
-.pin-step{position:absolute;inset:0;opacity:0;transform:translateY(26px);
+/* grid-stack the steps so the track is always as tall as the longest one.
+   A fixed min-height clipped the longest step on narrow phones. */
+.pin-track{display:grid}
+.pin-step{grid-area:1/1;opacity:0;transform:translateY(26px);
   transition:opacity .55s ease,transform .55s cubic-bezier(.16,.8,.24,1);pointer-events:none}
 .pin-step.on{opacity:1;transform:none;pointer-events:auto}
 .pin-step h3{font-size:clamp(24px,3.2vw,38px);font-weight:500;margin-bottom:14px;color:#F8F3EA}
@@ -199,7 +201,8 @@ figcaption{font-size:13.5px;color:var(--ink-3);margin-top:12px;max-width:44ch}
 @media (prefers-reduced-motion:reduce){
   .pin-stage{position:static;min-height:0;padding-block:40px}
   .pin-track{min-height:0}
-  .pin-step{position:static;opacity:1;transform:none;margin-bottom:30px}
+  .pin-track{display:block}
+  .pin-step{grid-area:auto;opacity:1;transform:none;margin-bottom:30px}
   .pin-count,.pin-bars{display:none}}
 
 /* ---------- people ---------- */
