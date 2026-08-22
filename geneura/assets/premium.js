@@ -74,17 +74,13 @@
     // the lighthouse: two opposing cones from a source above the page,
     // turning slowly on their own and faster as you scroll
     function beam() {
-      var ox = w * 0.5, oy = -h * 0.22;
-      var ang = f * 0.0022 + scrollProgress * Math.PI * 2.4;
-      var reach = Math.max(w, h) * 1.9;
-      var spread = 0.116;
-      for (var k = 0; k < 2; k++) {
-        var a0 = ang + k * Math.PI;
+      var ox = w * 0.5, oy = -h * 0.16;
+      var ang = f * 0.0024 + scrollProgress * Math.PI * 2.4;
+      var reach = Math.max(w, h) * 2.1;
+
+      function cone(a0, spread, stops) {
         var g = x.createRadialGradient(ox, oy, 0, ox, oy, reach);
-        g.addColorStop(0,   'rgba(255,232,193,.20)');
-        g.addColorStop(.28, 'rgba(247,219,175,.10)');
-        g.addColorStop(.72, 'rgba(226,192,142,.035)');
-        g.addColorStop(1,   'rgba(226,192,142,0)');
+        for (var i = 0; i < stops.length; i++) g.addColorStop(stops[i][0], stops[i][1]);
         x.beginPath();
         x.moveTo(ox, oy);
         x.arc(ox, oy, reach, a0 - spread, a0 + spread);
@@ -92,10 +88,30 @@
         x.fillStyle = g;
         x.fill();
       }
+
+      for (var k = 0; k < 2; k++) {
+        var a0 = ang + k * Math.PI;
+        // wide soft body
+        cone(a0, 0.20, [
+          [0,   'rgba(255,236,203,.42)'],
+          [.26, 'rgba(250,224,182,.24)'],
+          [.62, 'rgba(232,199,150,.11)'],
+          [1,   'rgba(232,199,150,0)']
+        ]);
+        // bright core, so the beam has an edge instead of a haze
+        cone(a0, 0.055, [
+          [0,   'rgba(255,245,224,.46)'],
+          [.35, 'rgba(255,238,206,.22)'],
+          [.8,  'rgba(245,220,175,.06)'],
+          [1,   'rgba(245,220,175,0)']
+        ]);
+      }
+
       // the lamp itself
-      var lg = x.createRadialGradient(ox, oy, 0, ox, oy, h * .5);
-      lg.addColorStop(0, 'rgba(255,238,208,.22)');
-      lg.addColorStop(1, 'rgba(255,238,208,0)');
+      var lg = x.createRadialGradient(ox, oy, 0, ox, oy, h * .62);
+      lg.addColorStop(0,  'rgba(255,243,216,.40)');
+      lg.addColorStop(.5, 'rgba(255,238,208,.13)');
+      lg.addColorStop(1,  'rgba(255,238,208,0)');
       x.fillStyle = lg; x.fillRect(0, 0, w, h);
     }
 
