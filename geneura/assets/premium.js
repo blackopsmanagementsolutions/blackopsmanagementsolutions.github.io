@@ -245,6 +245,7 @@
     var steps = wrap.querySelectorAll('.pin-step');
     var bars  = wrap.querySelectorAll('.pin-bars i');
     var count = wrap.querySelector('.pin-count');
+    var shots = wrap.querySelectorAll('.pin-visual img');
     if (still || !steps.length) {
       Array.prototype.forEach.call(steps, function (s) { s.classList.add('on'); });
       return;
@@ -260,6 +261,7 @@
       cur = i;
       Array.prototype.forEach.call(steps, function (s, k) { s.classList.toggle('on', k === i); });
       Array.prototype.forEach.call(bars,  function (b, k) { b.classList.toggle('done', k <= i); });
+      Array.prototype.forEach.call(shots, function (im, k) { im.classList.toggle('on', k === i); });
       if (count) count.textContent = ('0' + (i + 1)).slice(-2);
     };
   }
