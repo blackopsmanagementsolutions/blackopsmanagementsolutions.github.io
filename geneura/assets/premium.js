@@ -171,7 +171,9 @@
         var dx = easeX - (r.left + r.width / 2);
         var dy = easeY - (r.top + r.height / 2);
         var d = Math.sqrt(dx * dx + dy * dy);
-        el.style.setProperty('--lit', Math.max(0, 1 - d / reach).toFixed(2));
+        // quantise: filter changes repaint, so only write when it visibly moves
+        var v = (Math.round(Math.max(0, 1 - d / reach) * 20) / 20).toFixed(2);
+        if (el.style.getPropertyValue('--lit') !== v) el.style.setProperty('--lit', v);
       }
     }
     window.addEventListener('pointermove', function () {
