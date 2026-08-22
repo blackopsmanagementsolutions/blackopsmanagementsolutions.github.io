@@ -11,3 +11,5 @@ scratch/
 
 # Agent instructions — local only, never publish (this repo is world-readable)
 CLAUDE.md
+tools/
+DEPLOY.md
