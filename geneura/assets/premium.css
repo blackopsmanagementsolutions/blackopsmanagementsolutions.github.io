@@ -262,8 +262,9 @@ figcaption{font-size:13.5px;color:var(--ink-3);margin-top:12px;max-width:44ch}
 
 /* portraits respond to the pointer light: --lit is set per card in JS,
    0 when the light is far away, 1 when it is right on top of them.
-   Registering it matters: an unregistered custom property used inside calc()
-   in filter/transform does not reliably invalidate, so the value never moved. */
+   Registered with @property so it is a typed, interpolatable number rather
+   than a raw token. That is correct practice here regardless; it was not
+   confirmed as the cause of any bug. */
 @property --lit{syntax:"<number>";inherits:true;initial-value:0}
 .person{--lit:0}
 .person img{
