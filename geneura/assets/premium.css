@@ -306,13 +306,18 @@ figcaption{font-size:13.5px;color:var(--ink-3);margin-top:12px;max-width:44ch}
 @property --lit{syntax:"<number>";inherits:true;initial-value:0}
 .person{--lit:0}
 .person img{
-  filter:grayscale(calc((1 - var(--lit)) * 0.42)) brightness(calc(1 + var(--lit) * 0.08));
+  /* black and white at rest, full colour on hover. --lit still warms whoever
+     the pointer light is nearest, but never breaks the greyscale. */
+  filter:grayscale(1) brightness(calc(1 + var(--lit) * 0.12)) contrast(calc(1 + var(--lit) * 0.05));
   transform:translateY(calc(var(--lit) * -4px)) scale(calc(1 + var(--lit) * 0.012));
-  transition:filter .45s ease,transform .55s cubic-bezier(.16,.8,.24,1);
+  transition:filter .55s ease,transform .55s cubic-bezier(.16,.8,.24,1);
 }
-.person:hover img{filter:none;transform:translateY(-5px) scale(1.02)}
+.person:hover img{filter:grayscale(0);transform:translateY(-5px) scale(1.02)}
+/* touch has no hover, so nobody would ever see them in colour */
+@media (hover:none){.person img{filter:grayscale(0)}}
 @media (prefers-reduced-motion:reduce){
-  .person img{filter:grayscale(.3);transform:none;transition:none}}
+  .person img{transform:none;transition:none}
+  .person:hover img{transform:none}}
 
 
 /* icon family: one 24px grid, one stroke weight, one construction */
