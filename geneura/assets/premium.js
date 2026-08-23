@@ -245,7 +245,9 @@
     var steps = wrap.querySelectorAll('.pin-step');
     var bars  = wrap.querySelectorAll('.pin-bars i');
     var count = wrap.querySelector('.pin-count');
-    var shots = wrap.querySelectorAll('.pin-visual img');
+    // .art, not img: these became line drawings and the old selector
+    // silently matched nothing, so every step showed the first one
+    var shots = wrap.querySelectorAll('.pin-visual .art');
     if (still || !steps.length) {
       Array.prototype.forEach.call(steps, function (s) { s.classList.add('on'); });
       return;
