@@ -214,6 +214,15 @@ a.tile:hover .ico{stroke:var(--signal)}
 .tile .go{display:block;margin-top:14px;font-family:var(--mono);font-size:10px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 
+/* A light tile inside a dark section must not inherit the section's light text.
+   .dark h3 was painting these headings near-white on a white panel. */
+.dark .tile{color:var(--ink)}
+.dark .tile h3{color:var(--ink)}
+.dark .tile p{color:var(--ink-2)}
+.dark .tile .go{color:var(--ink-3)}
+.dark .tile .ico{stroke:var(--green)}
+.dark a.tile:hover .ico{stroke:var(--signal)}
+
 /* ------------------------------------------------------------- figures */
 figure{margin:0}
 figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-3);
