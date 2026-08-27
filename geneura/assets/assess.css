@@ -1,0 +1,163 @@
+/* Lythous readiness assessment.
+   Additive to a4.css. Everything is scoped under .asmt so the assessment can be
+   lifted into the geneura.ai app without carrying the page with it.
+   The reasoning behind it is held with the project notes, not here. */
+
+.asmt{background:var(--sage-pale)}
+.asmt .wrap{max-width:1000px}
+
+/* ------------------------------------------------------------------ intro */
+.asmt-intro{text-align:center}
+.asmt-intro .label{text-align:center}
+.asmt-intro h2{max-width:18ch;margin:0 auto;font-size:clamp(38px,6vw,88px)}
+.asmt-intro .lede{margin:22px auto 0}
+.asmt-intro .btn{margin-top:30px}
+.asmt-note{margin:22px auto 0;max-width:46ch;font-size:var(--t-small);
+  color:var(--ink-3)}
+
+/* ------------------------------------------------------------------ shell */
+.asmt-body[hidden]{display:none}
+.asmt-body{margin-top:clamp(40px,6vw,72px);text-align:left}
+
+/* progress rail, sticky under the header */
+.asmt-rail{position:sticky;top:74px;z-index:4;background:var(--sage-pale);
+  padding:14px 0 12px;margin-bottom:8px;
+  border-bottom:1px solid rgba(42,33,22,.10)}
+.asmt-rail-in{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.asmt-rail .mono{margin:0}
+.asmt-track{height:2px;background:rgba(42,33,22,.14);margin-top:11px;overflow:hidden}
+.asmt-fill{height:100%;width:0;background:var(--sage);
+  transition:width .45s cubic-bezier(.22,.7,.3,1)}
+@media (prefers-reduced-motion:reduce){.asmt-fill{transition:none}}
+
+/* ------------------------------------------------------------- questions */
+.asmt-sec{border-top:1px solid var(--rule);padding-top:clamp(30px,4vw,46px);
+  margin-top:clamp(30px,4vw,46px)}
+.asmt-sec:first-of-type{border-top:0;margin-top:0}
+.asmt-sec > .label{margin-bottom:8px}
+.asmt-sec h3{margin-bottom:26px;max-width:26ch}
+
+.asmt-q{border:1px solid var(--rule);background:rgba(255,255,255,.72);
+  border-radius:var(--r);padding:24px 22px 18px;margin:0 0 14px;
+  transition:border-color .35s ease,background .35s ease}
+.asmt-q.answered{background:rgba(255,255,255,.94);border-color:#CBBCA6}
+.asmt-q legend{font-family:var(--display);font-size:clamp(19px,2.1vw,23px);
+  line-height:1.28;letter-spacing:-.018em;font-weight:600;color:var(--ink);
+  padding:0;max-width:44ch}
+.asmt-q .asmt-src{font-family:var(--mono);font-size:var(--t-label);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  margin:10px 0 16px;display:block}
+
+.asmt-opt{display:block;position:relative;cursor:pointer;
+  padding:11px 14px 11px 40px;margin:0 0 2px;border-radius:var(--r);
+  font-size:15.5px;line-height:1.45;color:var(--ink-2);
+  transition:background .25s ease,color .25s ease}
+.asmt-opt:hover{background:rgba(95,109,85,.08)}
+.asmt-opt input{position:absolute;opacity:0;width:0;height:0}
+.asmt-opt .dot{position:absolute;left:14px;top:15px;width:14px;height:14px;
+  border:1.5px solid #B5A794;border-radius:50%;
+  transition:border-color .25s ease,box-shadow .25s ease}
+.asmt-opt input:checked ~ .dot{border-color:var(--ochre);
+  box-shadow:inset 0 0 0 3.5px var(--ochre)}
+.asmt-opt input:checked ~ .txt{color:var(--ink);font-weight:500}
+.asmt-opt input:focus-visible ~ .dot{outline:2px solid var(--sage);outline-offset:3px}
+/* not knowing is a different answer from not having, so it sits apart */
+.asmt-opt.unsure{margin-top:8px;padding-top:12px;font-size:14px;color:var(--ink-3);
+  border-top:1px solid var(--rule);border-radius:0}
+.asmt-opt.unsure .dot{top:17px}
+
+/* ------------------------------------------------------------------ submit */
+.asmt-go{margin-top:clamp(34px,4vw,52px);display:flex;flex-wrap:wrap;
+  align-items:center;gap:18px}
+.asmt-go .btn[disabled]{opacity:.42;pointer-events:none}
+.asmt-left{font-size:var(--t-small);color:var(--ink-3);margin:0}
+
+/* ------------------------------------------------------------------ result */
+.asmt-result[hidden]{display:none}
+.asmt-result{margin-top:8px}
+
+.asmt-flag{border:1.5px solid var(--ochre);background:var(--ochre-2);
+  border-radius:var(--r);padding:22px 24px;margin:0 0 clamp(30px,4vw,44px)}
+.asmt-flag .label{color:#8E5219;margin-bottom:10px}
+.asmt-flag p{margin:0;color:#5C3A12;max-width:58ch}
+.asmt-flag p + p{margin-top:.7em}
+
+.asmt-score{display:grid;gap:clamp(24px,4vw,54px);align-items:start;
+  padding-bottom:clamp(30px,4vw,44px);border-bottom:1px solid var(--rule)}
+@media(min-width:820px){.asmt-score{grid-template-columns:.85fr 1.15fr}}
+.asmt-num{font-family:var(--display);font-size:clamp(74px,12vw,132px);
+  line-height:.84;letter-spacing:-.05em;font-weight:500;margin:0;color:var(--ink)}
+.asmt-num span{font-size:.3em;letter-spacing:-.02em;color:var(--ink-3);
+  margin-left:.14em}
+.asmt-band{font-family:var(--display);font-size:clamp(28px,3.4vw,40px);
+  line-height:1.1;letter-spacing:-.03em;font-weight:500;margin:0 0 12px}
+.asmt-band-say{color:var(--ink-2);max-width:46ch;margin:0}
+
+/* domain bars */
+.asmt-bars{display:grid;gap:13px;margin:0}
+.asmt-bar{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:baseline}
+.asmt-bar .nm{font-family:var(--mono);font-size:var(--t-label);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3)}
+.asmt-bar .vl{font-family:var(--mono);font-size:var(--t-label);color:var(--ink-2)}
+.asmt-bar .tr{grid-column:1/-1;height:6px;background:rgba(42,33,22,.11);
+  border-radius:100px;overflow:hidden}
+.asmt-bar .fl{height:100%;background:var(--sage);border-radius:100px;
+  width:0;transition:width .7s cubic-bezier(.22,.7,.3,1)}
+.asmt-bar.low .fl{background:var(--ochre)}
+@media (prefers-reduced-motion:reduce){.asmt-bar .fl{transition:none}}
+
+/* gaps and coverage */
+.asmt-block{padding-top:clamp(30px,4vw,44px)}
+.asmt-block > .label{margin-bottom:14px}
+.asmt-block h3{margin-bottom:20px;max-width:24ch}
+.asmt-gap{border-left:2px solid var(--ochre);padding:2px 0 2px 20px;
+  margin:0 0 20px;max-width:62ch}
+.asmt-gap b{display:block;font-family:var(--mono);font-size:var(--t-label);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:400;margin-bottom:7px}
+.asmt-gap p{margin:0;color:var(--ink-2)}
+.asmt-gap .cov{margin-top:9px;font-size:var(--t-small);color:var(--sage);
+  display:block}
+.asmt-gap .cov.none{color:var(--ink-3);font-style:italic}
+.asmt-clear{max-width:58ch;color:var(--ink-2)}
+.asmt-unsure{font-size:var(--t-small);color:var(--ink-3);max-width:58ch;
+  margin-top:24px}
+
+.asmt-caveat{margin-top:clamp(30px,4vw,44px);padding-top:22px;
+  border-top:1px solid var(--rule);font-size:var(--t-small);color:var(--ink-3);
+  max-width:66ch}
+
+/* ------------------------------------------------------------------ capture */
+.asmt-send{margin-top:clamp(34px,5vw,60px);background:rgba(255,255,255,.86);
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:clamp(26px,3.6vw,42px)}
+.asmt-send h3{margin-bottom:10px;max-width:22ch}
+.asmt-send > p{color:var(--ink-2);max-width:54ch}
+.asmt-fields{display:grid;gap:14px;margin-top:24px}
+@media(min-width:700px){.asmt-fields{grid-template-columns:1fr 1fr}}
+.asmt-f{display:grid;gap:6px}
+.asmt-f label{font-family:var(--mono);font-size:var(--t-label);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3)}
+.asmt-f input{font-family:var(--sans);font-size:16px;color:var(--ink);
+  background:var(--paper);border:1px solid #CFC3B0;border-radius:var(--r);
+  padding:12px 14px;width:100%}
+.asmt-f input:focus-visible{outline:2px solid var(--sage);outline-offset:1px;
+  border-color:var(--sage)}
+.asmt-f .opt{text-transform:none;letter-spacing:0;font-family:var(--sans);
+  font-size:13px;color:var(--ink-3)}
+.asmt-send .asmt-go{margin-top:26px}
+.asmt-alt{font-size:var(--t-small);color:var(--ink-3);max-width:52ch;margin:16px 0 0}
+
+.asmt-done{border:1px solid var(--rule);background:rgba(255,255,255,.9);
+  border-radius:var(--r);padding:clamp(26px,3.6vw,42px);
+  margin-top:clamp(34px,5vw,60px)}
+.asmt-done h3{margin-bottom:10px}
+.asmt-done p{margin:0;color:var(--ink-2);max-width:54ch}
+
+/* print: the forwardable summary is this page, printed */
+@media print{
+  .site-head,.mobile-nav,.announce,.flag,.skip,.ambient,.asmt-rail,
+  .asmt-form,.asmt-send,.asmt-intro .btn,.site-foot .foot-grid > *:last-child{display:none !important}
+  .asmt{background:#fff}
+  .asmt-q,.asmt-gap{break-inside:avoid}
+}
