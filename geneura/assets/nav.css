@@ -1,0 +1,46 @@
+/* Header navigation, reworked.
+   The labels were wrapping to two lines each, which made the header read as a
+   paragraph rather than a menu. Three changes: the labels are short enough to
+   sit on one line, they are told never to break, and the current section is
+   marked so the nav says where you are instead of only where you could go.
+   Additive to a4.css, loaded only by this page. */
+
+.site-nav{
+  gap:clamp(14px,1.8vw,28px);
+  align-items:center;
+}
+.site-nav a{
+  white-space:nowrap;              /* a menu item that wraps is not a menu item */
+  color:var(--ink-2);
+  transition:color .3s ease;
+}
+.site-nav a:hover{color:var(--ink)}
+
+/* where you are: a quiet sage rule that stays put.
+   where you could go: the ochre rule that arrives on hover. */
+.site-nav a.on{color:var(--ink);font-weight:500}
+.site-nav a.on::after{
+  transform:scaleX(1);
+  background:var(--sage);
+}
+.site-nav a.on:hover::after{background:var(--ochre)}
+
+@media (prefers-reduced-motion:reduce){
+  .site-nav a{transition:none}
+}
+
+/* the mobile list gets the same short labels, and room to breathe */
+.mobile-nav a{white-space:nowrap}
+
+/* Between the nav appearing at 1040 and roughly 1200 the header is tight: brand,
+   five items and two buttons. The call to action drops to its short form there
+   rather than pushing the whole page sideways. */
+@media(max-width:1200px){
+  .head-cta .long{display:none}
+  /* and the menu itself sits a little tighter, so the header still has room
+     while the webfont is still loading and fallback metrics run wider */
+  .site-nav{font-size:13.5px;gap:clamp(12px,1.5vw,22px)}
+  /* the header's own three-part gap comes down too, so 1040, where the menu
+     first appears, is comfortable rather than exactly on the limit */
+  .head-in{gap:20px}
+}

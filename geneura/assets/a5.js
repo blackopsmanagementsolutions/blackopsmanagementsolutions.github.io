@@ -125,6 +125,39 @@
     }
   }
 
+  /* ------------------------------------------------------------- nav spy */
+  /* Marks the section you are actually in. Uses IntersectionObserver against a
+     thin band across the middle of the viewport, so only one section is ever
+     current and the mark does not flicker at section boundaries. */
+  function navspy() {
+    var links = document.querySelectorAll('.site-nav a[href^="#"]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+
+    var order = [], seen = {};
+    Array.prototype.forEach.call(links, function (a) {
+      var id = a.getAttribute('href').slice(1);
+      if (document.getElementById(id)) order.push(id);
+    });
+    if (!order.length) return;
+
+    function paint() {
+      var current = null;
+      for (var i = 0; i < order.length; i++) {
+        if (seen[order[i]]) { current = order[i]; break; }
+      }
+      Array.prototype.forEach.call(links, function (a) {
+        a.classList.toggle('on', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { seen[e.target.id] = e.isIntersecting; });
+      paint();
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    order.forEach(function (id) { io.observe(document.getElementById(id)); });
+  }
+
   /* ------------------------------------------------------------- reveals */
   function reveals() {
     var els = document.querySelectorAll('.rv,.stagger,.mask');
@@ -223,7 +256,7 @@
     });
   }
 
-  function init() { beam(); hero(); reveals(); menu(); scroller(steps()); }
+  function init() { beam(); hero(); reveals(); navspy(); menu(); scroller(steps()); }
   document.readyState === 'loading'
     ? document.addEventListener('DOMContentLoaded', init) : init();
   (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))
