@@ -1,0 +1,23 @@
+/* Trademark typography.
+   The glyph was sitting on the baseline at full size, which on a button read as
+   a third word rather than a mark. It now sits where a mark belongs: small, and
+   raised to the top right of the word it qualifies.
+
+   line-height:0 keeps it from opening up the line box, so a button with a mark
+   in it stays exactly as tall as one without. */
+
+.tm{
+  font-size:.58em;
+  vertical-align:.5em;
+  line-height:0;
+  letter-spacing:.02em;
+  margin-left:.05em;
+  font-weight:400;
+}
+
+/* In the eleven pixel mono labels a .58em mark lands near six pixels and turns
+   to mud, so it stays proportionally larger and sits a little lower. */
+.label .tm,.mono .tm,.sec-index .tm,.foot-bar .tm{
+  font-size:.8em;
+  vertical-align:.32em;
+}
