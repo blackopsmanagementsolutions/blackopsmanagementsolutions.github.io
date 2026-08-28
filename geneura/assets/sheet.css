@@ -66,4 +66,10 @@ button.linky:hover{border-bottom-color:var(--ochre)}
 button.linky:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
 .site-foot button.linky{color:#E2D8C8;font-family:var(--sans);font-size:var(--t-small)}
 
+
+/* the footer bar is mono and uppercase, so its buttons have to be too */
+.foot-bar button.linky{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:#7E7060}
+.foot-bar button.linky:hover{color:#E2D8C8;border-bottom-color:var(--ochre)}
+
 .sheet-src{display:none}

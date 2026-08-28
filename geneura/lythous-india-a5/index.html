@@ -284,13 +284,13 @@
         <p class="lede" style="margin-top:18px">You don&rsquo;t have to know what&rsquo;s
           wrong, or call it anything, or have a reason that sounds serious enough.</p></div>
       <div class="help-grid stagger">
-        <a class="help-card" href="tel:+919634676724"><span class="mono">Call</span>
+        <a class="help-card" href="tel:+919634676724"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg><span class="mono">Call</span>
           <b>+91 96346 76724</b><span>Someone answers. Not a menu.</span></a>
-        <a class="help-card" href="https://wa.me/919634676724"><span class="mono">WhatsApp</span>
+        <a class="help-card" href="https://wa.me/919634676724"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4.2c4.6 0 8.3 3 8.3 6.7s-3.7 6.7-8.3 6.7a10 10 0 0 1-2.6-.3l-4.4 1.5 1-3.1a6.3 6.3 0 0 1-2.3-4.8c0-3.7 3.7-6.7 8.3-6.7z"/><path d="M9.6 9.4c.3 1.9 1.9 3.5 3.8 3.9"/></svg><span class="mono">WhatsApp</span>
           <b>Message us</b><span>If talking is harder than typing.</span></a>
-        <a class="help-card" href="sms:+919634676724"><span class="mono">Text</span>
+        <a class="help-card" href="sms:+919634676724"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="11.5" rx="1.6"/><path d="M7.3 9.6h9.4M7.3 13h5.4"/></svg><span class="mono">Text</span>
           <b>Send a text</b><span>You don&rsquo;t have to explain much.</span></a>
-        <div class="help-card"><span class="mono">Walk in</span>
+        <div class="help-card"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 3.5h-7v17h7"/><circle cx="11" cy="12.2" r=".9"/><path d="M21 12.2h-4.6M18.6 9.9 16.4 12.2l2.2 2.3"/></svg><span class="mono">Walk in</span>
           <b>The Lythous room</b><span>Campus address, opening hours.</span></div>
       </div>
       <ul class="help-steps rv">
@@ -390,7 +390,7 @@
     <div class="foot-bar">
       <span>Not a clinical service. Nobody who uses one becomes a patient.</span>
       <span>Lythous&trade; and Human Infrastructure&trade; are trademarks of Geneura AI, Inc.</span>
-      <span>Privacy</span><span>Terms</span>
+      <button class="linky" type="button" data-sheet="disclaimers">Disclaimers</button><button class="linky" type="button" data-sheet="privacy">Privacy</button><button class="linky" type="button" data-sheet="terms">Terms</button>
     </div>
   </div>
 </footer>
@@ -402,6 +402,49 @@
 
 <!-- Sheet content. Kept in the page rather than in JavaScript so it stays
      editable, and so it is present in the document itself. -->
+<div class="sheet-src" id="sheet-disclaimers">
+  <div class="sheet-top"><span class="label">Disclaimers</span>
+    <button class="sheet-x" type="button" data-sheet-close aria-label="Close">&times;</button></div>
+  <h3>What this is, and what it is not</h3>
+  <h4>Not a clinical service</h4>
+  <p>A Lythous&trade; node is not a clinic or a counselling service. Nobody who walks in becomes a patient. When professional care is needed we refer to an independent qualified professional, and from that point the relationship is with them.</p>
+  <h4>In an emergency</h4>
+  <p>If someone is in immediate danger, call emergency services.</p>
+  <h4>On regulation</h4>
+  <p>Where this site refers to guidance for higher education institutions, it maps what a deployment covers against what that guidance asks for. That is a mapping, not a compliance assessment, and it is not legal advice. What it satisfies is a judgement for your own counsel. Anyone promising you compliance is overselling.</p>
+  <h4>On the room plan</h4>
+  <p>The plan of the space is indicative. Each node is fitted to the space the institution provides.</p>
+  <h4>Delivery and marks</h4>
+  <p>Delivered in India by HealthcareSMC-Geneura LLP under licence from Geneura AI, Inc. Lythous&trade; and Human Infrastructure&trade; are trademarks of Geneura AI, Inc.</p>
+</div>
+
+<div class="sheet-src" id="sheet-privacy">
+  <div class="sheet-top"><span class="label">Privacy</span>
+    <button class="sheet-x" type="button" data-sheet-close aria-label="Close">&times;</button></div>
+  <h3>What this page does with your data</h3>
+  <p><strong>This page sets no cookies, and runs no analytics, advertising or tracking of any kind.</strong></p>
+  <h4>The readiness assessment</h4>
+  <p>Your answers stay in your own browser while you work through it. Nothing is sent anywhere, and nothing is recorded about anybody who does not choose to send it.</p>
+  <h4>Fonts</h4>
+  <p>Typefaces load from Google Fonts, which means your browser makes a request to Google to fetch them. No cookie is set by that request.</p>
+  <h4>If you contact us</h4>
+  <p>What happens to a conversation by phone, WhatsApp, text or in person is covered by the full privacy statement, which publishes with the site along with what is recorded, who can see it and how long it is kept.</p>
+</div>
+
+<div class="sheet-src" id="sheet-terms">
+  <div class="sheet-top"><span class="label">Terms</span>
+    <button class="sheet-x" type="button" data-sheet-close aria-label="Close">&times;</button></div>
+  <h3>Terms of use</h3>
+  <p>Full terms of use publish with the site. In the meantime, the things worth stating plainly:</p>
+  <ul>
+    <li>Nothing on this page is an offer of care or a substitute for professional advice</li>
+    <li>Nothing here is a guarantee of regulatory compliance, and nothing here is legal advice</li>
+    <li>Figures, timelines and the plan of the space are indicative and are confirmed at deployment</li>
+    <li>Named professionals practise in their own right. A node refers to them; it does not employ them to deliver care</li>
+  </ul>
+  <p class="bound">If something on this page is unclear or looks wrong, tell us and we will correct it.</p>
+</div>
+
 <div class="sheet-src" id="sheet-universities">
   <div class="sheet-top"><span class="label">Who we serve</span>
     <button class="sheet-x" type="button" data-sheet-close aria-label="Close">&times;</button></div>
@@ -546,7 +589,7 @@
   <div class="sheet-cta"><a class="btn btn-solid" href="#start">Take the readiness assessment</a></div>
 </div>
 
-<script src="/geneura/assets/v3.js?v=03758a81" defer></script>
+<script src="/geneura/assets/a5.js?v=1" defer></script>
 <script src="/geneura/assets/assess.js?v=1" defer></script>
 <script src="/geneura/assets/plan.js?v=1" defer></script>
 <script src="/geneura/assets/sheet.js?v=1" defer></script>
