@@ -83,3 +83,11 @@
 .sources a[target]::after{content:" \2197";font-size:1.05em;letter-spacing:0}
 .sources span{font-size:15px;line-height:1.5;color:var(--ink-2)}
 @media (prefers-reduced-motion:reduce){.sources a{transition:none}}
+
+/* Referral is the boundary, not a stage, so it is set apart from the numbered
+   steps rather than given a number of its own. */
+.step-boundary{margin-top:clamp(26px,3.4vw,40px);padding:22px 0 0;
+  border-top:1px solid rgba(159,178,148,.28)}
+.step-boundary .mono{display:block;color:#9FB294;margin-bottom:10px}
+.step-boundary p{margin:0;color:#BDC7B7;max-width:52ch;font-size:16px;line-height:1.55}
+.step-boundary strong{color:#F2F5EE;font-weight:600}
