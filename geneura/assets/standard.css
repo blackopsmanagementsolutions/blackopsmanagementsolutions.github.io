@@ -1,0 +1,58 @@
+/* The standard: the seal, and CARE.
+   The seal is the one piece of literal continuity with what is physically on the
+   building in India. Somebody who saw it on the door should meet it again here,
+   so it is drawn the way it appears on the window and the coin: a thin gold ring
+   on a dark ground, the lighthouse, CARE, and the line around the foot.
+   Everything else from that material is left behind.
+   Additive to a4.css, loaded only by this page. */
+
+.standard-top{display:grid;gap:clamp(26px,4vw,54px);align-items:center}
+@media(min-width:820px){.standard-top{grid-template-columns:auto 1fr}}
+
+.seal-wrap{display:flex;justify-content:center}
+.seal{width:clamp(140px,17vw,196px);height:auto;display:block}
+
+/* the light in the lantern, breathing. It is the same idea as the page ambient,
+   at the size of a coin. */
+@media (prefers-reduced-motion:no-preference){
+  .seal{animation:seal-glow 5.5s ease-in-out infinite}
+}
+@keyframes seal-glow{
+  0%,100%{filter:drop-shadow(0 0 5px rgba(215,169,78,.20))}
+  50%    {filter:drop-shadow(0 0 16px rgba(215,169,78,.42))}
+}
+
+#standard h2{max-width:14ch}
+
+/* CARE: four words, one line each. Their own infographics carry all four plus
+   indicators plus KPIs in a single panel; this is the same content at the size
+   a reader can actually take in. */
+.care-grid{display:grid;gap:1px;margin-top:clamp(38px,5vw,60px);
+  background:#2A1F14;border:1px solid #2A1F14;border-radius:var(--r);overflow:hidden}
+@media(min-width:640px){.care-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.care-grid{grid-template-columns:repeat(4,1fr)}}
+
+.care-item{background:var(--night);padding:26px 24px 24px;
+  transition:background .35s ease}
+.care-item:hover{background:#1F160D}
+.care-item b{display:block;font-family:var(--display);font-size:23px;font-weight:500;
+  letter-spacing:-.02em;color:#F0E2C6;margin-bottom:9px}
+.care-item span{display:block;font-size:15px;line-height:1.5;color:#B5A48D;
+  max-width:30ch}
+@media (prefers-reduced-motion:reduce){.care-item{transition:none}}
+
+/* the crisis block: the numbers the page had been promising and not carrying */
+.crisis-block{margin-top:clamp(30px,4vw,44px);border:1.5px solid var(--ochre);
+  background:var(--ochre-2);border-radius:var(--r);padding:24px 26px}
+.crisis-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+@media(min-width:760px){.crisis-list{grid-template-columns:repeat(3,1fr);gap:22px}}
+.crisis-list li{display:grid;gap:4px;align-content:start}
+.crisis-list a{text-decoration:none;color:#7A4413;width:fit-content;
+  border-bottom:1.5px solid transparent;transition:border-color .25s ease}
+.crisis-list a:hover{border-bottom-color:#7A4413}
+.crisis-list b{font-family:var(--display);font-size:clamp(24px,3vw,30px);font-weight:600;
+  letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.crisis-list span{font-size:14px;line-height:1.45;color:#6B4620;max-width:30ch}
+.crisis a{color:#F0D9AE;text-decoration:none;border-bottom:1px solid rgba(240,217,174,.4)}
+.crisis a:hover{border-bottom-color:var(--ochre)}
+@media (prefers-reduced-motion:reduce){.crisis-list a{transition:none}}
