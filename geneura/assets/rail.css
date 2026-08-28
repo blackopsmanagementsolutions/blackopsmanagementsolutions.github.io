@@ -1,0 +1,37 @@
+/* The section index rail.
+   The hero opened with "01 / Human infrastructure" and then the series stopped,
+   which left a number that promised a sequence and never delivered one. Every
+   section now carries its own mark down the same left edge, so the count runs
+   01 to 11 as you read.
+
+   The number is real information, not decoration: it is the section's position
+   in the page, and the label beside it is the same name the menu uses.
+   Additive to a4.css, loaded only by this page. */
+
+.sec-index{
+  position:absolute;
+  left:calc(var(--pad) - 4px);
+  top:50%;
+  z-index:3;
+  transform:translateY(-50%) rotate(180deg);
+  writing-mode:vertical-rl;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  opacity:.72;
+  pointer-events:none;          /* it is a marker, not a control */
+  user-select:none;
+}
+
+/* on the two dark chapters the rail has to invert */
+.ch-forest .sec-index{color:#9FB294;opacity:.85}
+.ch-night  .sec-index{color:#CFA267;opacity:.8}
+
+/* Below 1280 the centred column reaches the edge and the rail would sit on top
+   of the text, so the whole series hides together. The hero mark goes with it:
+   a lone 01 with nothing following it is the problem this set out to fix. */
+@media(max-width:1279px){
+  .sec-index,.hero-index{display:none}
+}
