@@ -125,16 +125,19 @@
 }
 
 .gapseq .gap-ico{
-  width:26px;
-  height:26px;
+  width:clamp(38px,3.6vw,48px);
+  height:clamp(38px,3.6vw,48px);
   display:block;
-  margin:0 0 14px;
+  margin:0 0 20px;
   fill:none;
   stroke:var(--sage);
-  stroke-width:1.5;
+  stroke-width:1.6;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
+/* the drawings are on a 24 unit grid, so scaling them up would thicken every
+   line with them. This holds the stroke at 1.6 screen px at any size. */
+.gapseq .gap-ico *{vector-effect:non-scaling-stroke}
 
 .gapseq b{
   display:block;
