@@ -32,6 +32,7 @@
 }
 
 .compare{
+  --mark:clamp(23px,2.1vw,30px);
   display:grid;
   grid-template-columns:1fr;
   gap:clamp(22px,2.6vw,34px);
@@ -46,7 +47,7 @@
 }
 
 .compare h4{
-  margin:0 0 16px;
+  margin:0 0 clamp(18px,1.8vw,24px);
   font-family:var(--mono);
   font-size:var(--t-label);
   letter-spacing:.14em;
@@ -54,25 +55,28 @@
   font-weight:400;
   color:var(--ink-3);
 }
-.compare ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.compare ul{list-style:none;margin:0;padding:0;display:grid;gap:clamp(14px,1.5vw,20px)}
 .compare li{
   display:grid;
-  grid-template-columns:19px 1fr;
-  gap:12px;
+  grid-template-columns:var(--mark) 1fr;
+  gap:clamp(13px,1.3vw,18px);
   align-items:start;
-  font-size:16px;
-  line-height:1.45;
+  font-size:clamp(18px,1.75vw,23px);
+  line-height:1.38;
   color:var(--ink-2);
 }
 .compare .mark{
-  width:19px;
-  height:19px;
-  margin-top:1px;
+  width:var(--mark);
+  height:var(--mark);
+  margin-top:.12em;
   fill:none;
   stroke-width:1.7;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
+/* the tick and cross are on a 24 unit grid, so scaling them would thicken the
+   line with them. This holds it at 1.7 screen px whatever the size. */
+.compare .mark *{vector-effect:non-scaling-stroke}
 .compare .is .mark{stroke:var(--sage)}
 .compare .isnt .mark{stroke:#BFA98C}
 .compare .isnt li{color:var(--ink-3)}
