@@ -1,0 +1,90 @@
+/* ------------------------------------------------------------------ gap.css
+   The sequence in "The problem": what actually happens to someone who is
+   struggling, step by step, before the before/after figure below it.
+   Uses only the tokens already in a4.css. */
+
+.gapseq{
+  list-style:none;
+  margin:clamp(36px,4.5vw,56px) 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(22px,2.6vw,34px);
+  counter-reset:gap;
+}
+@media(min-width:620px){ .gapseq{grid-template-columns:1fr 1fr} }
+@media(min-width:1000px){ .gapseq{grid-template-columns:repeat(4,1fr)} }
+
+.gapseq li{
+  position:relative;
+  border-top:1px solid var(--rule);
+  padding:22px 0 0;
+}
+
+/* the dot that turns four columns into one line of travel */
+.gapseq li::before{
+  content:"";
+  position:absolute;
+  top:-4px;
+  left:0;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--ochre);
+}
+
+.gapseq .gap-n{
+  display:block;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.1em;
+  color:var(--ochre);
+  margin-bottom:16px;
+}
+
+.gapseq .gap-ico{
+  width:26px;
+  height:26px;
+  display:block;
+  margin:0 0 14px;
+  fill:none;
+  stroke:var(--sage);
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.gapseq b{
+  display:block;
+  font-family:var(--display);
+  font-size:21px;
+  font-weight:500;
+  letter-spacing:-.01em;
+  line-height:1.2;
+  color:var(--ink);
+}
+
+.gapseq span{
+  display:block;
+  margin-top:9px;
+  font-size:15px;
+  line-height:1.55;
+  color:var(--ink-3);
+}
+
+/* the consequence, set apart from the four steps */
+.gap-out{
+  margin:clamp(28px,3.4vw,40px) 0 0;
+  padding-left:18px;
+  border-left:2px solid var(--ochre);
+  max-width:54ch;
+  font-size:clamp(17px,1.5vw,19px);
+  line-height:1.5;
+  color:var(--ink-2);
+}
+
+/* the section's own dark chapter, should it ever move there */
+.ch-forest .gapseq b,.ch-night .gapseq b{color:#F6F1E8}
+.ch-forest .gapseq span,.ch-night .gapseq span{color:#B5A48D}
+.ch-forest .gapseq li,.ch-night .gapseq li{border-top-color:rgba(255,255,255,.16)}
+.ch-forest .gap-out,.ch-night .gap-out{color:#D2C7B7}
