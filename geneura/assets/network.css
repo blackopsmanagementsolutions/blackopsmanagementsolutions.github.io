@@ -1,0 +1,45 @@
+/* -------------------------------------------------------------- network.css
+   "The network" moved off the dark chapter onto the light ground, so the
+   ambient beam runs through it and the page stops carrying four dark blocks
+   in a row.
+
+   .person needs nothing: its labels are only recoloured under .ch-night, and
+   the base colours were already the light ones. The partner block is the part
+   that was built dark, hard-coded rather than themed, so it is rebuilt here.
+
+   Scoped to #network so standard.css keeps serving the a5 build unchanged. */
+
+#network .partners{
+  border-top-color:var(--rule);
+}
+
+/* the grid draws its dividers with a 1px gap over a background colour */
+#network .partner-grid{
+  background:var(--rule);
+  border-color:var(--rule);
+}
+
+#network .partner{
+  background:rgba(255,255,255,.66);
+}
+
+#network .partner span{
+  color:var(--ink-3);
+}
+
+/* button.linky is color:inherit with a transparent underline until hover, so
+   on the dark chapter it was only visible because of an inline ochre. That
+   inline colour had to go with the rest of them, and without it the link was
+   indistinguishable from the sentence around it.
+
+   Not marked with colour: ochre on paper measures 3.52:1, which clears AA for
+   large text but not the 4.5:1 that 14px needs. A persistent underline marks
+   it instead, which also avoids carrying the affordance on colour alone. */
+#network .linky{
+  color:var(--ink-2);
+  border-bottom-color:var(--ochre);
+}
+#network .linky:hover,
+#network .linky:focus-visible{
+  color:var(--ochre);
+}
