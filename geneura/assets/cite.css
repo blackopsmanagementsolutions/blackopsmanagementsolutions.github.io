@@ -56,7 +56,7 @@
 
 /* the quotation mark, bled off the top of each citation */
 .sources li::before{
-  content:"\201C";
+  content:"“";
   position:absolute;
   top:clamp(-26px,-2vw,-12px);
   right:clamp(12px,1.6vw,26px);
@@ -86,7 +86,7 @@
   transition:border-color .25s ease;
 }
 .sources a:hover{border-bottom-color:#CFA267}
-.sources a[target]::after{content:" \2197";font-size:1.05em;letter-spacing:0}
+.sources a[target]::after{content:" ↗";font-size:1.05em;letter-spacing:0}
 
 .sources span{
   display:block;
@@ -97,3 +97,120 @@
 }
 
 @media (prefers-reduced-motion:reduce){ .sources a{transition:none} }
+
+/* ------------------------------------------------- "Why now", set dark
+   The section carries binding rulings, so it goes dark and quote-led with very
+   little copy of our own. The photograph is blurred, desaturated and pushed
+   almost black under a wash, so it reads as texture in the corner of your eye
+   rather than as a picture of a room. Two layers: the plate, then the wash. */
+
+#why{position:relative;isolation:isolate}
+
+#why::before,#why::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+/* the plate */
+#why::before{
+  z-index:-2;
+  background:url("/geneura/assets/room-window.jpg") center 35% / cover no-repeat;
+  filter:blur(5px) saturate(.25) brightness(.42) contrast(.85);
+  transform:scale(1.06);          /* hide the blur's soft edge */
+}
+/* the wash */
+#why::after{
+  z-index:-1;
+  background:linear-gradient(180deg,
+    rgba(23,16,9,.93) 0%, rgba(23,16,9,.88) 42%, rgba(23,16,9,.96) 100%);
+}
+
+.cite-eyebrow-dark{
+  display:block;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#94836D;
+  margin-bottom:clamp(24px,2.8vw,34px);
+}
+
+.ruling{
+  position:relative;
+  margin:0 0 clamp(30px,3.4vw,44px);
+  padding-left:clamp(30px,3.4vw,52px);
+  max-width:none;
+}
+.ruling::before{
+  content:"“";
+  position:absolute;
+  left:-.04em;
+  top:-.26em;
+  font-family:var(--display);
+  font-size:clamp(70px,7.6vw,112px);
+  line-height:1;
+  color:var(--ochre);
+  opacity:.45;
+  pointer-events:none;
+  user-select:none;
+}
+.ruling q{quotes:none}
+.ruling q::before,.ruling q::after{content:""}
+.ruling q{
+  display:block;
+  font-family:var(--display);
+  font-size:clamp(22px,2.35vw,32px);
+  line-height:1.22;
+  letter-spacing:-.02em;
+  color:#FBF7F0;
+  max-width:26ch;
+}
+.ruling.minor q{
+  font-size:clamp(17px,1.55vw,20px);
+  line-height:1.42;
+  letter-spacing:-.008em;
+  color:#DCD1C0;
+  max-width:44ch;
+}
+.ruling.minor::before{font-size:clamp(54px,5.4vw,78px);opacity:.34}
+
+.ruling cite{
+  display:block;
+  margin-top:15px;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  font-style:normal;
+  color:#CFA267;
+}
+.ruling cite a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;
+  transition:border-color .25s ease}
+.ruling cite a:hover{border-bottom-color:#CFA267}
+.ruling cite a[target]::after{content:" ↗";letter-spacing:0}
+.ruling cite .scope{
+  display:block;
+  margin-top:7px;
+  font-size:13px;
+  letter-spacing:.02em;
+  text-transform:none;
+  line-height:1.45;
+  color:#8C7C68;
+  max-width:42ch;
+}
+
+.why-after{max-width:58ch}
+.why-after p{color:#C9BDAB;font-size:16px;line-height:1.6}
+.why-note{
+  margin-top:clamp(22px,2.6vw,32px);
+  border-left:2px solid var(--ochre);
+  background:rgba(255,255,255,.045);
+  border-radius:0 var(--r) var(--r) 0;
+  padding:20px 22px;
+  max-width:58ch;
+}
+.why-note p{margin:0;color:#DCD1C0;font-size:15.5px}
+.why-note strong{color:#FBF7F0}
+
+@media (prefers-reduced-motion:reduce){.ruling cite a{transition:none}}
