@@ -44,3 +44,11 @@
      first appears, is comfortable rather than exactly on the limit */
   .head-in{gap:20px}
 }
+
+/* Below this width the brand, both header buttons and the menu toggle do not
+   fit, and the page scrolls sideways by about 50px. The help button is the one
+   that has to survive, so the secondary call to action steps back: it is still
+   in the hero and in the mobile menu. */
+@media(max-width:560px){
+  .head-cta .btn-solid{display:none}
+}

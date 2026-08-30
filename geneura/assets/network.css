@@ -43,3 +43,38 @@
 #network .linky:focus-visible{
   color:var(--ochre);
 }
+
+/* ---------------------------------------------- founding university partner
+   Replaced the three partner organisations, which came off the page on 29 Aug
+   because no contracts are signed. This is the one real deployment, so it is
+   set as a record rather than as a marketing card. */
+
+.founding{
+  margin-top:clamp(24px,2.8vw,32px);
+  padding-left:clamp(18px,2vw,26px);
+  border-left:3px solid var(--ochre);
+}
+.founding p{margin:0;max-width:46ch}
+.founding-name{
+  font-family:var(--display);
+  font-size:clamp(22px,2.4vw,30px);
+  line-height:1.18;
+  letter-spacing:-.018em;
+  color:var(--ink);
+}
+.founding-role{
+  margin-top:10px !important;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ochre);
+}
+.founding-place,
+.founding-with{
+  margin-top:6px !important;
+  font-size:15px;
+  line-height:1.5;
+  color:var(--ink-3);
+}
+.founding-with{margin-top:12px !important}

@@ -1,0 +1,54 @@
+/* --------------------------------------------------------------- switch.css
+   The audience switch.
+
+   There are two India pages: one for institutions deciding whether to bring a
+   Lythous node in, one for a person who scanned a QR code or was invited by an
+   Ambassador. Someone will always land on the wrong one, so each page says in
+   its first line who it is for and offers the other in one click.
+
+   Sits above the sticky header, scrolls away with the page. It is wayfinding,
+   not navigation, so it does not need to follow the reader down. */
+
+.aud-switch{
+  background:var(--night);
+  color:#D2C7B7;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.06em;
+  line-height:1.45;
+}
+
+.aud-switch-in{
+  max-width:1240px;
+  margin:0 auto;
+  padding:11px var(--pad);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:6px 18px;
+}
+
+.aud-switch b{
+  font-weight:400;
+  color:#8C7C68;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.aud-switch a{
+  color:#CFA267;
+  text-decoration:none;
+  border-bottom:1px solid rgba(207,162,103,.4);
+  transition:border-color .25s ease;
+  margin-left:auto;
+}
+.aud-switch a:hover{border-bottom-color:#CFA267}
+.aud-switch a::after{content:" \2192";letter-spacing:0}
+
+@media(max-width:640px){
+  .aud-switch a{margin-left:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .aud-switch a{transition:none}
+}
