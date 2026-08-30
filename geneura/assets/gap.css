@@ -95,7 +95,10 @@
   gap:clamp(22px,2.6vw,34px);
 }
 @media(min-width:620px){ .gapseq{grid-template-columns:1fr 1fr} }
-@media(min-width:1000px){ .gapseq{grid-template-columns:repeat(4,1fr)} }
+@media(min-width:960px){ .gapseq{grid-template-columns:repeat(3,1fr)} }
+/* five steps since 30 Aug: Jay stopped the call to say the sequence was missing
+   the one before it, that a person often does not know there is a problem */
+@media(min-width:1180px){ .gapseq{grid-template-columns:repeat(5,1fr);gap:clamp(18px,1.9vw,26px)} }
 
 .gapseq li{
   position:relative;

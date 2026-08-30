@@ -1,0 +1,85 @@
+/* ---------------------------------------------------------------- frames.css
+   Jay's own frameworks, which were named in the meeting and the follow-up email
+   but appeared on neither page.
+
+   - .chain     an arrow sequence, used twice: the human journey (E1 §7) and the
+                Human-Human Network (E1 §8)
+   - .fourwords the four words he uses for the real problem (E1 §2)
+   - .lockup    "We See You. We Connect You. You Become." (WhatsApp, E1 §18)
+
+   All three are his wording, so they are set as statements rather than as body
+   copy, and the type does the work instead of a box. */
+
+
+/* -------------------------------------------------------------- the chain */
+
+.chain{
+  list-style:none;
+  margin:clamp(26px,3vw,38px) 0 0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:clamp(9px,1.1vw,14px);
+}
+
+.chain li{
+  display:flex;
+  align-items:center;
+  gap:clamp(9px,1.1vw,14px);
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+  white-space:nowrap;
+}
+
+/* the arrow lives between items, never before the first or after the last */
+.chain li + li::before{
+  content:"\2192";
+  color:var(--ochre);
+  letter-spacing:0;
+  font-size:1.15em;
+}
+
+/* the step the sequence is heading towards */
+.chain li:last-child{color:var(--ochre)}
+
+.ch-forest .chain li,.ch-night .chain li{color:#D2C7B7}
+.ch-forest .chain li:last-child,.ch-night .chain li:last-child{color:#CFA267}
+
+
+/* ---------------------------------------------------------- the four words */
+
+.fourwords{
+  margin:clamp(30px,3.6vw,46px) 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:clamp(10px,1.4vw,20px);
+  font-family:var(--display);
+  font-size:clamp(23px,2.9vw,38px);
+  line-height:1.1;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.fourwords span:last-child{color:var(--ochre)}
+
+.ch-forest .fourwords,.ch-night .fourwords{color:#FBF7F0}
+
+
+/* ------------------------------------------------------------- the lockup */
+
+.lockup{
+  margin:0;
+  font-family:var(--display);
+  font-size:clamp(26px,3.6vw,48px);
+  line-height:1.1;
+  letter-spacing:-.024em;
+  color:var(--ink);
+  max-width:16ch;
+}
+.lockup span{display:block}
+.lockup span:last-child{color:var(--ochre)}
+
+.ch-forest .lockup,.ch-night .lockup{color:#FBF7F0}
