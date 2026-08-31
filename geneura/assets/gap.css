@@ -236,17 +236,44 @@
   border-top:1px solid var(--rule);
 }
 
+.pick-box{
+  width:clamp(76px,7.4vw,100px);
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--rule);
+  border-radius:var(--r);
+  background:rgba(255,255,255,.6);
+  animation:pick-hover 7s ease-in-out var(--float,0s) infinite alternate;
+  transition:border-color .4s ease, background .4s ease, transform .4s cubic-bezier(.16,.8,.24,1);
+}
+
 .picks .pick-ico{
-  width:clamp(38px,3.6vw,48px);
-  height:clamp(38px,3.6vw,48px);
+  width:56%;
+  height:56%;
   display:block;
   fill:none;
   stroke:var(--sage);
-  stroke-width:1.6;
+  stroke-width:1.5;
   stroke-linecap:round;
   stroke-linejoin:round;
+  transition:stroke .4s ease, transform .5s cubic-bezier(.16,.8,.24,1);
 }
 .picks .pick-ico *{vector-effect:non-scaling-stroke}
+
+/* the whole item is the target, so the mark answers wherever the eye is */
+.picks li:hover .pick-box{
+  border-color:var(--ochre);
+  background:var(--ochre-2);
+  transform:translateY(-4px);
+}
+.picks li:hover .pick-ico{stroke:var(--ochre);transform:scale(1.06)}
+
+@keyframes pick-hover{
+  from{transform:translateY(0)}
+  to{transform:translateY(-5px)}
+}
 
 .picks q{
   quotes:none;
@@ -258,9 +285,12 @@
 }
 .picks q::before,.picks q::after{content:""}
 
-/* the one nobody expects to be allowed */
-.picks li:last-child{border-top-color:var(--ochre)}
-.picks li:last-child .pick-ico{stroke:var(--ochre)}
+@media (prefers-reduced-motion:reduce){
+  .pick-box{animation:none;transition:none}
+  .picks li:hover .pick-box{transform:none}
+  .picks .pick-ico{transition:none}
+  .picks li:hover .pick-ico{transform:none}
+}
 
 .picks-after{
   margin:clamp(26px,3vw,38px) 0 0;
