@@ -73,3 +73,56 @@
   letter-spacing:0;
   opacity:.7;
 }
+
+/* ------------------------------------------------------------- say hello
+   The one thing this page is for, following the reader down it. Hidden until
+   it is needed, and out of the way while the contact section or the emergency
+   numbers are on screen. See hello.js. */
+
+.hello{
+  position:fixed;
+  right:clamp(16px,2.4vw,32px);
+  bottom:clamp(16px,2.4vw,32px);
+  z-index:70;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 22px;
+  border-radius:100px;
+  background:var(--ochre);
+  color:#FFFCF7;
+  font-family:var(--sans);
+  font-size:15.5px;
+  font-weight:600;
+  letter-spacing:.01em;
+  text-decoration:none;
+  box-shadow:0 16px 34px -14px rgba(42,33,22,.55);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(14px) scale(.96);
+  transition:opacity .45s ease, transform .45s cubic-bezier(.16,.8,.24,1), visibility .45s;
+}
+
+.hello.on{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+}
+
+.hello:hover{background:#A96323}
+.hello:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.hello .wave{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hello{transition:opacity .2s ease, visibility .2s;transform:none}
+  .hello.on{transform:none}
+}

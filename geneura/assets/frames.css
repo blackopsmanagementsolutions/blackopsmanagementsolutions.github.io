@@ -160,3 +160,46 @@
 }
 .asking li:last-child{color:var(--ochre)}
 .ch-forest .asking li,.ch-night .asking li{color:#B5A48D}
+
+
+/* --------------------------------------------------------- objections
+   Every reason a person talks themselves out of making contact, answered in
+   one place instead of scattered across three sections. The worry is set in
+   their words and the answer is short, because a long answer reads as a
+   defence and confirms the worry rather than settling it. */
+
+.objections{
+  list-style:none;
+  margin:clamp(30px,3.6vw,46px) 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+@media(min-width:820px){ .objections{grid-template-columns:1fr 1fr;column-gap:clamp(34px,4vw,64px)} }
+
+.objections li{
+  display:grid;
+  gap:8px;
+  padding:clamp(18px,2vw,24px) 0;
+  border-top:1px solid var(--rule);
+}
+
+.objections .worry{
+  font-family:var(--display);
+  font-size:clamp(19px,2vw,25px);
+  line-height:1.18;
+  letter-spacing:-.016em;
+  color:var(--ink);
+}
+.objections .answer{
+  font-size:clamp(15px,1.4vw,16.5px);
+  line-height:1.5;
+  color:var(--ink-3);
+  max-width:38ch;
+}
+.objections .answer b{color:var(--ochre);font-weight:400}
+
+.ch-forest .objections .worry,.ch-night .objections .worry{color:#F6F1E8}
+.ch-forest .objections .answer,.ch-night .objections .answer{color:#B5A48D}
+.ch-forest .objections li,.ch-night .objections li{border-top-color:rgba(255,255,255,.16)}
