@@ -52,3 +52,24 @@
 @media (prefers-reduced-motion:reduce){
   .aud-switch a{transition:none}
 }
+
+
+/* -------------------------------------------------- footer legal column
+   Geneura AI's own policies govern geneura.ai, not this deployment, so they
+   are grouped under their owner's name rather than listed as if they were
+   this site's. The panels above them are the ones that describe this page. */
+
+.site-foot .foot-note{
+  display:block;
+  margin:18px 0 8px;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#8C7C68;
+}
+.site-foot a[target="_blank"]::after{
+  content:" ↗";
+  letter-spacing:0;
+  opacity:.7;
+}
