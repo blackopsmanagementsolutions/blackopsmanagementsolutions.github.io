@@ -38,7 +38,7 @@
     { ax: 14, ay: 20, fx: 0.133, fy: 0.089, px: 3.4, py: 4.4 }
   ];
 
-  var REACH = 175;   /* how close the pointer must get, in px */
+  var REACH = 150;   /* how close the pointer must get, in px */
   var SHOVE = 66;    /* how far a bubble is pushed at closest range */
   var EASE = 0.085;  /* how quickly it gives way, and drifts back */
 
@@ -77,10 +77,19 @@
     if (!t0) t0 = now;
     var t = (now - t0) / 1000;
 
-    /* one read, before any write */
+    /* every read first, then every write. Centres are re-taken each frame
+       rather than cached from start(): a cached measurement goes stale the
+       moment anything above the section changes height, and then only the
+       bubbles that happen to still be where they were will answer the
+       pointer. offsetLeft ignores transforms, so this stays honest. */
     var box = wrap.getBoundingClientRect();
     var px = pointer.x - box.left;
     var py = pointer.y - box.top;
+
+    for (var m = 0; m < state.length; m++) {
+      state[m].cx = state[m].el.offsetLeft + state[m].el.offsetWidth / 2;
+      state[m].cy = state[m].el.offsetTop + state[m].el.offsetHeight / 2;
+    }
 
     for (var i = 0; i < state.length; i++) {
       var b = state[i], s = b.s;

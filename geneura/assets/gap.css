@@ -214,61 +214,59 @@
 
 
 /* ------------------------------------------------------- pick one, or none
-   Four states a person actually arrives in, on the student page. Round, plain
-   and roughly equal in weight, because the point is that no one of them is the
-   right reason to come in. They drift on their own timings like the silo
-   bubbles, but far more gently: these are meant to be read, not watched. */
+   Four states a person actually arrives in. Not circles: a circle reads as a
+   button, and these are not choices to click, they are sentences to recognise
+   yourself in. An icon, then the words under it, at the size the circles were. */
 
 .picks{
   list-style:none;
   margin:clamp(34px,4vw,52px) 0 0;
   padding:0;
-  display:flex;
-  flex-wrap:wrap;
-  gap:clamp(14px,2vw,28px);
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(24px,3vw,44px);
 }
+@media(min-width:900px){ .picks{grid-template-columns:repeat(4,1fr)} }
 
 .picks li{
-  /* small enough a basis that two sit side by side on a phone, capped so four
-     still read as one row on a wide screen */
-  flex:1 1 148px;
-  max-width:260px;
-  aspect-ratio:1;
   display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:clamp(18px,2.4vw,30px);
-  border-radius:50%;
-  border:1px solid var(--rule);
-  background:rgba(255,255,255,.74);
-  box-shadow:0 16px 34px -24px rgba(42,33,22,.55);
-  font-family:var(--display);
-  font-size:clamp(16px,1.55vw,20px);
-  line-height:1.22;
-  letter-spacing:-.012em;
-  color:var(--ink);
-  animation:bubble-drift var(--dur,15s) ease-in-out var(--delay,0s) infinite alternate;
-  transition:border-color .35s ease, box-shadow .35s ease;
+  flex-direction:column;
+  gap:clamp(14px,1.6vw,20px);
+  padding-top:20px;
+  border-top:1px solid var(--rule);
 }
-.picks li:hover{border-color:var(--ochre);box-shadow:0 20px 40px -22px rgba(42,33,22,.6)}
 
-/* the last one is the one people least expect to be allowed */
-.picks li:last-child{
-  background:var(--ochre-2);
-  border-color:#E7D3B8;
+.picks .pick-ico{
+  width:clamp(38px,3.6vw,48px);
+  height:clamp(38px,3.6vw,48px);
+  display:block;
+  fill:none;
+  stroke:var(--sage);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.picks .pick-ico *{vector-effect:non-scaling-stroke}
+
+.picks q{
+  quotes:none;
+  font-family:var(--display);
+  font-size:clamp(18px,1.85vw,23px);
+  line-height:1.2;
+  letter-spacing:-.014em;
   color:var(--ink);
 }
+.picks q::before,.picks q::after{content:""}
+
+/* the one nobody expects to be allowed */
+.picks li:last-child{border-top-color:var(--ochre)}
+.picks li:last-child .pick-ico{stroke:var(--ochre)}
 
 .picks-after{
   margin:clamp(26px,3vw,38px) 0 0;
   max-width:56ch;
   font-size:clamp(16px,1.5vw,18px);
   color:var(--ink-2);
-}
-
-@media (prefers-reduced-motion:reduce){
-  .picks li{animation:none;transition:none}
 }
 
 /* ten word bubbles rather than six icon ones, so they need to be smaller and
@@ -279,3 +277,19 @@
   .bubbles.words li{width:clamp(96px,16.5%,132px)}
 }
 .bubbles.words b{font-size:12.5px;max-width:11ch}
+
+
+/* each area gets a mark, so the field reads at a glance rather than as
+   ten words a person has to stop and read one by one */
+.bubbles.words li{gap:6px}
+.bubbles.words .dim-ico{
+  width:22px;
+  height:22px;
+  display:block;
+  fill:none;
+  stroke:var(--sage);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bubbles.words .dim-ico *{vector-effect:non-scaling-stroke}
