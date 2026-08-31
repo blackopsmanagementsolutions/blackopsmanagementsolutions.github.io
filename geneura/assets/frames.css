@@ -501,3 +501,54 @@ a.c-btn:hover .c-go{transform:translateX(4px)}
   line-height:1.5;
   color:var(--ink-2);
 }
+
+/* ------------------------------------------------------- a year from now
+   Restored: lost when the "where it is" block above was written with a slice
+   that dropped everything after it.
+
+   The future drawn rather than described. Twelve marks for twelve months,
+   the early ones low and cool, the last one tall and lit, so the eye reads
+   the year passing before the sentence does. The section says nothing
+   changes suddenly, so nothing in the drawing does either. */
+
+.year-arc{
+  list-style:none;
+  margin:0 0 clamp(30px,3.6vw,46px);
+  padding:0;
+  display:flex;
+  align-items:flex-end;
+  gap:clamp(5px,.9vw,11px);
+  height:clamp(72px,9vw,132px);
+}
+
+.year-arc li{
+  flex:1 1 0;
+  border-radius:100px 100px 3px 3px;
+  background:currentColor;
+  opacity:.85;
+}
+
+.year-arc li:nth-child(1){height:20%;color:#435143}
+.year-arc li:nth-child(2){height:26%;color:#485646}
+.year-arc li:nth-child(3){height:31%;color:#4E5C4A}
+.year-arc li:nth-child(4){height:38%;color:#56634E}
+.year-arc li:nth-child(5){height:44%;color:#616B53}
+.year-arc li:nth-child(6){height:51%;color:#6E7359}
+.year-arc li:nth-child(7){height:58%;color:#7E7B5F}
+.year-arc li:nth-child(8){height:66%;color:#918366}
+.year-arc li:nth-child(9){height:74%;color:#A68C6B}
+.year-arc li:nth-child(10){height:83%;color:#BB9569}
+.year-arc li:nth-child(11){height:92%;color:#CFA267}
+.year-arc li:nth-child(12){height:100%;color:#E8B96A;opacity:1}
+
+.year-ends{
+  display:flex;
+  justify-content:space-between;
+  margin:-14px 0 clamp(30px,3.6vw,46px);
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#8C7C68;
+}
+.year-ends span:last-child{color:#E8B96A}

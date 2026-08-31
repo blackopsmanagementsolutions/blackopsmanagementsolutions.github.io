@@ -75,40 +75,28 @@ button.linky:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
 .sheet-src{display:none}
 
 /* ------------------------------------------------------ the urgent sheet
-   The whole panel changes register rather than a dark block sitting inside a
-   light one. The first attempt nested three surfaces, white panel, dark box,
-   darker rows, which read as boxes rather than as urgency.
+   Light, like every other panel. The dark version relied on :has() to repaint
+   the dialog, which was not applying, so the panel stayed light while the text
+   inside it kept the colours written for a dark ground: the heading was very
+   nearly white on white.
 
-   One dark ground now, numbers as the largest thing in it, rows divided by
-   hairlines instead of walls. Each row is still a tel: link and a tap target. */
-
-.sheet:has(.urgent-block){
-  background:var(--night);
-  border-color:rgba(232,185,106,.28);
-}
-.sheet:has(.urgent-block) .sheet-top{border-bottom-color:rgba(255,255,255,.12)}
-.sheet:has(.urgent-block) .sheet-top .label{color:#E8B96A}
-.sheet:has(.urgent-block) .sheet-x{
-  color:#E4DACB;
-  border-color:rgba(255,255,255,.22);
-  background:transparent;
-}
-.sheet:has(.urgent-block) .sheet-x:hover{
-  border-color:#E8B96A;
-  color:#E8B96A;
-}
+   Urgency is carried by a deep red on the numbers rather than by inverting the
+   panel. It sits in the same warm family as the ochre, a few steps darker and
+   redder, so it reads as serious without importing a colour from outside the
+   palette. */
 
 .urgent-block{padding:0}
+
 .urgent-block h3{
-  color:#FBF7F0;
+  color:var(--ink);
   margin:0 0 12px;
   font-size:clamp(27px,3.4vw,40px);
   line-height:1.08;
 }
 .urgent-lede{
-  color:#B5A48D;
+  color:var(--ink-2);
   margin:0;
-  max-width:42ch;
+  max-width:44ch;
   font-size:clamp(15.5px,1.5vw,17px);
 }
 
@@ -116,34 +104,35 @@ button.linky:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
   list-style:none;
   margin:clamp(24px,3vw,34px) 0 0;
   padding:0;
+  border-top:1px solid var(--rule);
 }
-.urgent-lines li + li{border-top:1px solid rgba(255,255,255,.13)}
+.urgent-lines li{border-bottom:1px solid var(--rule)}
 
 .urgent-lines a{
   display:flex;
   align-items:baseline;
-  gap:clamp(14px,2vw,24px);
-  padding:clamp(16px,1.9vw,22px) 4px;
+  gap:clamp(14px,2vw,26px);
+  padding:clamp(15px,1.8vw,20px) 4px;
   text-decoration:none;
   border:0;
-  transition:padding-left .3s ease;
+  transition:padding-left .3s ease, background .3s ease;
 }
-.urgent-lines a:hover{padding-left:12px}
-.urgent-lines a:focus-visible{outline:2px solid #E8B96A;outline-offset:-3px}
+.urgent-lines a:hover{padding-left:12px;background:rgba(163,58,34,.05)}
+.urgent-lines a:focus-visible{outline:2px solid #A33A22;outline-offset:-3px}
 
 .urgent-lines b{
   flex:none;
   font-family:var(--display);
-  font-size:clamp(26px,3.6vw,40px);
+  font-size:clamp(25px,3.4vw,38px);
   line-height:1;
   letter-spacing:-.02em;
-  color:#E8B96A;
+  color:#A33A22;
   font-variant-numeric:tabular-nums;
 }
 .urgent-lines span{
   font-size:14.5px;
   line-height:1.45;
-  color:#B5A48D;
+  color:var(--ink-3);
 }
 
 @media (prefers-reduced-motion:reduce){ .urgent-lines a{transition:none} }
