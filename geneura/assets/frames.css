@@ -116,40 +116,44 @@
 .ch-paper .welcome-mark .hi,.ch-warm .welcome-mark .hi{color:var(--ink)}
 .ch-paper .welcome-mark .aka,.ch-warm .welcome-mark .aka{color:var(--ochre)}
 
-/* Jay's four questions, WhatsApp 29 Aug 18:41, drawn as things being said
-   rather than as a list. Each one is a speech cloud with a tail, indented
-   unevenly so the four read as a conversation opening rather than as a form,
-   and each drifts on its own timing like the bubbles elsewhere on the page.
+/* Jay's four questions, WhatsApp 29 Aug 18:41, asked one at a time.
 
-   They arrive one after another when the section does. .stagger already sets
-   a per child delay, so the reveal is inherited rather than rebuilt here. */
+   They share one space and take turns, so the reader is only ever holding one
+   question, which is how they would actually be asked. It also stops four
+   stacked bubbles running the left column 300px taller than the field of
+   bubbles beside it.
+
+   All four stay in the DOM, so a screen reader gets the set regardless, and
+   under prefers-reduced-motion they simply stack and sit still. */
 
 .asks{
+  position:relative;
   list-style:none;
-  margin:clamp(20px,2.2vw,28px) 0 0;
+  margin:clamp(16px,1.8vw,22px) 0 0;
   padding:0;
-  display:grid;
-  gap:clamp(12px,1.4vw,18px);
-  max-width:34ch;
+  min-height:4.6em;
 }
 
 .asks li{
-  position:relative;
-  justify-self:start;
+  position:absolute;
+  top:0;
+  left:0;
   padding:clamp(13px,1.4vw,17px) clamp(18px,1.9vw,24px);
   border:1px solid var(--rule);
   border-radius:20px 20px 20px 5px;
-  background:rgba(255,255,255,.78);
+  background:rgba(255,255,255,.82);
   box-shadow:0 14px 28px -20px rgba(42,33,22,.55);
   font-family:var(--display);
   font-size:clamp(17px,1.75vw,22px);
   line-height:1.2;
   letter-spacing:-.014em;
   color:var(--ink);
-  animation:ask-drift var(--dur,11s) ease-in-out var(--delay,0s) infinite alternate;
+  white-space:nowrap;
+  opacity:0;
+  animation:ask-cycle 14s cubic-bezier(.3,0,.2,1) infinite;
 }
 
-/* the tail, drawn as a small square rotated under the corner */
+/* the tail, a small square skewed under the corner */
 .asks li::after{
   content:"";
   position:absolute;
@@ -164,19 +168,20 @@
   transform:skewX(-18deg);
 }
 
-/* uneven indents, so it is somebody asking rather than a numbered list */
-.asks li:nth-child(2){margin-left:clamp(14px,2.6vw,34px)}
-.asks li:nth-child(3){margin-left:clamp(7px,1.3vw,17px)}
-.asks li:nth-child(4){margin-left:clamp(20px,3.6vw,48px)}
+/* each takes its turn, and sits a little differently while it does */
+.asks li:nth-child(1){animation-delay:0s;    left:0}
+.asks li:nth-child(2){animation-delay:3.5s;  left:clamp(12px,2.2vw,30px); top:.35em}
+.asks li:nth-child(3){animation-delay:7s;    left:clamp(5px,1vw,14px);    top:.15em}
+.asks li:nth-child(4){animation-delay:10.5s; left:clamp(16px,3vw,42px);   top:.5em}
 
-.asks li:last-child{
-  border-color:#E7D3B8;
-  background:var(--ochre-2);
-}
+.asks li:nth-child(4){border-color:#E7D3B8;background:var(--ochre-2)}
 
-@keyframes ask-drift{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(var(--dx,4px),var(--dy,-6px),0)}
+@keyframes ask-cycle{
+  0%   {opacity:0; transform:translateY(10px) scale(.96)}
+  4%   {opacity:1; transform:translateY(0) scale(1)}
+  21%  {opacity:1; transform:translateY(-3px) scale(1)}
+  25%  {opacity:0; transform:translateY(-10px) scale(.98)}
+  100% {opacity:0; transform:translateY(10px) scale(.96)}
 }
 
 .ch-forest .asks li,.ch-night .asks li{
@@ -186,33 +191,9 @@
 }
 
 @media (prefers-reduced-motion:reduce){
-  .asks li{animation:none}
+  .asks{position:static;min-height:0;display:grid;gap:10px;justify-items:start}
+  .asks li{position:static;opacity:1;animation:none;top:auto;left:auto;white-space:normal}
 }
-
-
-/* ------------------------------------------------------- stacked questions
-   Four questions in one heading became six lines of display type with question
-   marks scattered through it, which reads as a paragraph rather than as a list
-   of things somebody might be feeling. One carries the heading; the rest stack
-   under it, each on its own line, at a size that can be taken in at a glance. */
-
-.asking{
-  list-style:none;
-  margin:clamp(16px,1.8vw,22px) 0 0;
-  padding:0;
-  display:grid;
-  gap:clamp(6px,.7vw,10px);
-}
-.asking li{
-  font-family:var(--display);
-  font-size:clamp(21px,2.5vw,31px);
-  line-height:1.16;
-  letter-spacing:-.018em;
-  color:var(--ink-3);
-}
-.asking li:last-child{color:var(--ochre)}
-.ch-forest .asking li,.ch-night .asking li{color:#B5A48D}
-
 
 /* --------------------------------------------------------- objections
    Every reason a person talks themselves out of making contact, answered in
@@ -256,46 +237,77 @@
 .ch-forest .objections .answer,.ch-night .objections .answer{color:#B5A48D}
 .ch-forest .objections li,.ch-night .objections li{border-top-color:rgba(255,255,255,.16)}
 
-/* ------------------------------------------------------------- reassure
-   Four things a person is allowed to do, as marks with a few words under
-   them. This replaced six worry-and-answer pairs: written out, every answer
-   restated the worry before settling it, which is twice the words and twice
-   the time spent on the doubt. */
+/* ------------------------------------------------------------------- FAQ
+   The objections as questions people actually ask, on native details and
+   summary so it opens without JavaScript and answers to the keyboard for
+   free.
 
-.reassure{
-  list-style:none;
-  margin:clamp(26px,3vw,38px) 0 0;
-  padding:0;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:clamp(20px,2.4vw,34px);
+   An FAQ solves the repetition the previous version had: when the worry is
+   the heading, the answer never has to restate it before settling it. And
+   closed, the section is six short lines instead of six paragraphs. */
+
+.faq{
+  margin:clamp(30px,3.6vw,46px) 0 0;
+  border-top:1px solid var(--rule);
 }
-@media(min-width:820px){ .reassure{grid-template-columns:repeat(4,1fr)} }
 
-.reassure li{
+.faq details{
+  border-bottom:1px solid var(--rule);
+}
+
+.faq summary{
   display:flex;
-  flex-direction:column;
-  gap:11px;
-}
-
-.reassure .re-ico{
-  width:clamp(30px,2.8vw,36px);
-  height:clamp(30px,2.8vw,36px);
-  fill:none;
-  stroke:var(--sage);
-  stroke-width:1.6;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-.reassure .re-ico *{vector-effect:non-scaling-stroke}
-
-.reassure b{
+  align-items:baseline;
+  gap:16px;
+  padding:clamp(16px,1.8vw,22px) 0;
+  cursor:pointer;
+  list-style:none;
   font-family:var(--display);
-  font-size:clamp(16px,1.6vw,20px);
-  font-weight:500;
-  line-height:1.2;
-  letter-spacing:-.012em;
+  font-size:clamp(17px,1.75vw,22px);
+  line-height:1.25;
+  letter-spacing:-.014em;
   color:var(--ink);
+  transition:color .3s ease;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--ochre)}
+.faq summary:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+
+/* the marker is drawn rather than typed, so it can turn */
+.faq summary::after{
+  content:"";
+  flex:none;
+  margin-left:auto;
+  width:13px;
+  height:13px;
+  align-self:center;
+  background:
+    linear-gradient(var(--ochre),var(--ochre)) center/100% 1.5px no-repeat,
+    linear-gradient(var(--ochre),var(--ochre)) center/1.5px 100% no-repeat;
+  transition:transform .35s cubic-bezier(.16,.8,.24,1);
+}
+.faq details[open] summary::after{transform:rotate(135deg)}
+
+.faq .faq-a{
+  margin:0 0 clamp(18px,2vw,24px);
+  max-width:52ch;
+  font-size:clamp(15px,1.45vw,16.5px);
+  line-height:1.55;
+  color:var(--ink-3);
+  animation:faq-in .4s ease both;
+}
+.faq .faq-a b{color:var(--ochre);font-weight:400}
+
+@keyframes faq-in{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:none}
 }
 
-.ch-forest .reassure b,.ch-night .reassure b{color:#F6F1E8}
+.ch-forest .faq summary,.ch-night .faq summary{color:#F6F1E8}
+.ch-forest .faq details,.ch-night .faq details{border-bottom-color:rgba(255,255,255,.16)}
+.ch-forest .faq,.ch-night .faq{border-top-color:rgba(255,255,255,.16)}
+
+@media (prefers-reduced-motion:reduce){
+  .faq summary::after{transition:none}
+  .faq .faq-a{animation:none}
+}
