@@ -397,3 +397,26 @@ a.c-btn:hover .c-go{transform:translateX(4px)}
   .c-btn,.c-go{transition:none}
   a.c-btn:hover .c-go{transform:none}
 }
+
+/* ------------------------------------------------------- stacked questions
+   Restored: these were lost when the .asks block beneath them was rewritten.
+   Four questions in one heading set six lines of display type with question
+   marks scattered through it, which reads as a paragraph. One carries the
+   heading and the rest stack under it, each on its own line. */
+
+.asking{
+  list-style:none;
+  margin:clamp(16px,1.8vw,22px) 0 0;
+  padding:0;
+  display:grid;
+  gap:clamp(6px,.7vw,10px);
+}
+.asking li{
+  font-family:var(--display);
+  font-size:clamp(21px,2.5vw,31px);
+  line-height:1.16;
+  letter-spacing:-.018em;
+  color:var(--ink-3);
+}
+.asking li:last-child{color:var(--ochre)}
+.ch-forest .asking li,.ch-night .asking li{color:#B5A48D}
