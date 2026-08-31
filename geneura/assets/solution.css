@@ -90,3 +90,15 @@
   line-height:1.6;
   color:var(--ink-3);
 }
+
+
+/* the pills carry a whole column on the student page, so they need a little
+   more presence than they had as a footnote under a paragraph */
+.access-note{
+  margin:clamp(16px,1.8vw,22px) 0 0;
+  max-width:30ch;
+  font-size:15.5px;
+  line-height:1.5;
+  color:var(--ink-3);
+}
+.access li{padding:11px 18px;font-size:11.5px}
