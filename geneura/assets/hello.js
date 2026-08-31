@@ -2,16 +2,19 @@
    The whole student page has one job: get somebody to make contact. So the ask
    follows them down it.
 
-   It stays out of the way at the two moments it would be noise: while the hero
-   is still on screen, where the same two buttons already sit, and while the
-   ways to make contact or the emergency numbers are on screen, where it would
-   cover the very thing it is pointing at.
+   Both buttons stay out of the way at the two moments they would be noise:
+   while the hero is on screen, where the same two asks already sit and in the
+   header above it, and while the ways to make contact are on screen, where
+   "Say hello" would cover the very thing it points at.
 
    Uses IntersectionObserver rather than a scroll handler, so nothing runs on
    the main thread between the moments the state actually changes. */
 
 (function () {
-  var btn = document.querySelector('.hello');
+  /* the pair moves together. While the hero is on screen the same two asks are
+     already in it and in the header, so nothing is lost by holding these back
+     until it has gone. */
+  var btn = document.querySelector('.float-cta') || document.querySelector('.hello');
   if (!btn || !('IntersectionObserver' in window)) return;
 
   var hero = document.getElementById('top');

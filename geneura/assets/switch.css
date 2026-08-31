@@ -125,6 +125,12 @@
 
 .float-cta{
   position:fixed;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(14px);
+  transition:opacity .4s ease,
+             transform .4s cubic-bezier(.16,.8,.24,1),
+             visibility .4s;
   right:clamp(16px,2.4vw,32px);
   bottom:clamp(16px,2.4vw,32px);
   z-index:70;
@@ -144,4 +150,28 @@
   padding:14px 24px;
   font-size:15px;
   box-shadow:0 16px 34px -14px rgba(42,33,22,.55);
+}
+
+
+/* the pair reveals as one; .hello keeps its own reveal for the case where it
+   is used without the container */
+.float-cta.on{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.float-cta .hello{opacity:1;visibility:visible;transform:none}
+
+.float-help .ring{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .float-cta{transition:opacity .2s ease, visibility .2s;transform:none}
+  .float-cta.on{transform:none}
 }
