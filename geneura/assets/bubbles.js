@@ -30,17 +30,21 @@
 
   /* per bubble, deliberately unrelated numbers */
   var SEED = [
-    { ax: 15, ay: 19, fx: 0.121, fy: 0.083, px: 0.0, py: 1.7 },
-    { ax: 20, ay: 13, fx: 0.094, fy: 0.137, px: 2.3, py: 0.4 },
-    { ax: 13, ay: 21, fx: 0.148, fy: 0.101, px: 4.1, py: 3.2 },
-    { ax: 18, ay: 16, fx: 0.077, fy: 0.119, px: 1.2, py: 5.0 },
-    { ax: 22, ay: 14, fx: 0.109, fy: 0.152, px: 5.6, py: 2.1 },
-    { ax: 14, ay: 20, fx: 0.133, fy: 0.089, px: 3.4, py: 4.4 }
+    { ax: 19, ay: 25, fx: 0.081, fy: 0.053, px: 0.0, py: 1.7 },
+    { ax: 27, ay: 17, fx: 0.062, fy: 0.091, px: 2.3, py: 0.4 },
+    { ax: 16, ay: 28, fx: 0.099, fy: 0.067, px: 4.1, py: 3.2 },
+    { ax: 24, ay: 20, fx: 0.049, fy: 0.079, px: 1.2, py: 5.0 },
+    { ax: 29, ay: 18, fx: 0.073, fy: 0.101, px: 5.6, py: 2.1 },
+    { ax: 18, ay: 26, fx: 0.089, fy: 0.058, px: 3.4, py: 4.4 },
+    { ax: 22, ay: 21, fx: 0.057, fy: 0.085, px: 0.9, py: 2.8 },
+    { ax: 26, ay: 15, fx: 0.094, fy: 0.061, px: 4.7, py: 5.5 },
+    { ax: 17, ay: 24, fx: 0.068, fy: 0.096, px: 2.0, py: 1.1 },
+    { ax: 21, ay: 19, fx: 0.104, fy: 0.072, px: 5.2, py: 3.9 }
   ];
 
   var REACH = 150;   /* how close the pointer must get, in px */
-  var SHOVE = 66;    /* how far a bubble is pushed at closest range */
-  var EASE = 0.085;  /* how quickly it gives way, and drifts back */
+  var SHOVE = 78;    /* how far a bubble is pushed at closest range */
+  var EASE = 0.07;   /* how quickly it gives way, and drifts back */
 
   var state = items.map(function (el, i) {
     return { el: el, s: SEED[i % SEED.length], cx: 0, cy: 0, rx: 0, ry: 0 };

@@ -136,3 +136,27 @@
   border-left:2px solid var(--ochre);
 }
 .ch-forest .asks li,.ch-night .asks li{color:#F6F1E8}
+
+
+/* ------------------------------------------------------- stacked questions
+   Four questions in one heading became six lines of display type with question
+   marks scattered through it, which reads as a paragraph rather than as a list
+   of things somebody might be feeling. One carries the heading; the rest stack
+   under it, each on its own line, at a size that can be taken in at a glance. */
+
+.asking{
+  list-style:none;
+  margin:clamp(16px,1.8vw,22px) 0 0;
+  padding:0;
+  display:grid;
+  gap:clamp(6px,.7vw,10px);
+}
+.asking li{
+  font-family:var(--display);
+  font-size:clamp(21px,2.5vw,31px);
+  line-height:1.16;
+  letter-spacing:-.018em;
+  color:var(--ink-3);
+}
+.asking li:last-child{color:var(--ochre)}
+.ch-forest .asking li,.ch-night .asking li{color:#B5A48D}

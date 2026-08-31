@@ -35,8 +35,15 @@
 }
 
 /* bubbles.js drives the transform itself once it takes over, so the keyframe
-   is switched off rather than left to compound with it */
-.bubbles.js-on li{animation:none}
+   is switched off rather than left to compound with it.
+
+   The transition has to go too, and this is the one that actually bit. The
+   reveal in a5.js puts transition:opacity,transform .45s on every .stagger
+   child with a delay that increases per item, up to about half a second. A
+   rAF loop writes a new transform every 16ms, so each write was being
+   transitioned over 450ms and delayed on top of that: the first bubble still
+   moved, and everything after it sat still. */
+.bubbles.js-on li{animation:none;transition:none}
 
 @media(min-width:900px){
   .bubbles{
