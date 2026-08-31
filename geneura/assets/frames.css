@@ -116,26 +116,78 @@
 .ch-paper .welcome-mark .hi,.ch-warm .welcome-mark .hi{color:var(--ink)}
 .ch-paper .welcome-mark .aka,.ch-warm .welcome-mark .aka{color:var(--ochre)}
 
-/* Jay's four questions, WhatsApp 29 Aug 18:41. Set as questions rather than
-   bullets: they are what a person is asked, not a list of features. */
+/* Jay's four questions, WhatsApp 29 Aug 18:41, drawn as things being said
+   rather than as a list. Each one is a speech cloud with a tail, indented
+   unevenly so the four read as a conversation opening rather than as a form,
+   and each drifts on its own timing like the bubbles elsewhere on the page.
+
+   They arrive one after another when the section does. .stagger already sets
+   a per child delay, so the reveal is inherited rather than rebuilt here. */
+
 .asks{
   list-style:none;
-  margin:clamp(18px,2vw,26px) 0 0;
+  margin:clamp(20px,2.2vw,28px) 0 0;
   padding:0;
   display:grid;
-  gap:clamp(9px,1vw,13px);
-  max-width:30ch;
+  gap:clamp(12px,1.4vw,18px);
+  max-width:34ch;
 }
+
 .asks li{
+  position:relative;
+  justify-self:start;
+  padding:clamp(13px,1.4vw,17px) clamp(18px,1.9vw,24px);
+  border:1px solid var(--rule);
+  border-radius:20px 20px 20px 5px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 14px 28px -20px rgba(42,33,22,.55);
   font-family:var(--display);
-  font-size:clamp(19px,2vw,25px);
+  font-size:clamp(17px,1.75vw,22px);
   line-height:1.2;
-  letter-spacing:-.015em;
+  letter-spacing:-.014em;
   color:var(--ink);
-  padding-left:18px;
-  border-left:2px solid var(--ochre);
+  animation:ask-drift var(--dur,11s) ease-in-out var(--delay,0s) infinite alternate;
 }
-.ch-forest .asks li,.ch-night .asks li{color:#F6F1E8}
+
+/* the tail, drawn as a small square rotated under the corner */
+.asks li::after{
+  content:"";
+  position:absolute;
+  left:-1px;
+  bottom:-5px;
+  width:12px;
+  height:12px;
+  background:inherit;
+  border-left:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  border-radius:0 0 0 3px;
+  transform:skewX(-18deg);
+}
+
+/* uneven indents, so it is somebody asking rather than a numbered list */
+.asks li:nth-child(2){margin-left:clamp(14px,2.6vw,34px)}
+.asks li:nth-child(3){margin-left:clamp(7px,1.3vw,17px)}
+.asks li:nth-child(4){margin-left:clamp(20px,3.6vw,48px)}
+
+.asks li:last-child{
+  border-color:#E7D3B8;
+  background:var(--ochre-2);
+}
+
+@keyframes ask-drift{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(var(--dx,4px),var(--dy,-6px),0)}
+}
+
+.ch-forest .asks li,.ch-night .asks li{
+  color:#F6F1E8;
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.16);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .asks li{animation:none}
+}
 
 
 /* ------------------------------------------------------- stacked questions

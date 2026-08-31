@@ -332,3 +332,44 @@
   stroke-linejoin:round;
 }
 .bubbles.words .dim-ico *{vector-effect:non-scaling-stroke}
+
+/* ------------------------------------------------ the sequence, on hover
+   Each step answers when the pointer is anywhere on it: the rule and its dot
+   take the accent, the mark warms with them, and the whole thing rises a
+   little. The rule is the piece that carries it, because the five rules read
+   as one line of travel across the section and lighting one segment shows
+   where you are on it. */
+
+.gapseq li{
+  transition:transform .45s cubic-bezier(.16,.8,.24,1),
+             border-top-color .35s ease;
+}
+.gapseq li::before{
+  transition:transform .45s cubic-bezier(.16,.8,.24,1), background .35s ease;
+}
+.gapseq b,
+.gapseq .gap-n,
+.gapseq .gap-ico{
+  transition:color .35s ease, stroke .35s ease;
+}
+
+.gapseq li:hover{
+  transform:translateY(-5px);
+  border-top-color:var(--ochre);
+}
+.gapseq li:hover::before{transform:scale(1.75)}
+.gapseq li:hover b{color:var(--ochre)}
+.gapseq li:hover .gap-ico{stroke:var(--ochre)}
+
+.ch-forest .gapseq li:hover b,
+.ch-night .gapseq li:hover b{color:#E8B96A}
+.ch-forest .gapseq li:hover,
+.ch-night .gapseq li:hover{border-top-color:#E8B96A}
+.ch-forest .gapseq li:hover::before,
+.ch-night .gapseq li:hover::before{background:#E8B96A}
+
+@media (prefers-reduced-motion:reduce){
+  .gapseq li,.gapseq li::before,.gapseq b,.gapseq .gap-n,.gapseq .gap-ico{transition:none}
+  .gapseq li:hover{transform:none}
+  .gapseq li:hover::before{transform:none}
+}

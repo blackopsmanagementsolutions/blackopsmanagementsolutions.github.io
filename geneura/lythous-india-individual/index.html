@@ -16,17 +16,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/geneura/assets/a4.css?v=89d8d924">
-<link rel="stylesheet" href="/geneura/assets/sheet.css?v=1">
+<link rel="stylesheet" href="/geneura/assets/a4.css?v=8a1c33f0">
+<link rel="stylesheet" href="/geneura/assets/sheet.css?v=2">
 <link rel="stylesheet" href="/geneura/assets/nav.css?v=2">
 <link rel="stylesheet" href="/geneura/assets/rail.css?v=1">
 <link rel="stylesheet" href="/geneura/assets/standard.css?v=1">
 <link rel="stylesheet" href="/geneura/assets/marks.css?v=1">
-<link rel="stylesheet" href="/geneura/assets/gap.css?v=14">
+<link rel="stylesheet" href="/geneura/assets/gap.css?v=15">
 <link rel="stylesheet" href="/geneura/assets/solution.css?v=2">
 <link rel="stylesheet" href="/geneura/assets/plan.css?v=1">
-<link rel="stylesheet" href="/geneura/assets/switch.css?v=3">
-<link rel="stylesheet" href="/geneura/assets/frames.css?v=3">
+<link rel="stylesheet" href="/geneura/assets/switch.css?v=5">
+<link rel="stylesheet" href="/geneura/assets/frames.css?v=4">
 </head>
 <body>
 
@@ -44,18 +44,18 @@
     <a class="brand" href="#top"><img src="/geneura/assets/mark.png" alt="">
       <span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
     <nav class="site-nav">
-      <a href="#ways">Ways In</a><a href="#happens">What Happens</a><a href="#inside">Inside</a><a href="#urgent">If It Is Urgent</a>
+      <a href="#ways">Ways In</a><a href="#happens">What Happens</a><a href="#inside">Inside</a><button class="linky" type="button" data-sheet="urgent">If It Is Urgent</button>
     </nav>
     <div class="head-cta">
       <a class="btn btn-solid" href="#ways"><span>Make contact</span></a>
-      <a class="btn btn-help" href="#urgent">I need help now</a>
+      <button class="btn btn-help" type="button" data-sheet="urgent">I need help now</button>
       <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="mobile-nav">
   <a href="#ways">Ways In</a>
-  <a href="#happens">What Happens</a><a href="#inside">Inside</a><a href="#urgent">If It Is Urgent</a>
+  <a href="#happens">What Happens</a><a href="#inside">Inside</a><button class="linky" type="button" data-sheet="urgent">If It Is Urgent</button>
   <a href="/geneura/lythous-india-institution/">For institutions</a>
 </nav>
 
@@ -74,8 +74,8 @@
         We start with you.<br>
         Your life, your circumstances, what matters to you, and who you want to become.</p>
       <div class="hero-cta">
-        <a class="btn btn-solid btn-lg" href="#ways">Ways to make contact</a>
-        <a class="btn btn-help btn-lg" href="#urgent">I need help now</a>
+        <a class="btn btn-solid btn-lg" href="#ways">Say hello</a>
+        <button class="btn btn-help btn-lg" type="button" data-sheet="urgent">I need help now</button>
       </div>
     </div>
   </section>
@@ -167,11 +167,11 @@
       <div class="rv"><span class="label">What we try to understand</span>
         <h2>Whoever you reach first, they start by trying to understand more of you.</h2>
         <p style="margin-top:20px;max-width:34ch">We begin by asking:</p>
-        <ul class="asks">
-          <li>Who are you?</li>
-          <li>What matters to you?</li>
-          <li>What is possible for you?</li>
-          <li>Who do you want to become?</li>
+        <ul class="asks stagger">
+          <li style="--dur:12s;--delay:0s;--dx:5px;--dy:-7px">Who are you?</li>
+          <li style="--dur:15s;--delay:-3s;--dx:-4px;--dy:6px">What matters to you?</li>
+          <li style="--dur:10s;--delay:-6s;--dx:6px;--dy:5px">What is possible for you?</li>
+          <li style="--dur:17s;--delay:-1s;--dx:-5px;--dy:-6px">Who do you want to become?</li>
         </ul>
         <p style="margin-top:26px;max-width:38ch"><strong>We do not organise care around
           what we offer. We organise what we offer around you.</strong></p>
@@ -304,29 +304,8 @@
 
 
 
-  <section class="ch-sage" id="urgent">
-    <span class="sec-index">09 / If it is urgent</span>
-    <div class="wrap">
-      <div class="rv"><span class="label">If it is urgent</span>
-        <h2>If you need someone right now.</h2>
-        <p class="lede" style="margin-top:18px">These lines are free, they are open now, and
-          you do not have to be sure it is serious enough.</p></div>
-
-      <div class="crisis-block rv" style="margin-top:clamp(28px,3.2vw,40px)">
-        <span class="label" style="color:#8E5219">If someone is in immediate danger</span>
-        <ul class="crisis-list">
-          <li><a href="tel:112"><b>112</b></a><span>Emergency services, anywhere in India. Police, ambulance and fire, one number.</span></li>
-          <li><a href="tel:14416"><b>14416</b></a><span>Tele-MANAS, the national mental health helpline. Free, day and night, in twenty languages.</span></li>
-          <li><a href="tel:18005990019"><b>1800 599 0019</b></a><span>KIRAN, the national mental health rehabilitation helpline.</span></li>
-        </ul>
-        <p class="small" style="margin:16px 0 0">Healthcare SMC India: <a href="tel:+919634676724">+91 96346 76724</a>.
-          Each campus gets its own numbers when its node opens.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="ch-forest" id="become">
-    <span class="sec-index">10 / A year from now</span>
+    <span class="sec-index">09 / A year from now</span>
     <div class="wrap">
       <div class="two lean">
         <div class="rv"><span class="label">A year from now</span>
@@ -346,10 +325,15 @@
   </section>
 </main>
 
-<a class="hello" href="#ways">
+<div class="float-cta">
+  <button class="btn btn-help float-help" type="button" data-sheet="urgent">
+    I need help now
+  </button>
+  <a class="btn btn-solid hello" href="#ways">
   <svg class="wave" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 20.5a7 7 0 0 0 7-7V8.2a1.5 1.5 0 0 0-3 0v3.1"/><path d="M15 11.3V6.1a1.5 1.5 0 0 0-3 0v5"/><path d="M12 11.1V5a1.5 1.5 0 0 0-3 0v6.4"/><path d="M9 11.4V8.1a1.5 1.5 0 0 0-3 0v6.2c0 .9-1.3 1-1.6.2l-.7-1.7"/></svg>
   Say hello
 </a>
+</div>
 <footer class="site-foot">
   <div class="wrap">
     <div class="foot-grid">
@@ -504,6 +488,26 @@
     is kept publishes with the site.</p>
 </div>
 
+<div class="sheet-src" id="sheet-urgent">
+  <div class="sheet-top"><span class="label">Right now</span>
+    <button class="sheet-x" type="button" data-sheet-close aria-label="Close">&times;</button></div>
+  <div class="urgent-block">
+    <h3>If you need someone right now.</h3>
+    <p class="urgent-lede">These lines are free, they are open now, and you do not have to be
+      sure it is serious enough.</p>
+    <ul class="urgent-lines">
+      <li><a href="tel:112"><b>112</b><span>Emergency services, anywhere in India. Police,
+        ambulance and fire, one number.</span></a></li>
+      <li><a href="tel:14416"><b>14416</b><span>Tele-MANAS. Free, day and night, in twenty
+        languages.</span></a></li>
+      <li><a href="tel:18005990019"><b>1800 599 0019</b><span>KIRAN, the national
+        rehabilitation helpline.</span></a></li>
+      <li><a href="tel:+919634676724"><b>+91 96346 76724</b><span>Healthcare SMC India.
+        Each campus gets its own number when its node opens.</span></a></li>
+    </ul>
+  </div>
+</div>
+
 <div class="sheet-src" id="sheet-naming">
   <div class="sheet-top"><span class="label">Naming notice</span>
     <button class="sheet-x" type="button" data-sheet-close aria-label="Close">&times;</button></div>
@@ -544,7 +548,7 @@
 
 <script src="/geneura/assets/a5.js?v=1" defer></script>
 <script src="/geneura/assets/bubbles.js?v=4" defer></script>
-<script src="/geneura/assets/hello.js?v=1" defer></script>
+<script src="/geneura/assets/hello.js?v=2" defer></script>
 <script src="/geneura/assets/plan.js?v=1" defer></script>
 <script src="/geneura/assets/sheet.js?v=1" defer></script>
 </body>

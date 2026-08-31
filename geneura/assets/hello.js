@@ -15,8 +15,10 @@
   if (!btn || !('IntersectionObserver' in window)) return;
 
   var hero = document.getElementById('top');
-  var quiet = ['ways', 'urgent'].map(function (id) { return document.getElementById(id); })
-                                .filter(Boolean);
+  /* only the section it points at. Everywhere else it should be there, which
+     is what "appears once you are past the hero" means in practice. */
+  var quiet = ['ways'].map(function (id) { return document.getElementById(id); })
+                      .filter(Boolean);
   if (hero) quiet.push(hero);
   if (!quiet.length) return;
 
