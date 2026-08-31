@@ -270,3 +270,12 @@
 @media (prefers-reduced-motion:reduce){
   .picks li{animation:none;transition:none}
 }
+
+/* ten word bubbles rather than six icon ones, so they need to be smaller and
+   the field wider, or they collide at the scatter positions they are given */
+.bubbles.words li{padding:12px}
+@media(min-width:900px){
+  .bubbles.words{aspect-ratio:1.55}
+  .bubbles.words li{width:clamp(96px,16.5%,132px)}
+}
+.bubbles.words b{font-size:12.5px;max-width:11ch}
