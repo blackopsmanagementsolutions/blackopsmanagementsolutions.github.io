@@ -98,7 +98,14 @@
 @media(min-width:960px){ .gapseq{grid-template-columns:repeat(3,1fr)} }
 /* five steps since 30 Aug: Jay stopped the call to say the sequence was missing
    the one before it, that a person often does not know there is a problem */
-@media(min-width:1180px){ .gapseq{grid-template-columns:repeat(5,1fr);gap:clamp(18px,1.9vw,26px)} }
+@media(min-width:1180px){
+  .gapseq{grid-template-columns:repeat(5,1fr);gap:clamp(18px,1.9vw,26px)}
+  /* the sequence is five on the institution page and three on the student page,
+     so the column count follows the number of items rather than being set for
+     one of them and leaving the other with empty columns */
+  .gapseq:has(li:first-child:nth-last-child(3)){grid-template-columns:repeat(3,1fr)}
+  .gapseq:has(li:first-child:nth-last-child(4)){grid-template-columns:repeat(4,1fr)}
+}
 
 .gapseq li{
   position:relative;
@@ -204,3 +211,62 @@
 .ch-forest .gapseq li,.ch-night .gapseq li{border-top-color:rgba(255,255,255,.16)}
 .ch-forest .gap-out,.ch-night .gap-out{color:#D2C7B7}
 .ch-forest .gap-lead,.ch-night .gap-lead{color:#FBF7F0}
+
+
+/* ------------------------------------------------------- pick one, or none
+   Four states a person actually arrives in, on the student page. Round, plain
+   and roughly equal in weight, because the point is that no one of them is the
+   right reason to come in. They drift on their own timings like the silo
+   bubbles, but far more gently: these are meant to be read, not watched. */
+
+.picks{
+  list-style:none;
+  margin:clamp(34px,4vw,52px) 0 0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:clamp(14px,2vw,28px);
+}
+
+.picks li{
+  /* small enough a basis that two sit side by side on a phone, capped so four
+     still read as one row on a wide screen */
+  flex:1 1 148px;
+  max-width:260px;
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:clamp(18px,2.4vw,30px);
+  border-radius:50%;
+  border:1px solid var(--rule);
+  background:rgba(255,255,255,.74);
+  box-shadow:0 16px 34px -24px rgba(42,33,22,.55);
+  font-family:var(--display);
+  font-size:clamp(16px,1.55vw,20px);
+  line-height:1.22;
+  letter-spacing:-.012em;
+  color:var(--ink);
+  animation:bubble-drift var(--dur,15s) ease-in-out var(--delay,0s) infinite alternate;
+  transition:border-color .35s ease, box-shadow .35s ease;
+}
+.picks li:hover{border-color:var(--ochre);box-shadow:0 20px 40px -22px rgba(42,33,22,.6)}
+
+/* the last one is the one people least expect to be allowed */
+.picks li:last-child{
+  background:var(--ochre-2);
+  border-color:#E7D3B8;
+  color:var(--ink);
+}
+
+.picks-after{
+  margin:clamp(26px,3vw,38px) 0 0;
+  max-width:56ch;
+  font-size:clamp(16px,1.5vw,18px);
+  color:var(--ink-2);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .picks li{animation:none;transition:none}
+}
