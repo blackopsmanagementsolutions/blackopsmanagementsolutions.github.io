@@ -83,3 +83,56 @@
 .lockup span:last-child{color:var(--ochre)}
 
 .ch-forest .lockup,.ch-night .lockup{color:#FBF7F0}
+
+/* ------------------------------------------------- the welcome and the name
+   The India billboards, posters and QR codes in circulation say Lighthouse.
+   Somebody scanning one has to know within a second that they are in the right
+   place, so the name and the old name lead the page rather than sitting in a
+   notice at the bottom. 05-india-page-status.md logged this as absent. */
+
+.welcome-mark{
+  display:block;
+  margin:0 0 clamp(14px,1.6vw,20px);
+}
+.welcome-mark .hi{
+  display:block;
+  font-family:var(--display);
+  font-size:clamp(26px,3.2vw,42px);
+  line-height:1.1;
+  letter-spacing:-.02em;
+  color:#F3E7D4;
+}
+.welcome-mark .aka{
+  display:block;
+  margin-top:.5em;
+  font-family:var(--mono);
+  font-size:var(--t-label);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#CFA267;
+}
+
+/* on a light chapter, should it ever move */
+.ch-paper .welcome-mark .hi,.ch-warm .welcome-mark .hi{color:var(--ink)}
+.ch-paper .welcome-mark .aka,.ch-warm .welcome-mark .aka{color:var(--ochre)}
+
+/* Jay's four questions, WhatsApp 29 Aug 18:41. Set as questions rather than
+   bullets: they are what a person is asked, not a list of features. */
+.asks{
+  list-style:none;
+  margin:clamp(18px,2vw,26px) 0 0;
+  padding:0;
+  display:grid;
+  gap:clamp(9px,1vw,13px);
+  max-width:30ch;
+}
+.asks li{
+  font-family:var(--display);
+  font-size:clamp(19px,2vw,25px);
+  line-height:1.2;
+  letter-spacing:-.015em;
+  color:var(--ink);
+  padding-left:18px;
+  border-left:2px solid var(--ochre);
+}
+.ch-forest .asks li,.ch-night .asks li{color:#F6F1E8}
