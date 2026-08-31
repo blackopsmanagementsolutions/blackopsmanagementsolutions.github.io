@@ -175,3 +175,28 @@
   .float-cta{transition:opacity .2s ease, visibility .2s;transform:none}
   .float-cta.on{transform:none}
 }
+
+/* the hero pair and the floating pair are the same two asks, so they carry
+   the same marks and the same order of emphasis. On the hero's dark ground
+   "I need help now" was the solid one, which made it shout over "Say hello";
+   floating, it is the quieter of the two. Matched to that. */
+
+.hero-cta .btn-help{
+  background:transparent;
+  border-color:rgba(232,185,106,.75);
+  color:#E8B96A;
+}
+.hero-cta .btn-help:hover{
+  background:var(--ochre);
+  border-color:var(--ochre);
+  color:#fff;
+}
+.hero-cta .wave,.hero-cta .ring{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
