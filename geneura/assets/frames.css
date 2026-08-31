@@ -255,3 +255,47 @@
 .ch-forest .objections .worry,.ch-night .objections .worry{color:#F6F1E8}
 .ch-forest .objections .answer,.ch-night .objections .answer{color:#B5A48D}
 .ch-forest .objections li,.ch-night .objections li{border-top-color:rgba(255,255,255,.16)}
+
+/* ------------------------------------------------------------- reassure
+   Four things a person is allowed to do, as marks with a few words under
+   them. This replaced six worry-and-answer pairs: written out, every answer
+   restated the worry before settling it, which is twice the words and twice
+   the time spent on the doubt. */
+
+.reassure{
+  list-style:none;
+  margin:clamp(26px,3vw,38px) 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(20px,2.4vw,34px);
+}
+@media(min-width:820px){ .reassure{grid-template-columns:repeat(4,1fr)} }
+
+.reassure li{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.reassure .re-ico{
+  width:clamp(30px,2.8vw,36px);
+  height:clamp(30px,2.8vw,36px);
+  fill:none;
+  stroke:var(--sage);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.reassure .re-ico *{vector-effect:non-scaling-stroke}
+
+.reassure b{
+  font-family:var(--display);
+  font-size:clamp(16px,1.6vw,20px);
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-.012em;
+  color:var(--ink);
+}
+
+.ch-forest .reassure b,.ch-night .reassure b{color:#F6F1E8}
