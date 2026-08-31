@@ -116,44 +116,41 @@
 .ch-paper .welcome-mark .hi,.ch-warm .welcome-mark .hi{color:var(--ink)}
 .ch-paper .welcome-mark .aka,.ch-warm .welcome-mark .aka{color:var(--ochre)}
 
-/* Jay's four questions, WhatsApp 29 Aug 18:41, asked one at a time.
+/* Jay's four questions, WhatsApp 29 Aug 18:41.
 
-   They share one space and take turns, so the reader is only ever holding one
-   question, which is how they would actually be asked. It also stops four
-   stacked bubbles running the left column 300px taller than the field of
-   bubbles beside it.
+   They arrive one after another and then all four sit together, which is what
+   a conversation opening actually looks like, before the set clears and it
+   begins again. Each needs its own keyframe rather than one keyframe with
+   delays: delays would stagger the exit too, and they should leave together.
 
-   All four stay in the DOM, so a screen reader gets the set regardless, and
-   under prefers-reduced-motion they simply stack and sit still. */
+   Scattered across the field rather than stacked, so the four occupy the
+   space instead of forming a column. All four stay in the DOM for a screen
+   reader, and under prefers-reduced-motion they stack and sit still. */
 
 .asks{
   position:relative;
   list-style:none;
-  margin:clamp(16px,1.8vw,22px) 0 0;
+  margin:clamp(22px,2.6vw,32px) 0 0;
   padding:0;
-  min-height:4.6em;
+  min-height:clamp(190px,21vw,268px);
 }
 
 .asks li{
   position:absolute;
-  top:0;
-  left:0;
-  padding:clamp(13px,1.4vw,17px) clamp(18px,1.9vw,24px);
+  padding:clamp(12px,1.3vw,16px) clamp(17px,1.8vw,23px);
   border:1px solid var(--rule);
   border-radius:20px 20px 20px 5px;
-  background:rgba(255,255,255,.82);
-  box-shadow:0 14px 28px -20px rgba(42,33,22,.55);
+  background:rgba(255,255,255,.86);
+  box-shadow:0 16px 30px -22px rgba(42,33,22,.6);
   font-family:var(--display);
-  font-size:clamp(17px,1.75vw,22px);
+  font-size:clamp(16px,1.65vw,21px);
   line-height:1.2;
   letter-spacing:-.014em;
   color:var(--ink);
   white-space:nowrap;
   opacity:0;
-  animation:ask-cycle 14s cubic-bezier(.3,0,.2,1) infinite;
 }
 
-/* the tail, a small square skewed under the corner */
 .asks li::after{
   content:"";
   position:absolute;
@@ -168,20 +165,40 @@
   transform:skewX(-18deg);
 }
 
-/* each takes its turn, and sits a little differently while it does */
-.asks li:nth-child(1){animation-delay:0s;    left:0}
-.asks li:nth-child(2){animation-delay:3.5s;  left:clamp(12px,2.2vw,30px); top:.35em}
-.asks li:nth-child(3){animation-delay:7s;    left:clamp(5px,1vw,14px);    top:.15em}
-.asks li:nth-child(4){animation-delay:10.5s; left:clamp(16px,3vw,42px);   top:.5em}
+/* spread across the field, each arriving in turn */
+.asks li:nth-child(1){left:0;                     top:0;   animation:ask-1 17s ease-in-out infinite}
+.asks li:nth-child(2){left:clamp(30px,7vw,96px);  top:26%; animation:ask-2 17s ease-in-out infinite}
+.asks li:nth-child(3){left:clamp(8px,2vw,26px);   top:53%; animation:ask-3 17s ease-in-out infinite}
+.asks li:nth-child(4){left:clamp(38px,9vw,124px); top:79%; animation:ask-4 17s ease-in-out infinite}
 
 .asks li:nth-child(4){border-color:#E7D3B8;background:var(--ochre-2)}
 
-@keyframes ask-cycle{
-  0%   {opacity:0; transform:translateY(10px) scale(.96)}
-  4%   {opacity:1; transform:translateY(0) scale(1)}
-  21%  {opacity:1; transform:translateY(-3px) scale(1)}
-  25%  {opacity:0; transform:translateY(-10px) scale(.98)}
-  100% {opacity:0; transform:translateY(10px) scale(.96)}
+@keyframes ask-1{
+  0%,0%    {opacity:0; transform:translateY(12px) scale(.96)}
+  3%          {opacity:1; transform:translateY(0) scale(1)}
+  70.0%          {opacity:1; transform:translateY(0) scale(1)}
+  76.0%,100%  {opacity:0; transform:translateY(-8px) scale(.98)}
+}
+
+@keyframes ask-2{
+  0%,8%    {opacity:0; transform:translateY(12px) scale(.96)}
+  11%          {opacity:1; transform:translateY(0) scale(1)}
+  71.5%          {opacity:1; transform:translateY(0) scale(1)}
+  77.5%,100%  {opacity:0; transform:translateY(-8px) scale(.98)}
+}
+
+@keyframes ask-3{
+  0%,16%    {opacity:0; transform:translateY(12px) scale(.96)}
+  19%          {opacity:1; transform:translateY(0) scale(1)}
+  73.0%          {opacity:1; transform:translateY(0) scale(1)}
+  79.0%,100%  {opacity:0; transform:translateY(-8px) scale(.98)}
+}
+
+@keyframes ask-4{
+  0%,24%    {opacity:0; transform:translateY(12px) scale(.96)}
+  27%          {opacity:1; transform:translateY(0) scale(1)}
+  74.5%          {opacity:1; transform:translateY(0) scale(1)}
+  80.5%,100%  {opacity:0; transform:translateY(-8px) scale(.98)}
 }
 
 .ch-forest .asks li,.ch-night .asks li{
