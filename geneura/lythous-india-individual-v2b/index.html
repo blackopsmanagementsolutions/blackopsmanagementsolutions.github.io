@@ -178,14 +178,21 @@ h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
 .hero-media::after{
   content:"";position:absolute;inset:0;
   background:
+    linear-gradient(90deg,rgba(22,16,9,.44) 0%,rgba(22,16,9,.18) 42%,rgba(22,16,9,0) 68%),
     linear-gradient(180deg,rgba(22,16,9,.46) 0%,rgba(22,16,9,.12) 34%,rgba(22,16,9,.42) 66%,rgba(22,16,9,.86) 100%);
 }
 .hero-in{
   position:relative;width:100%;max-width:var(--wrap);margin:0 auto;
   padding:150px clamp(20px,4vw,44px) clamp(64px,8vh,104px);
 }
-.hero .eyebrow{color:#E4C489;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline}
-.hero .aka{color:var(--cream-2);letter-spacing:.14em;font-size:10.5px}
+.hero .eyebrow{
+  color:#F0D49B;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;
+  text-shadow:0 1px 3px rgba(22,16,9,.55),0 2px 18px rgba(22,16,9,.65);
+}
+.hero .aka{
+  color:#EFE6D4;letter-spacing:.14em;font-size:10.5px;
+  text-shadow:0 1px 3px rgba(22,16,9,.55),0 2px 18px rgba(22,16,9,.65);
+}
 .hero h1{margin-bottom:26px;font-size:clamp(40px,7.2vw,88px)}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:block;white-space:nowrap;transform:translateY(110%);animation:lineUp 1.1s var(--ease) forwards}
@@ -272,6 +279,7 @@ section{padding:var(--sec) 0}
 .states{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media (max-width:520px){.states{grid-template-columns:1fr}}
 .state{
+  cursor:pointer;
   background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
   padding:30px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:170px;
   transition:transform .45s var(--ease),box-shadow .45s var(--ease);
@@ -1455,6 +1463,19 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     b.addEventListener('click',function(){pick(i)});
     b.addEventListener('mouseenter',function(){pick(i)});
     b.addEventListener('focus',function(){pick(i)});
+  });
+
+  /* The four states open the hello sheet */
+  document.querySelectorAll('.state').forEach(function(li){
+    li.setAttribute('tabindex','0');
+    li.setAttribute('role','button');
+    li.addEventListener('click',function(){
+      var d=document.getElementById('sheet-hello');if(d)d.showModal();
+    });
+    li.addEventListener('keydown',function(ev){
+      if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();
+        var d=document.getElementById('sheet-hello');if(d)d.showModal();}
+    });
   });
 
   /* Steps: hovering a step draws its illustration on the stage */
