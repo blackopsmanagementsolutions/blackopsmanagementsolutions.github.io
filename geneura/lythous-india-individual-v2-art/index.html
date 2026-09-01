@@ -349,12 +349,23 @@ section{padding:var(--sec) 0}
 }
 .night{position:relative;overflow:hidden}
 .night .wrap{position:relative}
-.year-bg{
-  position:absolute;left:50%;top:-4%;transform:translateX(-50%);
-  width:min(1240px,110%);opacity:.26;mix-blend-mode:screen;pointer-events:none;
-  -webkit-mask-image:radial-gradient(ellipse 72% 82% at 50% 42%,#000 32%,transparent 72%);
-          mask-image:radial-gradient(ellipse 72% 82% at 50% 42%,#000 32%,transparent 72%);
+.u-bg{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(1400px,120%);opacity:.3;mix-blend-mode:screen;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 68% 86% at 52% 50%,#000 34%,transparent 74%);
+          mask-image:radial-gradient(ellipse 68% 86% at 52% 50%,#000 34%,transparent 74%);
 }
+#understand.night h2{color:var(--cream)}
+#understand.night .begin-note{color:#CFC4B2}
+#understand.night .ask-cycle span{color:#E4C489}
+#understand.night .fourwords{color:var(--cream)}
+#understand.night .understand-note{color:#CFC4B2}
+#understand.night .chips li{
+  background:rgba(246,241,232,.06);border-color:rgba(246,241,232,.24);
+  color:#D8CCB8;box-shadow:none;
+}
+#understand.night .chips li:hover{border-color:#E4C489;color:#E4C489}
+#understand.night .chips .dim-ico{stroke:#E4C489}
 @media (prefers-reduced-motion:reduce){
   .band img{animation:none}
   .state .simg{opacity:1 !important;filter:none !important;transition:none}
@@ -802,9 +813,10 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       <span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
     <nav class="site-nav" aria-label="Sections">
       <a href="#hello">Say hello</a>
+      <a href="#who">Who it is for</a>
       <a href="#inside">Inside</a>
-      <a href="#questions">Questions</a>
-      <a href="/geneura/lythous-india-institution/">For institutions</a>
+      <a href="#after">How it works</a>
+      <a href="#questions">FAQs</a>
     </nav>
     <div class="head-cta">
       <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
@@ -1094,7 +1106,8 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   </section>
 
   <!-- 07 · What we try to understand -->
-  <section id="understand">
+  <section class="night" id="understand">
+    <img class="u-bg" src="/geneura/assets/art-path.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="two-col">
         <div class="rv">
@@ -1211,7 +1224,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 
   <!-- 10 · Night close -->
   <section class="night" id="year" style="padding-bottom:0">
-    <img class="year-bg" src="/geneura/assets/art-path.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="rv" id="year-viz">
         <ul class="year-arc" aria-hidden="true">
