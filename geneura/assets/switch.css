@@ -200,3 +200,14 @@
   stroke-linecap:round;
   stroke-linejoin:round;
 }
+
+/* the audience switch banner is gone from the student page, so the route to
+   the other one lives in the nav instead. Set apart from the section links
+   because it leaves the page rather than moving down it. */
+.site-nav .nav-alt{
+  color:var(--ochre);
+  margin-left:6px;
+  padding-left:16px;
+  border-left:1px solid var(--rule);
+}
+.site-nav .nav-alt::after{content:" →";letter-spacing:0}
