@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Say hello | Lythous, Healthcare SMC India</title>
+<title>Say hello | Lythous&trade;, Healthcare SMC India</title>
 <meta name="description" content="A room on your campus, and people in it, for anyone who wants to make contact. You do not need a problem to come in.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="We begin with the person you are">
@@ -209,6 +209,23 @@ h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
 @media (prefers-reduced-motion:reduce){
   .hero-media img,.hero h1 .line span,.hero .lede,.hero-cta{animation:none;transform:none;opacity:1}
 }
+
+/* ============================================================
+   Ticker
+   ============================================================ */
+.ticker{
+  overflow:hidden;border-block:1px solid var(--hair-soft);
+  padding:14px 0;background:var(--paper);
+}
+.ticker>div{
+  display:flex;gap:34px;width:max-content;
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);animation:tick 34s linear infinite;
+}
+.ticker span{flex:none}
+.ticker .star{color:var(--accent)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker>div{animation:none}}
 
 /* ============================================================
    Sections, shared
@@ -638,10 +655,11 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   <section class="hero" id="top" style="padding:0">
     <div class="hero-media"><img src="/geneura/assets/room-wide.jpg" alt="A Lythous room: daylight, a sunrise mural, low seating in a circle."></div>
     <div class="hero-in">
-      <span class="eyebrow">Welcome to Lythous <span class="aka">Also known as a Lighthouse node</span></span>
+      <span class="eyebrow">Welcome to Lythous<span class="tm">&trade;</span> <span class="aka">Also known as a Lighthouse node</span></span>
       <h1><span class="line"><span>We begin with the</span></span><span class="line"><span>person you are.</span></span></h1>
-      <p class="lede">A room on your campus, and people in it, for anyone who wants to
-        make contact. You do not need a problem to come in.</p>
+      <p class="lede">The world often begins with a problem, but we prefer to start
+        with understanding you.<br>
+        Your life, your circumstances, your interests, and who you want to become.</p>
       <div class="hero-cta">
         <button class="btn btn-solid btn-lg" type="button" data-open="hello">Say hello</button>
         <button class="btn btn-help btn-lg" type="button" data-open="urgent">I need help now</button>
@@ -650,12 +668,19 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <span class="scroll-cue" aria-hidden="true"></span>
   </section>
 
+  <div class="ticker" aria-hidden="true"><div>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+  </div></div>
+
   <!-- 02 · Say hello -->
   <section id="hello">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Say hello</span>
-        <h2>Saying hello is the whole first step.</h2>
+        <h2>Saying hello is the first step.</h2>
         <p class="lede">Student, faculty, staff, family, or somebody from the community.
           Whichever way suits you today.</p>
       </div>
@@ -761,7 +786,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   <section id="inside">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">Inside our Lythous node</span>
+        <span class="eyebrow">Inside our Lythous<span class="tm">&trade;</span> node</span>
         <h2>Come and pay us a visit.</h2>
       </div>
       <div class="where-card rv">
@@ -858,7 +883,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span class="eyebrow">How it should feel</span>
         <h2>You are a person here, not a case.</h2>
         <p class="lede">That has a name: CARE<span class="tm">&trade;</span>, the standard every
-          Lythous node is held to.</p>
+          Lythous<span class="tm">&trade;</span> node is held to.</p>
       </div>
       <div class="feel st">
         <div><b>Connected</b><span>You are not working this out on your own.</span></div>
@@ -941,7 +966,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <div class="rv">
           <p>You may understand what you need, recognise strengths you had overlooked,
             and feel connected to people and possibilities you could not see before.</p>
-          <p style="margin-top:14px"><strong>A Lythous node does not change who you are.
+          <p style="margin-top:14px"><strong>A Lythous<span class="tm">&trade;</span> node does not change who you are.
             It helps reveal who you can become.</strong></p>
         </div>
       </div>
