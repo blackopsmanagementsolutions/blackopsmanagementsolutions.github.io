@@ -337,19 +337,28 @@ section{padding:var(--sec) 0}
 .inline-cta:hover svg{transform:translateX(4px)}
 
 /* ============================================================
-   Ways in (people)
+   Ways in (cards with sheets)
    ============================================================ */
-.people{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,3.5vw,52px) clamp(32px,5vw,72px)}
-@media (max-width:760px){.people{grid-template-columns:1fr}}
-.person{display:flex;gap:18px;align-items:flex-start}
-.person .p-ico{
-  flex:none;width:46px;height:46px;border-radius:50%;
-  display:grid;place-items:center;
-  background:rgba(169,111,36,.1);color:var(--accent-deep);
+.way-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:980px){.way-cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.way-cards{grid-template-columns:1fr}}
+.way-cards .c-card{text-align:left}
+.way-cards .c-card .link{
+  margin-top:auto;padding-top:12px;font-weight:600;font-size:14px;color:var(--accent-deep);
 }
-.person .p-ico svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.person h3{margin-bottom:6px}
-.person p{color:var(--ink-2);font-size:16px;max-width:38ch}
+.sheet-in h4{
+  font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:20px 0 8px;
+}
+.sheet-in>p{color:var(--ink-2);font-size:15.5px;margin-bottom:10px}
+.sheet-in ul.plain{list-style:none;display:grid;gap:8px}
+.sheet-in ul.plain li{
+  position:relative;padding-left:20px;color:var(--ink-2);font-size:15px;line-height:1.55;
+}
+.sheet-in ul.plain li::before{
+  content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:rgba(169,111,36,.5);
+}
 
 /* ============================================================
    Inside
@@ -815,26 +824,37 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <p class="lede">There is no wrong door and no right order. Anyone can walk in,
           and you never have to arrive alone.</p>
       </div>
-      <div class="people st">
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.1"/><path d="M5 20.5c0-3.7 3.1-6.6 7-6.6s7 2.9 7 6.6"/></svg></span>
-          <div><h3>An Ambassador</h3><p>Someone whose job is to notice, and to walk in
-            with you. They stay alongside until you have arrived.</p></div>
-        </div>
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/></svg></span>
-          <div><h3>A Listener</h3><p>A real person on the other end, at any hour.</p></div>
-        </div>
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="4.6" width="16.8" height="10.8" rx="1.2"/><path d="M2 19.2h20"/></svg></span>
-          <div><h3>Online first</h3><p>If going somewhere in person is too much right now,
-            start from where you are. Come in later, or never.</p></div>
-        </div>
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
-          <div><h3>Someone you know</h3><p>A friend, a classmate, a teacher, a family
-            member. Anyone can start it with you, or for you.</p></div>
-        </div>
+      <div class="way-cards st">
+        <button class="c-card" type="button" data-open="ambassador">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.1"/><path d="M5 20.5c0-3.7 3.1-6.6 7-6.6s7 2.9 7 6.6"/></svg></span>
+          <b>An Ambassador</b>
+          <span>Someone whose job is to notice, and to walk in with you.</span>
+          <span class="link">What is an Ambassador?</span>
+        </button>
+        <button class="c-card" type="button" data-open="listener">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/></svg></span>
+          <b>A Listener</b>
+          <span>A real person on the other end, at any hour.</span>
+          <span class="link">What is a Listener?</span>
+        </button>
+        <button class="c-card" type="button" data-open="node">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 20.5V4.5h9v16"/><path d="M5 20.5h15"/><circle cx="14.2" cy="12.6" r=".9"/></svg></span>
+          <b>Walk into a room</b>
+          <span>A Lythous<span class="tm">&trade;</span> node on your campus. Just come in.</span>
+          <span class="link">What is inside?</span>
+        </button>
+        <button class="c-card" type="button" data-open="online">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="4.6" width="16.8" height="10.8" rx="1.2"/><path d="M2 19.2h20"/></svg></span>
+          <b>Online</b>
+          <span>If going somewhere in person is too much right now.</span>
+          <span class="link">How that works</span>
+        </button>
+        <button class="c-card" type="button" data-open="community">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
+          <b>Someone you know</b>
+          <span>A friend, a classmate, a teacher, anyone in your community.</span>
+          <span class="link">How that works</span>
+        </button>
       </div>
     </div>
   </section>
@@ -1139,6 +1159,84 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span><b>Healthcare SMC India</b><span>Each campus gets its own number when its
           node opens</span></span></a></li>
     </ul>
+  </div>
+</dialog>
+
+<!-- Ways-in sheets -->
+<dialog class="sheet" id="sheet-ambassador" aria-labelledby="amb-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="amb-title">An Ambassador</h3>
+    <p>An Ambassador is a trained person whose job is to notice. On campus, in a
+      cafeteria, in a bookshop, at the door of a Lythous<span class="tm">&trade;</span> node.</p>
+    <h4>What they do</h4>
+    <ul class="plain">
+      <li>They notice the person who is always on their own, or who stopped turning up</li>
+      <li>They say hello, and ask what would help today</li>
+      <li>They walk in with you rather than pointing at a door</li>
+      <li>They stay with you until your journey is complete</li>
+    </ul>
+    <h4>What they do not do</h4>
+    <p>An Ambassador does not diagnose you and does not treat you. They connect you to
+      the right people and stay alongside while you get there.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-listener" aria-labelledby="lis-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="lis-title">A Listener</h3>
+    <p>A Listener is the first human you reach. A person.</p>
+    <h4>Why it matters</h4>
+    <p>At three in the morning, somebody who is frightened should reach a human being.
+      That is the whole point of it.</p>
+    <p class="small">Call, text or message Healthcare SMC India on
+      <a href="tel:+919634676724">+91 96346 76724</a>. If you are in immediate danger,
+      call 112, or Tele-MANAS on 14416.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-node" aria-labelledby="node-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="node-title">Walk into a room</h3>
+    <p>A Lythous<span class="tm">&trade;</span> node is a room on campus with people in it. You can walk
+      in without an appointment and without telling anyone why.</p>
+    <h4>What is inside</h4>
+    <ul class="plain">
+      <li>A reception, with an Ambassador who says hello</li>
+      <li>A safe room, to get away from the noise, or to make a private call</li>
+      <li>A reflection room, quiet and low lit, with nothing expected of you</li>
+      <li>A clinical room, for when a doctor is the right person</li>
+      <li>A common area, for whatever that campus needs it to be</li>
+    </ul>
+    <p class="small">Every node is fitted to the place it is in, so no two are the
+      same.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-online" aria-labelledby="onl-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="onl-title">Online</h3>
+    <p>Walking into a room is a lot to ask of some people on some days. You do not have
+      to.</p>
+    <p>Call, text or message and you reach the same people. Where a campus has a virtual
+      Lythous<span class="tm">&trade;</span> node, you can start there and come in later, or never come in
+      at all.</p>
+    <p class="small">Whatever your comfort is, that is the right way in.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-community" aria-labelledby="com-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="com-title">Someone you know</h3>
+    <p>You do not have to be the one who makes contact. A friend, a classmate, a
+      teacher, a warden, a family member, anybody in your community can start it with
+      you or for you.</p>
+    <p>Faculty and Ambassadors work together, so a teacher who is worried about somebody
+      has a real person to take that to.</p>
   </div>
 </dialog>
 
