@@ -298,16 +298,19 @@ section{padding:var(--sec) 0}
    Recognise yourself
    ============================================================ */
 .sec-tint{background:var(--paper-2)}
-.states{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,40px)}
-@media (max-width:980px){.states{grid-template-columns:repeat(2,1fr)}}
+.states{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(24px,4vw,56px) clamp(28px,5vw,72px);
+  max-width:1000px;margin:0 auto;
+}
 @media (max-width:520px){.states{grid-template-columns:1fr}}
 .state{display:flex;flex-direction:column;transition:transform .6s var(--ease)}
 .state:hover{transform:translateY(-6px)}
 .state .simg{
-  width:100%;aspect-ratio:1/1.04;object-fit:cover;display:block;
+  width:100%;aspect-ratio:4/3.2;object-fit:cover;display:block;
   mix-blend-mode:multiply;
-  -webkit-mask-image:radial-gradient(ellipse 88% 86% at 50% 46%,#000 42%,transparent 70%);
-          mask-image:radial-gradient(ellipse 88% 86% at 50% 46%,#000 42%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse 74% 125% at 50% 88%,#000 26%,rgba(0,0,0,.72) 48%,transparent 74%);
+          mask-image:radial-gradient(ellipse 74% 125% at 50% 88%,#000 26%,rgba(0,0,0,.72) 48%,transparent 74%);
   opacity:0;filter:blur(12px);
   transition:opacity 1.9s var(--ease),filter 1.9s var(--ease);
 }
@@ -913,7 +916,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   </section>
 
   <!-- 04 · Recognise yourself -->
-  <section class="sec-tint" id="you">
+  <section id="you" style="background:#EFE5D0">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Where you are</span>
