@@ -469,6 +469,56 @@ section{padding:var(--sec) 0}
 @media (max-width:560px){.steps li{grid-template-columns:1fr}.steps .num{margin-bottom:-2px}}
 
 /* ============================================================
+   What we try to understand
+   ============================================================ */
+.two-col{display:grid;gap:clamp(28px,4vw,64px)}
+@media (min-width:860px){.two-col{grid-template-columns:1fr 1fr}}
+.begin-note{margin-top:22px;color:var(--ink-2)}
+.ask-cycle{
+  position:relative;margin-top:10px;
+  height:clamp(64px,7vw,88px);
+}
+.ask-cycle span{
+  position:absolute;inset:0;display:flex;align-items:center;
+  font-family:var(--display);font-weight:500;letter-spacing:-.01em;
+  font-size:clamp(26px,3vw,38px);line-height:1.2;color:var(--accent-deep);
+  opacity:0;animation:askCycle 16s ease-in-out infinite;
+}
+.ask-cycle span:nth-child(2){animation-delay:4s}
+.ask-cycle span:nth-child(3){animation-delay:8s}
+.ask-cycle span:nth-child(4){animation-delay:12s}
+@keyframes askCycle{
+  0%{opacity:0;transform:translateY(14px)}
+  4%{opacity:1;transform:none}
+  22%{opacity:1;transform:none}
+  27%{opacity:0;transform:translateY(-10px)}
+  100%{opacity:0}
+}
+.fourwords{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.4vw,29px);line-height:1.35;letter-spacing:-.01em}
+.fourwords span{display:block}
+.fourwords span+span{color:var(--accent-deep)}
+.understand-note{margin:18px 0 28px;color:var(--ink-2);max-width:40ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{
+  font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--hair);border-radius:100px;
+  padding:9px 16px;background:var(--card);
+  animation:chipFloat 7s ease-in-out infinite;
+  transition:border-color .3s,color .3s;
+}
+.chips li:hover{border-color:var(--accent);color:var(--accent-deep)}
+.chips li:nth-child(2n){animation-duration:8.5s;animation-delay:-2.1s}
+.chips li:nth-child(3n){animation-duration:6.2s;animation-delay:-3.8s}
+.chips li:nth-child(4n){animation-duration:9.3s;animation-delay:-1.2s}
+.chips li:nth-child(5n){animation-delay:-5s}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){
+  .chips li{animation:none}
+  .ask-cycle{height:auto;display:grid;gap:10px}
+  .ask-cycle span{position:static;opacity:1;animation:none}
+}
+
+/* ============================================================
    How it should feel
    ============================================================ */
 .feel{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,40px)}
@@ -957,8 +1007,39 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </div>
   </section>
 
-  <!-- 07 · How it should feel -->
-  <section id="feel">
+  <!-- 07 · What we try to understand -->
+  <section id="understand">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">What we try to understand</span>
+          <h2 style="font-size:clamp(28px,3.4vw,42px)">Whoever you reach first, they
+            start by trying to understand more of you.</h2>
+          <p class="begin-note">We begin by asking:</p>
+          <div class="ask-cycle" aria-label="Who are you? What matters to you? What is possible for you? Who do you want to become?">
+            <span aria-hidden="true">Who are you?</span>
+            <span aria-hidden="true">What matters to you?</span>
+            <span aria-hidden="true">What is possible for you?</span>
+            <span aria-hidden="true">Who do you want to become?</span>
+          </div>
+        </div>
+        <div class="rv">
+          <p class="fourwords" style="margin-bottom:clamp(22px,2.6vw,34px)">
+            <span>We do not organise care around what we offer.</span>
+            <span>We organise what we offer around you.</span></p>
+          <p class="understand-note">Your life is not in separate pieces. The help you
+            get should not be either.</p>
+          <ul class="chips st">
+            <li>Health</li><li>Mind</li><li>Family</li><li>Relationships</li><li>Study</li>
+            <li>Work</li><li>Money</li><li>Home</li><li>Obstacles</li><li>Abilities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · How it should feel -->
+  <section class="sec-tint" id="feel">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">How it should feel</span>
@@ -977,9 +1058,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </div>
   </section>
 
-  <hr class="hairline">
-
-  <!-- 08 · Questions -->
+  <!-- 09 · Questions -->
   <section id="questions">
     <div class="wrap">
       <div class="sec-head rv">
