@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Say hello | Lythous, Healthcare SMC India</title>
-<meta name="description" content="A room on your campus, and people in it, for anyone who wants to make contact. You do not need a problem to come in.">
+<title>Welcome | Lythous, Healthcare SMC-Geneura India</title>
+<meta name="description" content="You do not need a problem to come in. Walk in, call, text or message, and talk to a person.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="We begin with the person you are">
-<meta property="og:description" content="A room on your campus, and people in it, for anyone who wants to make contact. Saying hello is the whole first step.">
+<meta property="og:title" content="We begin with a person">
+<meta property="og:description" content="You do not need to know what is wrong, or have a reason that sounds serious enough. You can just make contact.">
 <meta property="og:image" content="https://blackopsmanagementsolutions.github.io/geneura/assets/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -425,6 +425,99 @@ section{padding:var(--sec) 0}
 .faq .a p{padding:0 40px 24px 2px;color:var(--ink-2);max-width:58ch}
 
 /* ============================================================
+   v2b additions: ticker, asks, chips, night CARE, sheets
+   ============================================================ */
+.ticker{
+  overflow:hidden;border-block:1px solid var(--hair-soft);
+  padding:14px 0;background:var(--paper);
+}
+.ticker>div{
+  display:flex;gap:34px;width:max-content;
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);animation:tick 34s linear infinite;
+}
+.ticker span{flex:none}
+.ticker .star{color:var(--accent)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker>div{animation:none}}
+
+.asks{list-style:none;margin-top:14px}
+.asks li{
+  font-family:var(--display);font-weight:500;font-size:clamp(21px,2.2vw,26px);
+  line-height:1.3;padding:12px 0;border-bottom:1px solid var(--hair-soft);
+}
+.asks li:last-child{border-bottom:0}
+.begin-note{margin-top:22px;color:var(--ink-2);max-width:30ch}
+.fourwords{font-family:var(--display);font-weight:500;font-size:clamp(21px,2.2vw,27px);line-height:1.35;letter-spacing:-.01em}
+.fourwords span{display:block}
+.fourwords span+span{color:var(--accent-deep)}
+.understand-note{margin:18px 0 26px;color:var(--ink-2);max-width:40ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{
+  font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--hair);border-radius:100px;
+  padding:9px 16px;background:var(--card);
+  transition:transform .35s var(--ease),border-color .3s,color .3s;
+}
+.chips li:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent-deep)}
+
+.asking{list-style:none;margin-top:14px}
+.asking li{
+  font-family:var(--display);font-size:clamp(19px,2vw,23px);color:var(--ink-2);
+  padding:8px 0;
+}
+.access{list-style:none;display:grid;gap:10px;margin-top:14px}
+.access li{
+  display:flex;align-items:center;gap:11px;font-weight:600;font-size:16px;
+}
+.access li::before{
+  content:"";width:20px;height:20px;flex:none;border-radius:50%;
+  background:rgba(169,111,36,.12) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%238A5A1D" stroke-width="2.4" stroke-linecap="round"><path d="M5.5 12.5l4.4 4.4 8.6-9.8"/></svg>') center/12px no-repeat;
+}
+.access-note{margin-top:16px;font-size:14.5px;color:var(--ink-3)}
+.two-col{display:grid;gap:clamp(28px,4vw,64px)}
+@media (min-width:860px){.two-col{grid-template-columns:1fr 1fr}}
+
+.night .feel div{border-top-color:var(--cream)}
+.night .feel b{color:var(--cream)}
+.night .feel span{color:#CFC4B2}
+.night .small{color:#8D8070}
+.gap-lead{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.4vw,28px);line-height:1.35;letter-spacing:-.01em}
+.night .gap-lead{color:var(--cream)}
+.night h2{color:var(--cream)}
+.night p{color:#CFC4B2}
+.night .lede{color:#CFC4B2}
+
+.sheet-in h4{
+  font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:20px 0 8px;
+}
+.sheet-in>p,.sheet-body p{color:var(--ink-2);font-size:15.5px;margin-bottom:10px}
+.sheet-in ul.plain{list-style:none;display:grid;gap:8px}
+.sheet-in ul.plain li{
+  position:relative;padding-left:20px;color:var(--ink-2);font-size:15px;line-height:1.55;
+}
+.sheet-in ul.plain li::before{
+  content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:rgba(169,111,36,.5);
+}
+.site-nav button.navlink{
+  font:inherit;font-size:14.5px;font-weight:500;color:var(--ink-2);
+  transition:color .25s;padding:0;
+}
+.site-nav button.navlink:hover{color:var(--ink)}
+.site-head:not(.solid) .site-nav button.navlink{color:var(--cream-2)}
+.site-head:not(.solid) .site-nav button.navlink:hover{color:var(--cream)}
+
+.way-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:clamp(30px,3.4vw,44px)}
+@media (max-width:980px){.way-cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.way-cards{grid-template-columns:1fr}}
+.way-cards .c-card{text-align:left}
+.way-cards .c-card .link{
+  margin-top:auto;padding-top:12px;font-weight:600;font-size:14px;color:var(--accent-deep);
+}
+
+/* ============================================================
    Mural band
    ============================================================ */
 .mural{
@@ -593,14 +686,14 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <a class="brand" href="#top"><img src="/geneura/assets/mark.png" alt="">
       <span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
     <nav class="site-nav" aria-label="Sections">
-      <a href="#hello">Say hello</a>
+      <a href="#ways">Ways In</a>
+      <a href="#happens">What Happens</a>
       <a href="#inside">Inside</a>
-      <a href="#questions">Questions</a>
-      <a href="/geneura/lythous-india-institution/">For institutions</a>
+      <button class="navlink" type="button" data-open="urgent">If It Is Urgent</button>
     </nav>
     <div class="head-cta">
       <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
-      <button class="btn btn-solid" type="button" data-open="hello">Say hello</button>
+      <button class="btn btn-solid" type="button" data-open="hello">Make contact</button>
     </div>
   </div>
 </header>
@@ -613,8 +706,9 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <div class="hero-in">
       <span class="eyebrow">Welcome to Lythous <span class="aka">Also known as a Lighthouse node</span></span>
       <h1><span class="line"><span>We begin with the</span></span><span class="line"><span>person you are.</span></span></h1>
-      <p class="lede">A room on your campus, and people in it, for anyone who wants to
-        make contact. You do not need a problem to come in.</p>
+      <p class="lede">The world often begins with a problem.<br>
+        We start with you.<br>
+        Your life, your circumstances, what matters to you, and who you want to become.</p>
       <div class="hero-cta">
         <button class="btn btn-solid btn-lg" type="button" data-open="hello">Say hello</button>
         <button class="btn btn-help btn-lg" type="button" data-open="urgent">I need help now</button>
@@ -623,51 +717,14 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <span class="scroll-cue" aria-hidden="true"></span>
   </section>
 
-  <!-- 02 · Say hello -->
-  <section id="hello">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow">Say hello</span>
-        <h2>Saying hello is the whole first step.</h2>
-        <p class="lede">Student, faculty, staff, family, or somebody from the community.
-          Whichever way suits you today.</p>
-      </div>
-      <div class="contact-grid st">
-        <a class="c-card" href="https://wa.me/919634676724?text=Hello">
-          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg></span>
-          <b>WhatsApp us</b>
-          <span>One tap, and &ldquo;Hello&rdquo; is already typed for you.</span>
-          <span class="go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="c-card" href="tel:+919634676724">
-          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
-          <b>Call us</b>
-          <span>Someone answers. Not a menu.</span>
-          <span class="go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="c-card" href="sms:+919634676724">
-          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg></span>
-          <b>Send a text</b>
-          <span>If talking is harder than typing.</span>
-          <span class="go" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="c-card" href="#inside">
-          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 20.5V4.5h9v16"/><path d="M5 20.5h15"/><circle cx="14.2" cy="12.6" r=".9"/></svg></span>
-          <b>Walk in</b>
-          <span>See the room, and where to find it.</span>
-          <span class="go" aria-hidden="true">&darr;</span>
-        </a>
-      </div>
-      <p class="contact-note rv">
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>No appointment</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>No paperwork</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>No waiting list</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>Nothing to prepare</span>
-      </p>
-    </div>
-  </section>
+  <div class="ticker" aria-hidden="true"><div>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+  </div></div>
 
-  <!-- 03 · Recognise yourself -->
+  <!-- 02 · Where you are -->
   <section class="sec-tint" id="you">
     <div class="wrap">
       <div class="sec-head rv">
@@ -686,55 +743,219 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         </ul>
       </div>
       <div class="states-after rv">
-        <p>One of them, none of them, or all four. You do not need a reason.
-          Curiosity is enough.</p>
-        <button class="inline-cta" type="button" data-open="hello">Either way, say hello
+        <p>One of them, none of them, or all four&hellip;<br>
+          Either way, you can make contact with Lythous.<br>
+          You do not need a reason. Curiosity itself is enough.</p>
+        <button class="inline-cta" type="button" data-open="hello">Make contact
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
       </div>
     </div>
   </section>
 
-  <!-- 04 · Whatever works for you -->
+  <!-- 03 · Ways in -->
   <section id="ways">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Ways in</span>
         <h2>Whatever works for you.</h2>
-        <p class="lede">There is no wrong door and no right order. Anyone can walk in,
-          and you never have to arrive alone.</p>
+        <p class="lede" style="margin-top:14px"><b>Anyone can walk in.</b> Student,
+          faculty, staff, family, or somebody from the community.</p>
+        <p class="lede" style="margin-top:10px">There is no wrong door and no right
+          order. Pick whichever one you would actually use today.</p>
       </div>
-      <div class="people st">
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.1"/><path d="M5 20.5c0-3.7 3.1-6.6 7-6.6s7 2.9 7 6.6"/></svg></span>
-          <div><h3>An Ambassador</h3><p>Someone whose job is to notice, and to walk in
-            with you. They stay alongside until you have arrived.</p></div>
+      <div class="way-cards st">
+        <button class="c-card" type="button" data-open="ambassador">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.1"/><path d="M5 20.5c0-3.7 3.1-6.6 7-6.6s7 2.9 7 6.6"/></svg></span>
+          <b>An Ambassador</b>
+          <span>Someone whose job is to notice, and to walk in with you.</span>
+          <span class="link">What is an Ambassador?</span>
+        </button>
+        <button class="c-card" type="button" data-open="listener">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/></svg></span>
+          <b>A Listener</b>
+          <span>A real person on the other end, at any hour.</span>
+          <span class="link">What is a Listener?</span>
+        </button>
+        <button class="c-card" type="button" data-open="node">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 20.5V4.5h9v16"/><path d="M5 20.5h15"/><circle cx="14.2" cy="12.6" r=".9"/></svg></span>
+          <b>Walk into a room</b>
+          <span>A Lythous node on your campus. Just come in.</span>
+          <span class="link">What is inside?</span>
+        </button>
+        <button class="c-card" type="button" data-open="online">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="4.6" width="16.8" height="10.8" rx="1.2"/><path d="M2 19.2h20"/></svg></span>
+          <b>Online</b>
+          <span>If going somewhere in person is too much right now.</span>
+          <span class="link">How that works</span>
+        </button>
+        <button class="c-card" type="button" data-open="community">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
+          <b>Someone you know</b>
+          <span>A friend, a classmate, a teacher, anyone in your community.</span>
+          <span class="link">How that works</span>
+        </button>
+      </div>
+      <div class="contact-grid st">
+        <a class="c-card" href="tel:+919634676724">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
+          <b>+91 96346 76724</b>
+          <span>Someone answers. Not a menu.</span>
+          <span class="go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="c-card" href="https://wa.me/919634676724">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg></span>
+          <b>Message us</b>
+          <span>If talking is harder than typing.</span>
+          <span class="go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="c-card" href="sms:+919634676724">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg></span>
+          <b>Send a text</b>
+          <span>You don&rsquo;t have to explain much.</span>
+          <span class="go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="c-card" href="#inside">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 20.5V4.5h9v16"/><path d="M5 20.5h15"/><circle cx="14.2" cy="12.6" r=".9"/></svg></span>
+          <b>Pay us a visit</b>
+          <span>See the room, and where to find it.</span>
+          <span class="go" aria-hidden="true">&darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · If you are hesitating -->
+  <section class="sec-tint" id="unsure">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">If you are hesitating</span>
+          <h2>Are you hesitating?</h2>
+          <ul class="asking">
+            <li>Unsure?</li>
+            <li>Not sure what to say?</li>
+            <li>Afraid of being judged?</li>
+          </ul>
         </div>
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/></svg></span>
-          <div><h3>A Listener</h3><p>A real person on the other end, at any hour. Not a
-            chatbot, not a menu, not a form.</p></div>
+        <div class="rv" style="align-self:center">
+          <span class="eyebrow">Nothing you need to bring</span>
+          <ul class="access">
+            <li>No preparation</li>
+            <li>No appointment</li>
+            <li>No paperwork</li>
+            <li>No waiting list</li>
+          </ul>
+          <p class="access-note">Turn up as you are, whenever suits you.</p>
         </div>
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="4.6" width="16.8" height="10.8" rx="1.2"/><path d="M2 19.2h20"/></svg></span>
-          <div><h3>Online first</h3><p>If going somewhere in person is too much right now,
-            start from where you are. Come in later, or never.</p></div>
+      </div>
+      <div class="faq rv" style="margin-top:clamp(44px,5vw,68px)">
+        <span class="eyebrow" style="display:block;margin-bottom:10px">Common questions
+          people have before they decide to say hello</span>
+        <details>
+          <summary>What if I do not know what to say?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>You do not have to know. &ldquo;I do not really know why I am
+            here&rdquo; is a fine place to start, and you can say nothing at all for a
+            while.</p></div>
+        </details>
+        <details>
+          <summary>Will I be judged?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>No. Nobody asks you what is wrong with you.</p></div>
+        </details>
+        <details>
+          <summary>What if it is not serious enough?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>There is no bar to clear. <b>Curiosity is enough.</b></p></div>
+        </details>
+        <details>
+          <summary>How long does this take?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>No appointment and no waiting list, so come when it suits you.
+            How long you stay is up to you.</p></div>
+        </details>
+        <details>
+          <summary>Is there a form to fill in?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>No. None of it is a form. It is what the conversation is
+            about, over however long it takes.</p></div>
+        </details>
+        <details>
+          <summary>Will it be written down?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>You decide what you tell us. You can ask at any point what has
+            been written down, and who can see it.</p></div>
+        </details>
+        <details>
+          <summary>Can I bring someone, or stop?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>Bring anyone you like. Stop whenever you want, and come back
+            later.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · What we try to understand -->
+  <section id="understand">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">What we try to understand</span>
+          <h2 style="font-size:clamp(28px,3.4vw,42px)">Whoever you reach first, they
+            start by trying to understand more of you.</h2>
+          <p class="begin-note">We begin by asking:</p>
+          <ul class="asks">
+            <li>Who are you?</li>
+            <li>What matters to you?</li>
+            <li>What is possible for you?</li>
+            <li>Who do you want to become?</li>
+          </ul>
         </div>
-        <div class="person">
-          <span class="p-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
-          <div><h3>Someone you know</h3><p>A friend, a classmate, a teacher, a family
-            member. Anyone can start it with you, or for you.</p></div>
+        <div class="rv">
+          <p class="fourwords" style="margin-bottom:clamp(22px,2.6vw,34px)">
+            <span>We do not organise care around what we offer.</span>
+            <span>We organise what we offer around you.</span></p>
+          <p class="understand-note">Your life is not in separate pieces. The help you
+            get should not be either.</p>
+          <ul class="chips st">
+            <li>Health</li><li>Mind</li><li>Family</li><li>Relationships</li><li>Study</li>
+            <li>Work</li><li>Money</li><li>Home</li><li>Obstacles</li><li>Abilities</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="hairline">
+  <!-- 06 · A beginning -->
+  <section class="night" id="becoming">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">A beginning</span>
+          <h2>Not a place. A beginning.</h2>
+          <p class="gap-lead" style="margin-top:18px;max-width:26ch">You do not need a
+            problem to have a possibility.</p>
+          <p class="lede" style="margin-top:18px;max-width:34ch">A Lythous node is not
+            the destination. It is the moment a path becomes visible.</p>
+        </div>
+        <div class="rv">
+          <p class="lede">A Lythous<span class="tm">&trade;</span> node is a beginning, where people are
+            truly seen, what has gone unseen is revealed, and what has remained
+            disconnected is brought together.</p>
+          <div class="feel st" style="grid-template-columns:1fr 1fr;margin-top:clamp(26px,3vw,38px)">
+            <div><b>Connected</b><span>You are not working this out on your own.</span></div>
+            <div><b>Acknowledged</b><span>Somebody knows you came, and remembers when you
+              come back.</span></div>
+            <div><b>Respected</b><span>You are a person here, not a case.</span></div>
+            <div><b>Empowered</b><span>You leave knowing what happens next, and who is
+              doing it.</span></div>
+          </div>
+          <p class="small" style="margin-top:24px">CARE<span class="tm">&trade;</span> is how we want you
+            to experience this. Connected, Acknowledged, Respected, Empowered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 05 · Inside -->
   <section id="inside">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">Inside our Lythous node</span>
+        <span class="eyebrow">Inside our Lythous&trade; node</span>
         <h2>Come and pay us a visit.</h2>
       </div>
       <div class="where-card rv">
@@ -752,6 +973,9 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <figure><img src="/geneura/assets/room-seating.jpg" alt="Seating arranged in a circle around a low table.">
           <figcaption>A circle around a low table, not across a desk.</figcaption></figure>
       </div>
+      <p class="rv" style="margin-top:22px;color:var(--ink-2);max-width:56ch">Somewhere
+        to sit and talk. No desk between you and the person you are talking to, and
+        nothing that makes you feel you are being examined.</p>
       <div class="plan">
         <figure class="plan-fig rv">
           <svg class="plan-svg" viewBox="0 0 720 480" aria-hidden="true" focusable="false">
@@ -772,11 +996,11 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           <p class="plan-sub">Select a space to see what it is for. You are never sent
             to one. You choose.</p>
           <div class="zone-list">
-            <button class="zone-btn on" type="button" aria-expanded="true"><span class="num">01</span><span><b>Arrival</b><span class="say">Phones go down. A moment to land before anything is asked of you.</span></span></button>
-            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">02</span><span><b>Reflection</b><span class="say">Quiet and low light, with nothing expected of you.</span></span></button>
-            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">03</span><span><b>Expressive</b><span class="say">Making something, with nothing you have to explain.</span></span></button>
-            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">04</span><span><b>Collaborative</b><span class="say">Groups and peer work. The part that builds belonging.</span></span></button>
-            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">05</span><span><b>Private</b><span class="say">One to one, behind a door that closes.</span></span></button>
+            <button class="zone-btn on" type="button" aria-expanded="true"><span class="num">01</span><span><b>Arrival</b><span class="say">Phones go down here. A moment to arrive before anything is asked of you.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">02</span><span><b>Reflection</b><span class="say">Somewhere to sit with yourself. Quiet, low light, and nothing expected of you.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">03</span><span><b>Expressive</b><span class="say">Making something. Creative work as a way through, and nothing you have to explain.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">04</span><span><b>Collaborative</b><span class="say">Groups, workshops and peer work. The part that builds belonging.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">05</span><span><b>Private</b><span class="say">One to one. A door that closes, for the conversation that needs it.</span></span></button>
           </div>
           <p class="plan-note">This plan shows the idea, not an exact layout. Each node
             is fitted to the space the university provides.</p>
@@ -785,109 +1009,71 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </div>
   </section>
 
-  <!-- 06 · After you say hello -->
-  <section class="sec-tint" id="after">
+  <!-- 08 · How it works -->
+  <section class="sec-tint" id="happens">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">What happens next</span>
-        <h2>After you say hello.</h2>
+        <span class="eyebrow">How it works</span>
+        <h2 style="font-size:clamp(28px,3.6vw,46px)">Five steps, and an Ambassador who
+          is responsible for every one.</h2>
+        <p class="gap-lead" style="margin-top:20px;max-width:26ch;color:var(--ink-2)">First
+          we listen. Then we understand.</p>
       </div>
       <ol class="steps st">
         <li><span class="num">01</span>
-          <div><b>You are met by a person</b>
-          <p>You reach out, or an Ambassador says hello first. Either way it starts
-            with a person, not a form.</p></div></li>
+          <div><b>Recognition</b>
+          <p>You reach out, or an Ambassador notices and invites you. Either way, it
+            starts with a person, not a form.</p></div></li>
         <li><span class="num">02</span>
-          <div><b>You talk, on your terms</b>
-          <p>In the room, or by phone, text or WhatsApp. Silence counts too.</p></div></li>
+          <div><b>Engagement</b>
+          <p>You talk, on your terms. In the room, or by phone, text or WhatsApp.</p></div></li>
         <li><span class="num">03</span>
-          <div><b>You work it out together</b>
-          <p>What would actually help, and who already near you can give it.</p></div></li>
+          <div><b>Navigation</b>
+          <p>Together you work out what would actually help, and who already near you
+            can give it.</p></div></li>
         <li><span class="num">04</span>
-          <div><b>If you are ever at risk</b>
-          <p>A written plan says who acts, in what order, and how fast. You are told
-            what it is.</p></div></li>
+          <div><b>Escalation</b>
+          <p>If you are ever at risk, a written plan says who acts, in what order, and
+            how fast. You are told what it is.</p></div></li>
         <li><span class="num">05</span>
-          <div><b>Nobody disappears</b>
+          <div><b>Follow-through</b>
           <p>Your Ambassador goes with you until you have arrived, and somebody checks
             back afterwards.</p></div></li>
       </ol>
     </div>
   </section>
 
-  <!-- 07 · How it should feel -->
-  <section id="feel">
+  <!-- 09 · Become an Ambassador -->
+  <section id="ambassador">
     <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow">How it should feel</span>
-        <h2>You are a person here, not a case.</h2>
-      </div>
-      <div class="feel st">
-        <div><b>Connected</b><span>You are not working this out on your own.</span></div>
-        <div><b>Acknowledged</b><span>Somebody knows you came, and remembers when you
-          come back.</span></div>
-        <div><b>Respected</b><span>Nobody asks you what is wrong with you.</span></div>
-        <div><b>Empowered</b><span>You leave knowing what happens next, and who is
-          doing it.</span></div>
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">Become an Ambassador</span>
+          <h2>Or come the other way round.</h2>
+        </div>
+        <div class="rv">
+          <p class="lede">Some people walk in not because they need something, but
+            because they want to be the person somebody else can walk up to.</p>
+          <p style="margin-top:14px;color:var(--ink-2)">An Ambassador is the first human
+            point of contact on a campus. You are trained to notice, to listen and to
+            walk in with somebody. You are not asked to diagnose anything, or to be
+            anybody&rsquo;s counsellor.</p>
+          <button class="inline-cta" type="button" data-open="ambassador">What an
+            Ambassador actually does
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        </div>
       </div>
     </div>
   </section>
 
-  <hr class="hairline">
-
-  <!-- 08 · Questions -->
-  <section id="questions">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow">Before you decide</span>
-        <h2>Questions people ask first.</h2>
-      </div>
-      <div class="faq rv">
-        <details>
-          <summary>What if I do not know what to say?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>You do not have to know. &ldquo;I do not really know why I am
-            here&rdquo; is a fine place to start, and you can say nothing at all for a
-            while.</p></div>
-        </details>
-        <details>
-          <summary>Will I be judged?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>No. Nobody asks you what is wrong with you.</p></div>
-        </details>
-        <details>
-          <summary>What if it is not serious enough?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>There is no bar to clear. Curiosity is enough.</p></div>
-        </details>
-        <details>
-          <summary>How long does this take?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>Come when it suits you. Stay as long as you like.</p></div>
-        </details>
-        <details>
-          <summary>Is there a form to fill in?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>No. It is a conversation, over however long it takes.</p></div>
-        </details>
-        <details>
-          <summary>Will it be written down?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>You decide what you tell us. You can ask at any point what has
-            been written down, and who can see it.</p></div>
-        </details>
-        <details>
-          <summary>Can I bring someone, or stop?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="a"><p>Bring anyone you like. Stop whenever you want, and come back
-            later.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 09 · Mural band -->
+  <!-- 10 · Mural band -->
   <section class="mural rv" aria-label="Mural of a person holding up a lantern while people gather from every side">
     <div class="mural-bg"><img src="/geneura/assets/art-lantern.webp" alt=""></div>
     <span class="mural-glow" aria-hidden="true"></span>
-    <p class="mural-line">You do not need a problem to have a possibility.</p>
   </section>
 
-  <!-- 10 · Night close -->
-  <section class="night" id="year" style="padding-bottom:0">
+  <!-- 11 · A year from now -->
+  <section class="night" id="become" style="padding-bottom:0">
     <div class="wrap">
       <div class="rv" id="year-viz">
         <ul class="year-arc" aria-hidden="true">
@@ -904,31 +1090,14 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <div class="rv">
           <p>You may understand what you need, recognise strengths you had overlooked,
             and feel connected to people and possibilities you could not see before.</p>
-          <p style="margin-top:14px"><strong>A Lythous node does not change who you are.
-            It helps reveal who you can become.</strong></p>
+          <p style="margin-top:14px"><strong style="color:var(--cream)">A Lythous node
+            does not change who you are. It helps reveal who you can
+            become.</strong></p>
         </div>
       </div>
-
-      <div class="ready rv">
-        <div class="ready-in">
-          <h2>Ready when you are.</h2>
-          <p class="lede">Message, call, text, or walk in. You do not need to know what
-            to say.</p>
-          <div class="ready-btns">
-            <a class="btn btn-solid btn-lg" href="https://wa.me/919634676724?text=Hello">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg>
-              WhatsApp us</a>
-            <a class="btn btn-ghost btn-lg" href="tel:+919634676724">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg>
-              +91 96346 76724</a>
-            <a class="btn btn-ghost btn-lg" href="sms:+919634676724">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg>
-              Send a text</a>
-          </div>
-          <p class="hello-hint">&ldquo;Hello&rdquo; is enough.</p>
-        </div>
+      <div class="ready rv" style="padding-top:0">
         <p class="lockup" id="lockup"><span>We see you.</span><span>We connect
-          you.</span><span>You become.</span></p>
+          you.</span><span>You become.<span class="tm">&trade;</span></span></p>
       </div>
     </div>
   </section>
@@ -951,12 +1120,15 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           from Geneura AI, Inc.</p>
       </div>
       <div><h4>Ways in</h4><ul>
-        <li><a href="https://wa.me/919634676724?text=Hello">WhatsApp us</a></li>
-        <li><a href="tel:+919634676724">+91 96346 76724</a></li>
-        <li><a href="sms:+919634676724">Send a text</a></li>
-        <li><a href="#inside">Where to find us</a></li>
+        <li><a href="#ways">Make contact</a></li>
+        <li><a href="#happens">How it works</a></li>
+        <li><a href="#inside">Inside a node</a></li>
         <li><a href="/geneura/lythous-india-institution/">For institutions</a></li></ul></div>
       <div><h4>About</h4><ul>
+        <li><button class="linky" type="button" data-open="about">About</button></li>
+        <li><button class="linky" type="button" data-open="trust">Trust and safety</button></li>
+        <li><button class="linky" type="button" data-open="naming">Naming notice</button></li>
+        <li><button class="linky" type="button" data-open="marks">Trademark notice</button></li>
         <li><span style="color:#7E7060">Geneura AI, Inc.</span></li>
         <li><a href="https://geneura.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
         <li><a href="https://geneura.ai/terms" target="_blank" rel="noopener">Terms of Use</a></li>
@@ -969,7 +1141,8 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </div>
     <div class="foot-bar">
       <span>Not a clinical service. Nobody who uses one becomes a patient.</span>
-      <span>Lythous&trade; and related marks are trademarks of Geneura AI, Inc.</span>
+      <span>Trademarks of Geneura AI, Inc.
+        <button class="linky" type="button" data-open="marks">See the notice</button></span>
     </div>
   </div>
 </footer>
@@ -978,20 +1151,20 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 <dialog class="sheet" id="sheet-hello" aria-labelledby="hello-title">
   <div class="sheet-in">
     <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
-    <h3 id="hello-title">Say hello</h3>
-    <p class="sub">Whichever is easiest. A person answers, whichever you choose.</p>
+    <h3 id="hello-title">Make contact</h3>
+    <p class="sub">Whatever works for you. A person answers, whichever you choose.</p>
     <ul class="sheet-rows">
-      <li><a href="https://wa.me/919634676724?text=Hello">
-        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg></span>
-        <span><b>WhatsApp</b><span>&ldquo;Hello&rdquo; is already typed for you</span></span></a></li>
       <li><a href="tel:+919634676724">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
         <span><b>Call +91 96346 76724</b><span>Someone answers. Not a menu</span></span></a></li>
+      <li><a href="https://wa.me/919634676724">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg></span>
+        <span><b>Message us</b><span>If talking is harder than typing</span></span></a></li>
       <li><a href="sms:+919634676724">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg></span>
-        <span><b>Text</b><span>You do not have to explain much</span></span></a></li>
+        <span><b>Send a text</b><span>You don&rsquo;t have to explain much</span></span></a></li>
     </ul>
-    <p class="sheet-note">You do not need to know what to say.</p>
+    <p class="sheet-note">You do not need a reason. Curiosity itself is enough.</p>
   </div>
 </dialog>
 
@@ -1018,6 +1191,164 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span><b>Healthcare SMC India</b><span>Each campus gets its own number when its
           node opens</span></span></a></li>
     </ul>
+  </div>
+</dialog>
+
+<!-- Ways-in and about sheets, old copy -->
+<dialog class="sheet" id="sheet-ambassador" aria-labelledby="amb-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="amb-title">An Ambassador</h3>
+    <p>An Ambassador is a trained person whose job is to notice. On campus, in a
+      cafeteria, in a bookshop, at the door of a Lythous node.</p>
+    <h4>What they do</h4>
+    <ul class="plain">
+      <li>They notice the person who is always on their own, or who stopped turning up</li>
+      <li>They say hello, and ask what would help today</li>
+      <li>They walk in with you rather than pointing at a door</li>
+      <li>They stay with you until your journey is complete</li>
+    </ul>
+    <h4>What they do not do</h4>
+    <p>An Ambassador does not diagnose you and does not treat you. They connect you to
+      the right people and stay alongside while you get there.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-listener" aria-labelledby="lis-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="lis-title">A Listener</h3>
+    <p>A Listener is the first human you reach. Not a chatbot, not a menu, not a form.
+      A person.</p>
+    <h4>Why it matters</h4>
+    <p>At three in the morning, somebody who is frightened should reach a human being.
+      That is the whole point of it.</p>
+    <p class="small">Call, text or message Healthcare SMC India on
+      <a href="tel:+919634676724">+91 96346 76724</a>. If you are in immediate danger,
+      call 112, or Tele-MANAS on 14416.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-node" aria-labelledby="node-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="node-title">Walk into a room</h3>
+    <p>A Lythous node is a room on campus with people in it. You can walk in without an
+      appointment and without telling anyone why.</p>
+    <h4>What is inside</h4>
+    <ul class="plain">
+      <li>A reception, with an Ambassador who says hello</li>
+      <li>A safe room, to get away from the noise, or to make a private call</li>
+      <li>A reflection room, quiet and low lit, with nothing expected of you</li>
+      <li>A clinical room, for when a doctor is the right person</li>
+      <li>A common area, for whatever that campus needs it to be</li>
+    </ul>
+    <p class="small">Every node is fitted to the place it is in, so no two are the
+      same.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-online" aria-labelledby="onl-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="onl-title">Online</h3>
+    <p>Walking into a room is a lot to ask of some people on some days. You do not have
+      to.</p>
+    <p>Call, text or message and you reach the same people. Where a campus has a virtual
+      Lythous node, you can start there and come in later, or never come in at all.</p>
+    <p class="small">Whatever your comfort is, that is the right way in.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-community" aria-labelledby="com-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="com-title">Someone you know</h3>
+    <p>You do not have to be the one who makes contact. A friend, a classmate, a
+      teacher, a warden, a family member, anybody in your community can start it with
+      you or for you.</p>
+    <p>Faculty and Ambassadors work together, so a teacher who is worried about somebody
+      has a real person to take that to.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-about" aria-labelledby="abt-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="abt-title">Healthcare SMC-Geneura</h3>
+    <p>We build human infrastructure: the connection between the people and services
+      already around a person, rather than another service beside them.</p>
+    <h4>How it fits together</h4>
+    <ul class="plain">
+      <li>Geneura AI<span class="tm">&trade;</span> is the owner and steward</li>
+      <li>Human Infrastructure<span class="tm">&trade;</span> is the framework</li>
+      <li>Lythous<span class="tm">&trade;</span> nodes are where it becomes visible inside a community</li>
+    </ul>
+    <p class="small">Healthcare SMC-Geneura LLP is the authorised India operator and
+      licensee of certain intellectual property, technology, systems, methodologies and
+      brands of Geneura AI, Inc., USA.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-trust" aria-labelledby="tru-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="tru-title">Where the boundary sits</h3>
+    <p>A Lythous<span class="tm">&trade;</span> node is not a clinic or a counselling service. Nobody who
+      walks in becomes a patient.</p>
+    <h4>If someone is in immediate danger</h4>
+    <p>Call <b>112</b> for emergency services anywhere in India. Tele-MANAS, the
+      national mental health helpline run by the Ministry of Health and Family Welfare,
+      is <b>14416</b>, free and open day and night in twenty languages. KIRAN, the
+      national mental health rehabilitation helpline, is <b>1800 599 0019</b>.</p>
+    <h4>If someone is at risk</h4>
+    <p>A written protocol covers anyone assessed as being at risk. It names who is
+      contacted, in what order, and how quickly.</p>
+    <h4>What is recorded</h4>
+    <p>The full statement on what is recorded about a person, who can see it and how
+      long it is kept publishes with the site.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-naming" aria-labelledby="nam-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="nam-title">Lythous<span class="tm">&trade;</span>, formerly known as Lighthouse</h3>
+    <p>Lythous<span class="tm">&trade;</span> is the current name for the Geneura Human
+      Infrastructure<span class="tm">&trade;</span> system and deployment architecture previously referred
+      to in certain materials as &ldquo;Lighthouse&rdquo; or &ldquo;Light House&rdquo;.
+      References to those names in prior Healthcare SMC-Geneura materials refer to what
+      is now known as Lythous<span class="tm">&trade;</span>.</p>
+    <p>They are not two different systems or programmes. If you arrived here from a
+      poster, a billboard or a QR code that said Lighthouse, you are in the right
+      place.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-marks" aria-labelledby="mrk-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="mrk-title">Trademark notice</h3>
+    <h4>Filed in India</h4>
+    <p>Mary on the Bench<span class="tm">&trade;</span>, Human Infrastructure<span class="tm">&trade;</span>, Human Presence
+      Layer<span class="tm">&trade;</span>, Human Engagement Ecosystem<span class="tm">&trade;</span>, The Lythous Immersion
+      Experience<span class="tm">&trade;</span>, Founding Lythous Node<span class="tm">&trade;</span>, HIO<span class="tm">&trade;</span>,
+      SENTIENT<span class="tm">&trade;</span> and the Lythous<span class="tm">&trade;</span> device are the subject of trademark
+      applications filed with the Trade Marks Registry, Mumbai, by Geneura AI, Inc.</p>
+    <h4>Also claimed</h4>
+    <p>Geneura<span class="tm">&trade;</span>, Geneura AI<span class="tm">&trade;</span>, CARE<span class="tm">&trade;</span>, Before Crisis
+      Begins<span class="tm">&trade;</span> and related proprietary methodologies are trademarks and/or
+      intellectual property of Geneura AI, Inc.</p>
+    <p class="small">Delivered in India by HealthcareSMC-Geneura LLP under licence from
+      Geneura AI, Inc. No ownership rights transfer through participation, licensing,
+      implementation, operation, collaboration or deployment.</p>
+    <h4>Operator and licence</h4>
+    <p class="small">Healthcare SMC-Geneura LLP is an authorised India operator and
+      licensee of certain intellectual property, technology, systems, methodologies and
+      brands of Geneura AI, Inc., USA. Lythous<span class="tm">&trade;</span>, Human
+      Infrastructure<span class="tm">&trade;</span>, CARE<span class="tm">&trade;</span> and other designated Geneura marks,
+      frameworks and proprietary materials are owned by or used under authorisation from
+      Geneura AI, Inc., as applicable. All rights reserved.</p>
   </div>
 </dialog>
 
