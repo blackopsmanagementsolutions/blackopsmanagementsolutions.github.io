@@ -498,20 +498,30 @@ section{padding:var(--sec) 0}
 .fourwords span{display:block}
 .fourwords span+span{color:var(--accent-deep)}
 .understand-note{margin:18px 0 28px;color:var(--ink-2);max-width:40ch}
-.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips{position:relative;list-style:none;min-height:clamp(280px,26vw,360px)}
 .chips li{
+  position:absolute;left:var(--x);top:var(--y);
+  display:inline-flex;align-items:center;gap:9px;
   font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--ink-2);border:1px solid var(--hair);border-radius:100px;
-  padding:9px 16px;background:var(--card);
-  animation:chipFloat 7s ease-in-out infinite;
-  transition:border-color .3s,color .3s;
+  padding:10px 18px;background:var(--card);box-shadow:var(--shadow-1);
+  animation:bubDrift var(--dur,16s) ease-in-out var(--delay,0s) infinite alternate;
+  transition:border-color .3s,color .3s;white-space:nowrap;
 }
 .chips li:hover{border-color:var(--accent);color:var(--accent-deep)}
-.chips li:nth-child(2n){animation-duration:8.5s;animation-delay:-2.1s}
-.chips li:nth-child(3n){animation-duration:6.2s;animation-delay:-3.8s}
-.chips li:nth-child(4n){animation-duration:9.3s;animation-delay:-1.2s}
-.chips li:nth-child(5n){animation-delay:-5s}
-@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.chips .dim-ico{
+  width:17px;height:17px;flex:none;
+  stroke:var(--accent-deep);stroke-width:1.6;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+@keyframes bubDrift{
+  from{transform:translate(0,0)}
+  to{transform:translate(var(--dx,6px),var(--dy,-8px))}
+}
+@media (max-width:700px){
+  .chips{min-height:0;display:flex;flex-wrap:wrap;gap:10px}
+  .chips li{position:static;animation-duration:calc(var(--dur,16s)/2)}
+}
 @media (prefers-reduced-motion:reduce){
   .chips li{animation:none}
   .ask-cycle{height:auto;display:grid;gap:10px}
@@ -521,10 +531,28 @@ section{padding:var(--sec) 0}
 /* ============================================================
    How it should feel
    ============================================================ */
-.feel{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,40px)}
+.feel{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media (max-width:980px){.feel{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.feel{grid-template-columns:1fr}}
-.feel div{padding-top:20px;border-top:2px solid var(--ink)}
+.feel div{
+  position:relative;overflow:hidden;
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
+  padding:26px 22px 24px;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.feel div:hover{transform:translateY(-5px);box-shadow:var(--shadow-2)}
+.feel .cap{
+  display:block;font-family:var(--display);font-weight:500;line-height:.9;
+  font-size:clamp(52px,5vw,72px);color:var(--accent);
+  margin-bottom:14px;
+}
+.feel div::after{
+  content:attr(data-cap);position:absolute;right:-8px;top:-22px;
+  font-family:var(--display);font-weight:500;line-height:1;
+  font-size:150px;color:var(--accent);opacity:.06;pointer-events:none;
+  transition:opacity .4s ease,transform .6s var(--ease);
+}
+.feel div:hover::after{opacity:.12;transform:translateY(6px)}
 .feel b{font-family:var(--display);font-weight:500;font-size:clamp(20px,2vw,24px);display:block;margin-bottom:8px}
 .feel span{color:var(--ink-2);font-size:15px;line-height:1.55;display:block;max-width:26ch}
 
@@ -1029,9 +1057,17 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
             <span>We organise what we offer around you.</span></p>
           <p class="understand-note">Your life is not in separate pieces. The help you
             get should not be either.</p>
-          <ul class="chips st">
-            <li>Health</li><li>Mind</li><li>Family</li><li>Relationships</li><li>Study</li>
-            <li>Work</li><li>Money</li><li>Home</li><li>Obstacles</li><li>Abilities</li>
+          <ul class="chips rv">
+            <li style="--x:2%;--y:10%;--dur:16s;--delay:0s;--dx:7px;--dy:-11px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.2-4.4-7.2-9.4a4 4 0 0 1 7.2-2.4 4 4 0 0 1 7.2 2.4c0 5-7.2 9.4-7.2 9.4z"/></svg><b>Health</b></li>
+            <li style="--x:30%;--y:2%;--dur:19s;--delay:-4s;--dx:-8px;--dy:9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.4 20.6v-3.2a6.9 6.9 0 1 0-9.1-6.5c0 1.7.6 3.2 1.6 4.4v2.4h2.6v2.9"/><path d="M11.4 10.6c0-1.6 2-1.6 2-2.9"/></svg><b>Mind</b></li>
+            <li style="--x:52%;--y:12%;--dur:14s;--delay:-8s;--dx:6px;--dy:10px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="7.6" r="2.4"/><circle cx="16" cy="7.6" r="2.4"/><path d="M3.6 19c0-2.6 2-4.6 4.4-4.6s4.4 2 4.4 4.6"/><path d="M11.6 19c0-2.6 2-4.6 4.4-4.6s4.4 2 4.4 4.6"/></svg><b>Family</b></li>
+            <li style="--x:70%;--y:1%;--dur:21s;--delay:-2s;--dx:-6px;--dy:-9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8.6" cy="12" r="4.8"/><circle cx="15.4" cy="12" r="4.8"/></svg><b>Relationships</b></li>
+            <li style="--x:9%;--y:38%;--dur:17s;--delay:-6s;--dx:9px;--dy:7px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 6.6C10.3 5.3 7.9 4.9 4 5.1v12.8c3.9-.2 6.3.2 8 1.5 1.7-1.3 4.1-1.7 8-1.5V5.1c-3.9-.2-6.3.2-8 1.5z"/><path d="M12 6.6v12.8"/></svg><b>Study</b></li>
+            <li style="--x:38%;--y:32%;--dur:20s;--delay:-11s;--dx:-7px;--dy:-10px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="7.6" width="17.6" height="11.8" rx="1.5"/><path d="M8.6 7.6V5.6a1.6 1.6 0 0 1 1.6-1.6h3.6a1.6 1.6 0 0 1 1.6 1.6v2"/><path d="M3.2 12.6h17.6"/></svg><b>Work</b></li>
+            <li style="--x:64%;--y:42%;--dur:15s;--delay:-3s;--dx:8px;--dy:-6px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.4"/><path d="M9.4 8.6h5.2M9.4 11h4.4"/><path d="M12.9 8.6c1.4 0 2.2.9 2.2 1.9s-.8 1.9-2.2 1.9H9.4l4.4 4.4"/></svg><b>Money</b></li>
+            <li style="--x:4%;--y:68%;--dur:18s;--delay:-9s;--dx:-9px;--dy:8px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.8 10.4 12 3.9l8.2 6.5v9.6H3.8z"/><path d="M9.4 20v-5.4h5.2V20"/></svg><b>Home</b></li>
+            <li style="--x:33%;--y:72%;--dur:22s;--delay:-5s;--dx:7px;--dy:9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="1"/><path d="M3.2 12h17.6M9.4 6.2V12M14.6 12v5.8"/></svg><b>Obstacles</b></li>
+            <li style="--x:62%;--y:66%;--dur:16s;--delay:-13s;--dx:-8px;--dy:-7px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.9 14.5 9l5.6.8-4 4 .9 5.6-5-2.7-5 2.7.9-5.6-4-4L9.5 9z"/></svg><b>Abilities</b></li>
           </ul>
         </div>
       </div>
@@ -1048,12 +1084,14 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           Lythous<span class="tm">&trade;</span> node is held to.</p>
       </div>
       <div class="feel st">
-        <div><b>Connected</b><span>You are not working this out on your own.</span></div>
-        <div><b>Acknowledged</b><span>Somebody knows you came, and remembers when you
-          come back.</span></div>
-        <div><b>Respected</b><span>Nobody asks you what is wrong with you.</span></div>
-        <div><b>Empowered</b><span>You leave knowing what happens next, and who is
-          doing it.</span></div>
+        <div data-cap="C"><span class="cap" aria-hidden="true">C</span><b>Connected</b><span>You
+          are not working this out on your own.</span></div>
+        <div data-cap="A"><span class="cap" aria-hidden="true">A</span><b>Acknowledged</b><span>Somebody
+          knows you came, and remembers when you come back.</span></div>
+        <div data-cap="R"><span class="cap" aria-hidden="true">R</span><b>Respected</b><span>Nobody
+          asks you what is wrong with you.</span></div>
+        <div data-cap="E"><span class="cap" aria-hidden="true">E</span><b>Empowered</b><span>You
+          leave knowing what happens next, and who is doing it.</span></div>
       </div>
     </div>
   </section>
