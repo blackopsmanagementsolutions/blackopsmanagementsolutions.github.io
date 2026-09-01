@@ -79,7 +79,16 @@
   color:var(--ink);
   max-width:16ch;
 }
-.lockup span{display:block}
+/* the three phrases sit on one line where there is room, and only stack when
+   there is not. Three stacked lines took a screen and a half to say what fits
+   comfortably across one. */
+.lockup{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.1em .45em;
+  max-width:none;
+}
+.lockup span{display:inline}
 .lockup span:last-child{color:var(--ochre)}
 
 .ch-forest .lockup,.ch-night .lockup{color:#FBF7F0}
@@ -439,57 +448,60 @@ a.c-btn:hover .c-go{transform:translateX(4px)}
 .ch-forest .asking li,.ch-night .asking li{color:#B5A48D}
 
 /* ------------------------------------------------------------ where it is
-   Laid out across the page rather than stacked in a column: the institution,
-   the town, and what the room is actually like, side by side under one rule.
-   The room description used to sit up in the heading block, where it competed
-   with the heading; here it answers the question the address raises. */
+   An address, set as one. It answers the invitation directly above it, so it
+   sits under the heading rather than at the foot of the section, and reads as
+   a place rather than as three columns of administrative text. */
 
 .where{
-  margin:clamp(34px,4vw,52px) 0 clamp(26px,3vw,38px);
-  padding-top:clamp(22px,2.6vw,32px);
-  border-top:1px solid var(--rule);
+  display:flex;
+  gap:clamp(14px,1.6vw,20px);
+  align-items:flex-start;
+  margin:clamp(24px,2.8vw,34px) 0 clamp(30px,3.6vw,46px);
+  padding:clamp(20px,2.4vw,28px) clamp(22px,2.6vw,30px);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--ochre);
+  border-radius:var(--r);
+  background:rgba(255,255,255,.62);
+  max-width:64ch;
 }
 
-.where-row{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:clamp(20px,2.6vw,40px);
-  margin-top:clamp(16px,1.8vw,22px);
+.where-pin{
+  flex:none;
+  width:clamp(22px,2.2vw,27px);
+  height:clamp(22px,2.2vw,27px);
+  margin-top:2px;
+  fill:none;
+  stroke:var(--ochre);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
-@media(min-width:900px){
-  .where-row{grid-template-columns:1.25fr .7fr 1.35fr;align-items:start}
-}
+.where-pin *{vector-effect:non-scaling-stroke}
 
+.where-body{min-width:0}
 .where p{margin:0}
 
 .where-name{
+  margin-top:8px !important;
   font-family:var(--display);
-  font-size:clamp(21px,2.3vw,30px);
-  line-height:1.14;
+  font-size:clamp(20px,2.1vw,27px);
+  line-height:1.16;
   letter-spacing:-.018em;
   color:var(--ink);
-  max-width:18ch;
 }
 .where-place{
+  margin-top:7px !important;
   font-family:var(--mono);
   font-size:var(--t-label);
   letter-spacing:.13em;
   text-transform:uppercase;
-  line-height:1.9;
   color:var(--ochre);
 }
-.where-what{
-  font-size:clamp(15.5px,1.5vw,17px);
-  line-height:1.55;
-  color:var(--ink-2);
-  max-width:40ch;
-}
 .where-caveat{
-  margin-top:clamp(20px,2.4vw,30px) !important;
+  margin-top:14px !important;
   font-size:14px;
   line-height:1.55;
   color:var(--ink-3);
-  max-width:60ch;
 }
 
 /* the room, described under the photographs of it rather than in the heading
