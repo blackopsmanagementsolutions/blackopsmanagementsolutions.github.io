@@ -564,3 +564,13 @@ a.c-btn:hover .c-go{transform:translateX(4px)}
   color:#8C7C68;
 }
 .year-ends span:last-child{color:#E8B96A}
+
+/* the line that follows the governing one, restored: it was dropped when the
+   section was rebalanced and only the first of the two survived */
+.understand-note{
+  margin:0 0 clamp(26px,3vw,40px);
+  max-width:34ch;
+  font-size:clamp(16px,1.55vw,18.5px);
+  line-height:1.5;
+  color:var(--ink-2);
+}
