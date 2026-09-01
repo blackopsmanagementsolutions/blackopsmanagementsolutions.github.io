@@ -355,7 +355,12 @@ section{padding:var(--sec) 0}
   -webkit-mask-image:radial-gradient(ellipse 68% 86% at 52% 50%,#000 34%,transparent 74%);
           mask-image:radial-gradient(ellipse 68% 86% at 52% 50%,#000 34%,transparent 74%);
 }
-#understand.night h2{color:var(--cream)}
+.night h2{color:var(--cream)}
+#you.night .state .simg{mix-blend-mode:normal}
+#you.night .state q{color:var(--cream)}
+#you.night .state .num{color:#8D8070}
+#you.night .states-after p{color:#CFC4B2}
+#you.night .inline-cta{color:#E4C489}
 #understand.night .begin-note{color:#CFC4B2}
 #understand.night .ask-cycle span{color:#E4C489}
 #understand.night .fourwords{color:var(--cream)}
@@ -896,7 +901,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   </section>
 
   <!-- 03 · Who is this for -->
-  <section id="who">
+  <section id="who" style="background:#ECDFC4">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Who this is for</span>
@@ -929,7 +934,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   </section>
 
   <!-- 04 · Recognise yourself -->
-  <section id="you" style="background:#EFE5D0">
+  <section class="night" id="you">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Where you are</span>
