@@ -475,24 +475,41 @@ section{padding:var(--sec) 0}
 @media (min-width:860px){.two-col{grid-template-columns:1fr 1fr}}
 .begin-note{margin-top:22px;color:var(--ink-2)}
 .ask-cycle{
-  position:relative;margin-top:10px;
-  height:clamp(64px,7vw,88px);
+  display:grid;gap:16px;margin-top:14px;
 }
 .ask-cycle span{
-  position:absolute;inset:0;display:flex;align-items:center;
+  display:block;
   font-family:var(--display);font-weight:500;letter-spacing:-.01em;
-  font-size:clamp(26px,3vw,38px);line-height:1.2;color:var(--accent-deep);
-  opacity:0;animation:askCycle 16s ease-in-out infinite;
+  font-size:clamp(22px,2.5vw,31px);line-height:1.2;color:var(--accent-deep);
+  opacity:0;
 }
-.ask-cycle span:nth-child(2){animation-delay:4s}
-.ask-cycle span:nth-child(3){animation-delay:8s}
-.ask-cycle span:nth-child(4){animation-delay:12s}
-@keyframes askCycle{
-  0%{opacity:0;transform:translateY(14px)}
-  4%{opacity:1;transform:none}
-  22%{opacity:1;transform:none}
-  27%{opacity:0;transform:translateY(-10px)}
-  100%{opacity:0}
+.ask-cycle span:nth-child(1){animation:ask1 18s ease-in-out infinite}
+.ask-cycle span:nth-child(2){margin-left:16%;animation:ask2 18s ease-in-out infinite}
+.ask-cycle span:nth-child(3){margin-left:5%;animation:ask3 18s ease-in-out infinite}
+.ask-cycle span:nth-child(4){margin-left:22%;animation:ask4 18s ease-in-out infinite}
+@keyframes ask1{
+  0%,1%{opacity:0;transform:translateY(12px)}
+  6%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+@keyframes ask2{
+  0%,14%{opacity:0;transform:translateY(12px)}
+  19%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+@keyframes ask3{
+  0%,27%{opacity:0;transform:translateY(12px)}
+  32%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+@keyframes ask4{
+  0%,40%{opacity:0;transform:translateY(12px)}
+  45%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
 }
 .fourwords{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.4vw,29px);line-height:1.35;letter-spacing:-.01em}
 .fourwords span{display:block}
@@ -1246,10 +1263,10 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span><b>WhatsApp</b><span>&ldquo;Hello&rdquo; is already typed for you</span></span></a></li>
       <li><a href="tel:+919634676724">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
-        <span><b>Call +91 96346 76724</b><span>Someone answers. Not a menu</span></span></a></li>
+        <span><b>Call +91 96346 76724</b><span>Speak to a person</span></span></a></li>
       <li><a href="sms:+919634676724">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg></span>
-        <span><b>Text</b><span>You do not have to explain much</span></span></a></li>
+        <span><b>Text</b><span>Send a text message to a real person</span></span></a></li>
     </ul>
     <p class="sheet-note">You do not need to know what to say.</p>
   </div>
