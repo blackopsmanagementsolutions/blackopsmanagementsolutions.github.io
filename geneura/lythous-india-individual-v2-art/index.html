@@ -298,48 +298,64 @@ section{padding:var(--sec) 0}
    Recognise yourself
    ============================================================ */
 .sec-tint{background:var(--paper-2)}
-.states{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.states{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,40px)}
 @media (max-width:980px){.states{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.states{grid-template-columns:1fr}}
-.state{
-  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
-  overflow:hidden;display:flex;flex-direction:column;
-  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+.state{display:flex;flex-direction:column;transition:transform .6s var(--ease)}
+.state:hover{transform:translateY(-6px)}
+.state .simg{
+  width:100%;aspect-ratio:1/1.04;object-fit:cover;display:block;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 88% 86% at 50% 46%,#000 42%,transparent 70%);
+          mask-image:radial-gradient(ellipse 88% 86% at 50% 46%,#000 42%,transparent 70%);
+  opacity:0;filter:blur(12px);
+  transition:opacity 1.9s var(--ease),filter 1.9s var(--ease);
 }
-.state:hover{transform:translateY(-5px);box-shadow:var(--shadow-2)}
-.state .simg{width:100%;aspect-ratio:4/3.1;object-fit:cover;display:block;
-  transition:transform 1.2s var(--ease)}
-.state:hover .simg{transform:scale(1.04)}
+.st.in .state .simg{opacity:1;filter:none}
+.st.in li:nth-child(2) .simg{transition-delay:.2s}
+.st.in li:nth-child(3) .simg{transition-delay:.4s}
+.st.in li:nth-child(4) .simg{transition-delay:.6s}
 .state .s-body{
-  padding:20px 20px 18px;display:flex;flex-direction:column;gap:16px;
-  justify-content:space-between;flex:1;
+  padding:4px 8px 0;display:flex;flex-direction:column;gap:12px;flex:1;
+  text-align:center;align-items:center;
 }
 .state q{
-  font-family:var(--display);font-size:clamp(18px,1.7vw,21px);line-height:1.35;
-  quotes:"\201C" "\201D";color:var(--ink);
+  font-family:var(--display);font-size:clamp(18px,1.8vw,22px);line-height:1.35;
+  quotes:"\201C" "\201D";color:var(--ink);max-width:20ch;
 }
 .state .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-3)}
 
-/* Art bands and framed art */
+/* Art bands and woven-in art */
 .band{position:relative;overflow:hidden;padding:0;min-height:clamp(320px,56vh,540px)}
 .band img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   animation:muralDrift 40s ease-in-out infinite alternate;
 }
-.feel-grid{display:grid;gap:clamp(20px,2.8vw,40px);align-items:center}
-@media (min-width:900px){.feel-grid{grid-template-columns:1fr .82fr}}
-.feel-grid .feel{grid-template-columns:1fr 1fr}
-.framed{
-  margin:0;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-2);
+.sec-care{position:relative;background:#ECDFC4;overflow:hidden}
+.sec-care .wrap{position:relative}
+.care-bg{
+  position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+  width:min(74%,940px);opacity:.5;mix-blend-mode:multiply;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 74% 76% at 52% 50%,#000 38%,transparent 72%);
+          mask-image:radial-gradient(ellipse 74% 76% at 52% 50%,#000 38%,transparent 72%);
 }
-.framed img{width:100%;height:100%;object-fit:cover;display:block}
-.year-art{
-  margin:clamp(40px,5vw,64px) auto 0;max-width:860px;
-  border-radius:var(--r);overflow:hidden;
-  border:1px solid rgba(246,241,232,.14);box-shadow:0 24px 70px rgba(0,0,0,.45);
+@media (max-width:900px){.care-bg{width:150%;right:-40%;opacity:.32}}
+.sec-care .feel div{
+  background:rgba(252,250,245,.66);
+  -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
 }
-.year-art img{width:100%;display:block}
-@media (prefers-reduced-motion:reduce){.band img{animation:none}}
+.night{position:relative;overflow:hidden}
+.night .wrap{position:relative}
+.year-bg{
+  position:absolute;left:50%;top:-4%;transform:translateX(-50%);
+  width:min(1240px,110%);opacity:.26;mix-blend-mode:screen;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 72% 82% at 50% 42%,#000 32%,transparent 72%);
+          mask-image:radial-gradient(ellipse 72% 82% at 50% 42%,#000 32%,transparent 72%);
+}
+@media (prefers-reduced-motion:reduce){
+  .band img{animation:none}
+  .state .simg{opacity:1 !important;filter:none !important;transition:none}
+}
 .states-after{margin-top:clamp(36px,4vw,52px);max-width:52ch}
 .states-after p{font-size:clamp(18px,1.7vw,21px);line-height:1.6;color:var(--ink-2)}
 .inline-cta{
@@ -1114,7 +1130,8 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   </section>
 
   <!-- 08 · How it should feel -->
-  <section class="sec-tint" id="feel">
+  <section class="sec-care" id="feel">
+    <img class="care-bg" src="/geneura/assets/art-circle.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">How it should feel</span>
@@ -1122,20 +1139,15 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <p class="lede">That has a name: CARE<span class="tm">&trade;</span>, the standard every
           Lythous<span class="tm">&trade;</span> node is held to.</p>
       </div>
-      <div class="feel-grid">
-        <div class="feel st">
-          <div data-cap="C"><span class="cap" aria-hidden="true">C</span><b>Connected</b><span>You
-            are not working this out on your own.</span></div>
-          <div data-cap="A"><span class="cap" aria-hidden="true">A</span><b>Acknowledged</b><span>Somebody
-            knows you came, and remembers when you come back.</span></div>
-          <div data-cap="R"><span class="cap" aria-hidden="true">R</span><b>Respected</b><span>Nobody
-            asks you what is wrong with you.</span></div>
-          <div data-cap="E"><span class="cap" aria-hidden="true">E</span><b>Empowered</b><span>You
-            leave knowing what happens next, and who is doing it.</span></div>
-        </div>
-        <figure class="framed rv">
-          <img src="/geneura/assets/art-circle.webp" alt="A painted circle of people sitting on cushions around a low table with a glowing lantern at its centre. One cushion is empty, waiting.">
-        </figure>
+      <div class="feel st">
+        <div data-cap="C"><span class="cap" aria-hidden="true">C</span><b>Connected</b><span>You
+          are not working this out on your own.</span></div>
+        <div data-cap="A"><span class="cap" aria-hidden="true">A</span><b>Acknowledged</b><span>Somebody
+          knows you came, and remembers when you come back.</span></div>
+        <div data-cap="R"><span class="cap" aria-hidden="true">R</span><b>Respected</b><span>Nobody
+          asks you what is wrong with you.</span></div>
+        <div data-cap="E"><span class="cap" aria-hidden="true">E</span><b>Empowered</b><span>You
+          leave knowing what happens next, and who is doing it.</span></div>
       </div>
     </div>
   </section>
@@ -1196,6 +1208,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 
   <!-- 10 · Night close -->
   <section class="night" id="year" style="padding-bottom:0">
+    <img class="year-bg" src="/geneura/assets/art-path.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="rv" id="year-viz">
         <ul class="year-arc" aria-hidden="true">
@@ -1216,9 +1229,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
             It helps reveal who you can become.</strong></p>
         </div>
       </div>
-      <figure class="year-art rv">
-        <img src="/geneura/assets/art-path.webp" alt="A painted figure at the bottom of a slope and the same figure at the top facing a rising sun, joined by a path of glowing footprints.">
-      </figure>
 
       <div class="ready rv">
         <div class="ready-in">
