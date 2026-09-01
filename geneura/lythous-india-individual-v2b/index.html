@@ -374,6 +374,33 @@ section{padding:var(--sec) 0}
 /* ============================================================
    Steps
    ============================================================ */
+.how-grid{display:grid;gap:clamp(28px,3.6vw,56px);align-items:start}
+@media (min-width:940px){.how-grid{grid-template-columns:1fr minmax(280px,360px)}}
+.how-stage{
+  display:none;margin:0;position:sticky;top:110px;
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
+  box-shadow:var(--shadow-1);aspect-ratio:4/5;overflow:hidden;
+}
+@media (min-width:940px){.how-stage{display:block}}
+.how-stage .art{
+  position:absolute;inset:0;width:100%;height:100%;
+  fill:none;stroke:#BCAA8C;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;
+  opacity:0;transition:opacity .5s ease;
+}
+.how-stage .art .hero-figure{stroke:var(--accent)}
+.how-stage .art .dim{opacity:.5}
+.how-stage .art .dash{stroke-dasharray:6 8;opacity:.6;stroke-dashoffset:0 !important}
+.how-stage .art path,.how-stage .art circle{
+  stroke-dasharray:1;stroke-dashoffset:1;
+  transition:stroke-dashoffset 1.1s cubic-bezier(.32,.72,.28,1);
+}
+.how-stage .art.on{opacity:1}
+.how-stage .art.on path,.how-stage .art.on circle{stroke-dashoffset:0}
+.steps li{cursor:default}
+.steps li:hover b{color:var(--accent-deep)}
+@media (prefers-reduced-motion:reduce){
+  .how-stage .art,.how-stage .art path,.how-stage .art circle{transition:none}
+}
 .steps{list-style:none;counter-reset:step;max-width:760px}
 .steps li{
   display:grid;grid-template-columns:70px 1fr;gap:8px 26px;align-items:baseline;
@@ -1019,27 +1046,36 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <p class="gap-lead" style="margin-top:20px;max-width:26ch;color:var(--ink-2)">First
           we listen. Then we understand.</p>
       </div>
-      <ol class="steps st">
-        <li><span class="num">01</span>
-          <div><b>Recognition</b>
-          <p>You reach out, or an Ambassador notices and invites you. Either way, it
-            starts with a person, not a form.</p></div></li>
-        <li><span class="num">02</span>
-          <div><b>Engagement</b>
-          <p>You talk, on your terms. In the room, or by phone, text or WhatsApp.</p></div></li>
-        <li><span class="num">03</span>
-          <div><b>Navigation</b>
-          <p>Together you work out what would actually help, and who already near you
-            can give it.</p></div></li>
-        <li><span class="num">04</span>
-          <div><b>Escalation</b>
-          <p>If you are ever at risk, a written plan says who acts, in what order, and
-            how fast. You are told what it is.</p></div></li>
-        <li><span class="num">05</span>
-          <div><b>Follow-through</b>
-          <p>Your Ambassador goes with you until you have arrived, and somebody checks
-            back afterwards.</p></div></li>
-      </ol>
+      <div class="how-grid">
+        <ol class="steps st">
+          <li><span class="num">01</span>
+            <div><b>Recognition</b>
+            <p>You reach out, or an Ambassador notices and invites you. Either way, it
+              starts with a person, not a form.</p></div></li>
+          <li><span class="num">02</span>
+            <div><b>Engagement</b>
+            <p>You talk, on your terms. In the room, or by phone, text or WhatsApp.</p></div></li>
+          <li><span class="num">03</span>
+            <div><b>Navigation</b>
+            <p>Together you work out what would actually help, and who already near you
+              can give it.</p></div></li>
+          <li><span class="num">04</span>
+            <div><b>Escalation</b>
+            <p>If you are ever at risk, a written plan says who acts, in what order, and
+              how fast. You are told what it is.</p></div></li>
+          <li><span class="num">05</span>
+            <div><b>Follow-through</b>
+            <p>Your Ambassador goes with you until you have arrived, and somebody checks
+              back afterwards.</p></div></li>
+        </ol>
+        <figure class="how-stage rv" aria-hidden="true">
+          <svg class="art on" viewBox="0 0 320 400" focusable="false"><g><circle pathLength="1" cx="108" cy="150" r="10"/><path pathLength="1" d="M93 173.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="154" cy="138" r="10"/><path pathLength="1" d="M139 161.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="196" cy="152" r="10"/><path pathLength="1" d="M181 175.5 a15 15 0 0 1 30 0"/></g><g class="hero-figure"><circle pathLength="1" cx="246" cy="244" r="10"/><path pathLength="1" d="M231 267.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" class="dash" d="M96 246 h108"/><path pathLength="1" d="M196 238 l10 8 -10 8"/><path pathLength="1" d="M54 310h212"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><g class="hero-figure"><circle pathLength="1" cx="104" cy="168" r="10"/><path pathLength="1" d="M89 191.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="216" cy="168" r="10"/><path pathLength="1" d="M201 191.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" d="M120 268h80"/><path pathLength="1" d="M134 268v20M186 268v20"/><path pathLength="1" d="M54 310h212"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><g class="hero-figure"><circle pathLength="1" cx="80" cy="176" r="10"/><path pathLength="1" d="M65 199.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" d="M112 224h40"/><path pathLength="1" d="M152 224 L226 156"/><path pathLength="1" class="dash" d="M152 224h74"/><path pathLength="1" class="dash" d="M152 224 L226 292"/><circle pathLength="1" cx="238" cy="146" r="8"/><circle pathLength="1" class="dim" cx="238" cy="224" r="8"/><circle pathLength="1" class="dim" cx="238" cy="302" r="8"/><path pathLength="1" d="M54 310h212"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><path pathLength="1" d="M96 96h128v208H96z"/><path pathLength="1" d="M96 130h128"/><path pathLength="1" d="M124 166h76M124 202h76M124 238h56"/><circle pathLength="1" cx="110" cy="166" r="5"/><circle pathLength="1" cx="110" cy="202" r="5"/><circle pathLength="1" cx="110" cy="238" r="5"/><path pathLength="1" class="hero-figure" d="M96 166h-30"/><path pathLength="1" class="dash" d="M224 202h44"/><path pathLength="1" d="M258 194l10 8-10 8"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><g class="hero-figure"><circle pathLength="1" cx="96" cy="186" r="10"/><path pathLength="1" d="M81 209.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="140" cy="186" r="10"/><path pathLength="1" d="M125 209.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" d="M176 262h44"/><path pathLength="1" d="M212 254l8 8-8 8"/><path pathLength="1" d="M238 310V186h56v124"/><circle pathLength="1" cx="282" cy="248" r="4"/><path pathLength="1" d="M54 310h252"/></svg>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -1419,6 +1455,17 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     b.addEventListener('mouseenter',function(){pick(i)});
     b.addEventListener('focus',function(){pick(i)});
   });
+
+  /* Steps: hovering a step draws its illustration on the stage */
+  var stepEls=document.querySelectorAll('.steps li');
+  var arts=document.querySelectorAll('.how-stage .art');
+  if(stepEls.length && arts.length){
+    stepEls.forEach(function(li,i){
+      li.addEventListener('mouseenter',function(){
+        arts.forEach(function(a,k){a.classList.toggle('on',k===i)});
+      });
+    });
+  }
 })();
 </script>
 </body>
