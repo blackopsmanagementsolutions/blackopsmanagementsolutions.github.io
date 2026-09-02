@@ -433,32 +433,38 @@ section{padding:var(--sec) 0}
 .where-name{font-family:var(--display);font-size:clamp(20px,2vw,24px);font-weight:500;line-height:1.25}
 .where-place{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:6px 0 10px}
 .where-caveat{font-size:14.5px;color:var(--ink-3);max-width:56ch}
-.where-row{display:grid;gap:14px;margin-bottom:clamp(28px,3.4vw,44px)}
-@media (min-width:900px){.where-row{grid-template-columns:1fr 1fr}}
-.where-row .where-card{margin-bottom:0}
-.director-card{
-  display:flex;gap:18px;align-items:flex-start;position:relative;
-  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
-  padding:clamp(24px,3vw,34px);
+.director-strip{
+  position:relative;margin-top:14px;
+  display:grid;grid-template-columns:auto auto 1fr;gap:clamp(18px,2.4vw,34px);align-items:center;
+  background:#2E2214;color:var(--cream);border-radius:var(--r);
+  padding:clamp(24px,3vw,36px) clamp(24px,3.4vw,44px);
+  box-shadow:var(--shadow-2);
+}
+@media (max-width:820px){
+  .director-strip{grid-template-columns:auto 1fr}
+  .director-strip .d-quote{grid-column:1 / -1}
 }
 .headshot{
-  flex:none;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;
-  background:rgba(169,111,36,.1);border:1.5px dashed rgba(169,111,36,.5);
-  font-family:var(--display);font-weight:500;font-size:22px;color:var(--accent-deep);
+  width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(228,196,137,.1);border:1.5px dashed rgba(228,196,137,.55);
+  font-family:var(--display);font-weight:500;font-size:26px;color:#E4C489;
   overflow:hidden;
 }
 .headshot img{width:100%;height:100%;object-fit:cover}
-.d-name{font-weight:600;font-size:16.5px;line-height:1.3}
-.d-role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:5px 0 12px}
+.d-who{min-width:0}
+.d-name{font-weight:600;font-size:17px;line-height:1.3;color:var(--cream)}
+.d-role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#B5A48D;margin-top:6px}
 .d-quote{
-  font-family:var(--display);font-size:clamp(17px,1.7vw,20px);line-height:1.4;
-  color:var(--ink-3);font-style:italic;
+  font-family:var(--display);font-size:clamp(19px,2vw,25px);line-height:1.35;
+  color:#D8CCB8;font-style:italic;
+  padding-left:clamp(0px,2vw,26px);border-left:1px solid rgba(246,241,232,.14);
 }
+@media (max-width:820px){.d-quote{padding-left:0;border-left:0;padding-top:8px}}
 .draft-tag{
   position:absolute;top:14px;right:14px;
   font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent-deep);border:1px solid rgba(169,111,36,.4);border-radius:100px;
-  padding:4px 9px;background:rgba(169,111,36,.06);
+  color:#E4C489;border:1px solid rgba(228,196,137,.4);border-radius:100px;
+  padding:4px 9px;background:rgba(228,196,137,.08);
 }
 .shots{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
 @media (max-width:760px){.shots{grid-template-columns:1fr}}
@@ -1060,25 +1066,13 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span class="eyebrow">Inside our Lythous<span class="tm">&trade;</span> node</span>
         <h2>Come and pay us a visit.</h2>
       </div>
-      <div class="where-row st">
-        <div class="where-card">
-          <span class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s7-6.1 7-11.1a7 7 0 1 0-14 0c0 5 7 11.1 7 11.1z"/><circle cx="12" cy="10.2" r="2.7"/></svg></span>
-          <div>
-            <p class="where-name">Major Ram Veer Singh Shiksha Sansthan</p>
-            <p class="where-place">Shikohabad &middot; Firozabad &middot; Uttar Pradesh</p>
-            <p class="where-caveat">The exact building and the opening hours are confirmed
-              with your campus when it opens, and posted here and at the door.</p>
-          </div>
-        </div>
-        <div class="director-card">
-          <span class="draft-tag">Awaiting approval</span>
-          <span class="headshot" aria-hidden="true">RB</span>
-          <div>
-            <p class="d-name">Director Ram Bresh Bhadauriya (Yadav)</p>
-            <p class="d-role">Director &middot; Major Ram Veer Singh Shiksha Sansthan</p>
-            <p class="d-quote">A short message from Director Ram to his students will
-              appear here, in his own words.</p>
-          </div>
+      <div class="where-card rv">
+        <span class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s7-6.1 7-11.1a7 7 0 1 0-14 0c0 5 7 11.1 7 11.1z"/><circle cx="12" cy="10.2" r="2.7"/></svg></span>
+        <div>
+          <p class="where-name">Major Ram Veer Singh Shiksha Sansthan</p>
+          <p class="where-place">Shikohabad &middot; Firozabad &middot; Uttar Pradesh</p>
+          <p class="where-caveat">The exact building and the opening hours are confirmed
+            with your campus when it opens, and posted here and at the door.</p>
         </div>
       </div>
       <div class="shots st">
@@ -1086,6 +1080,16 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           <figcaption>Daylight and low seating instead of office furniture.</figcaption></figure>
         <figure><img src="/geneura/assets/room-seating.jpg" alt="Seating arranged in a circle around a low table.">
           <figcaption>A circle around a low table, not across a desk.</figcaption></figure>
+      </div>
+      <div class="director-strip rv">
+        <span class="draft-tag">Awaiting approval</span>
+        <span class="headshot" aria-hidden="true">RB</span>
+        <div class="d-who">
+          <p class="d-name">Director Ram Bresh Bhadauriya (Yadav)</p>
+          <p class="d-role">Director &middot; Major Ram Veer Singh Shiksha Sansthan</p>
+        </div>
+        <p class="d-quote">A short message from Director Ram to his students will appear
+          here, in his own words.</p>
       </div>
       <div class="plan">
         <figure class="plan-fig rv">
