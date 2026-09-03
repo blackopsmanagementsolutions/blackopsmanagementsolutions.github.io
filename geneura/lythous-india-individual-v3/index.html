@@ -208,10 +208,7 @@ h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
   position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
   width:1.5px;height:44px;overflow:hidden;opacity:.55;
 }
-.scroll-cue::after{
-  content:"";position:absolute;inset:0;background:var(--cream);
-  animation:cue 2.2s var(--ease) infinite;
-}
+
 @keyframes cue{0%{transform:translateY(-100%)}55%{transform:translateY(0)}100%{transform:translateY(100%)}}
 @media (prefers-reduced-motion:reduce){
   .hero-media img,.hero h1 .line span,.hero .lede,.hero-cta{animation:none;transform:none;opacity:1}
@@ -233,6 +230,86 @@ h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
 .ticker .star{color:var(--accent)}
 @keyframes tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker>div{animation:none}}
+
+
+/* ============================================================
+   Premium motion layer (inspired by scroll-driven editorial sites)
+   ============================================================ */
+/* 1. Film grain: fixed canvas over everything, never blocks input */
+.grain{position:fixed;inset:0;z-index:38;pointer-events:none;opacity:.07;mix-blend-mode:multiply}
+.night .grain{opacity:.05}
+
+/* 2. Word-by-word headline reveal */
+.words .w{display:inline-block;opacity:0;transform:translateY(.55em) rotate(1.5deg);
+  transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.words.in .w{opacity:1;transform:none}
+.words.in .w:nth-child(1){transition-delay:.02s}.words.in .w:nth-child(2){transition-delay:.08s}
+.words.in .w:nth-child(3){transition-delay:.14s}.words.in .w:nth-child(4){transition-delay:.2s}
+.words.in .w:nth-child(5){transition-delay:.26s}.words.in .w:nth-child(6){transition-delay:.32s}
+.words.in .w:nth-child(7){transition-delay:.38s}.words.in .w:nth-child(8){transition-delay:.44s}
+.words.in .w:nth-child(n+9){transition-delay:.5s}
+
+/* 3. Section indices, editorial */
+.sec-index{
+  position:absolute;left:clamp(20px,4vw,44px);top:clamp(28px,3.4vw,44px);
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--ink-3);
+  writing-mode:vertical-rl;transform:rotate(180deg);opacity:.75;pointer-events:none;
+}
+.night .sec-index{color:#8D8070}
+section{position:relative}
+@media (max-width:900px){.sec-index{display:none}}
+
+/* 4. Scroll-driven parallax on the art, CSS only where supported */
+@supports (animation-timeline: view()) {
+  .band img,.mural-bg img{animation:bandDrift linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+  @keyframes bandDrift{from{transform:scale(1.12) translateY(-5%)}to{transform:scale(1.12) translateY(5%)}}
+  .u-bg,.care-bg,.amb-bg{animation:bgDrift linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+  @keyframes bgDrift{from{translate:0 -4%}to{translate:0 4%}}
+  .hero-media img{animation:heroSettle 3.2s var(--ease) forwards, heroScroll linear both;animation-timeline:auto, scroll();animation-range:normal, 0 100vh}
+  @keyframes heroScroll{to{transform:scale(1.08) translateY(9%)}}
+  .hero-in{animation:heroFade linear both;animation-timeline:scroll();animation-range:0 80vh}
+  @keyframes heroFade{to{opacity:.15;translate:0 -6%}}
+}
+
+/* 5. Steps: progress rail and scroll-advance */
+.steps{position:relative}
+.steps::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:1px;background:var(--hair)}
+.steps .rail{position:absolute;left:34px;top:0;width:1px;background:var(--accent);height:0;transition:height .6s var(--ease)}
+.steps li{transition:opacity .5s var(--ease)}
+.steps li.past{opacity:.55}
+.steps li.on b{color:var(--accent-deep)}
+.steps li.on .num{color:var(--accent)}
+@media (max-width:560px){.steps::before,.steps .rail{display:none}}
+
+/* 6. Soft magnetic buttons */
+.btn{transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,color .3s,scale .35s var(--ease)}
+.btn:hover{scale:1.03}
+
+/* 7. Cursor label over the four artworks (pointer devices only) */
+.cursor-label{
+  position:fixed;left:0;top:0;z-index:50;pointer-events:none;
+  font-family:var(--display);font-size:15px;font-style:italic;color:var(--cream);
+  background:rgba(22,16,9,.86);padding:8px 12px;border-radius:100px;
+  transform:translate(-50%,-140%) scale(.8);opacity:0;
+  transition:opacity .25s var(--ease),transform .35s var(--ease);white-space:nowrap;
+}
+.cursor-label.show{opacity:1;transform:translate(-50%,-140%) scale(1)}
+@media (hover:none){.cursor-label{display:none}}
+
+/* 8. Hero scroll progress dot */
+.scroll-cue{width:2px;height:52px;border-radius:2px;background:rgba(246,241,232,.18);overflow:visible}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:0;width:6px;height:6px;margin-left:-3px;border-radius:50%;
+  background:var(--cream);animation:cueDot 2.4s var(--ease) infinite}
+@keyframes cueDot{0%{transform:translateY(-2px);opacity:0}30%{opacity:1}100%{transform:translateY(48px);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  .words .w{opacity:1;transform:none;transition:none}
+  .steps li{transition:none}
+  .btn:hover{scale:1}
+  .cursor-label{display:none}
+  .band img,.mural-bg img,.u-bg,.care-bg,.amb-bg,.hero-media img,.hero-in{animation:none}
+  .grain{display:none}
+}
 
 /* v3: Become an Ambassador section */
 .sec-amb{position:relative;background:#EADCBF;overflow:hidden}
@@ -923,6 +1000,8 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
+<canvas class="grain" id="grain" aria-hidden="true"></canvas>
+<div class="cursor-label" id="cursor-label" aria-hidden="true"></div>
 
 <header class="site-head" id="head">
   <div class="head-in">
@@ -1207,7 +1286,7 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
         <h2>After you say hello.</h2>
       </div>
       <div class="how-grid">
-        <ol class="steps st">
+        <ol class="steps st"><span class="rail" aria-hidden="true"></span>
           <li><span class="num">01</span>
             <div><b>Recognition</b>
             <p><mark class="chg dec" title="Tightened to the call. DECISION: not a form kept.">E1</mark>You reach out, or an Ambassador notices you. Either way, it starts with a
@@ -1757,6 +1836,98 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
         var d=document.getElementById('sheet-hello');if(d)d.showModal();}
     });
   });
+
+  /* ---- premium motion layer ---- */
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* film grain */
+  (function(){
+    var c=document.getElementById('grain');if(!c||reduce)return;
+    var ctx=c.getContext('2d'),tile=document.createElement('canvas'),tctx=tile.getContext('2d');
+    tile.width=tile.height=160;
+    function noise(){var img=tctx.createImageData(160,160),d=img.data;for(var i=0;i<d.length;i+=4){var v=200+Math.random()*55|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;}tctx.putImageData(img,0,0);}
+    function size(){c.width=innerWidth;c.height=innerHeight;}
+    var frame=0;
+    function draw(){if(frame++%3===0){noise();var pat=ctx.createPattern(tile,'repeat');ctx.fillStyle=pat;ctx.fillRect(0,0,c.width,c.height);}requestAnimationFrame(draw);}
+    size();addEventListener('resize',size);draw();
+  })();
+
+  /* word-by-word headings: every h2 in a sec-head, plus the hero-adjacent big lines */
+  (function(){
+    var heads=document.querySelectorAll('.sec-head h2, .year-copy h2, .ready h2');
+    heads.forEach(function(h){
+      /* split only text nodes; badges and trademark marks stay as they are */
+      var nodes=Array.prototype.slice.call(h.childNodes),any=false;
+      nodes.forEach(function(n){
+        if(n.nodeType!==3||!n.textContent.trim())return;
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part)return;
+          if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '));return;}
+          var sp=document.createElement('span');sp.className='w';sp.textContent=part;frag.appendChild(sp);any=true;
+        });
+        h.replaceChild(frag,n);
+      });
+      if(any)h.classList.add('words');
+    });
+    if('IntersectionObserver' in window){
+      var wo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');wo.unobserve(e.target);}})},{threshold:.3});
+      heads.forEach(function(h){if(h.classList.contains('words'))wo.observe(h)});
+    }else{heads.forEach(function(h){h.classList.add('in')})}
+  })();
+
+  /* section indices */
+  (function(){
+    var n=0;
+    document.querySelectorAll('main > section').forEach(function(sec){
+      if(sec.classList.contains('hero')||sec.classList.contains('band')||sec.classList.contains('mural'))return;
+      n++;var i=document.createElement('span');i.className='sec-index';i.textContent=(n<10?'0':'')+n;sec.appendChild(i);
+    });
+  })();
+
+  /* steps: advance with scroll, fill the rail */
+  (function(){
+    var list=document.querySelector('.steps');if(!list)return;
+    var items=[...list.querySelectorAll('li')],rail=list.querySelector('.rail');
+    var artsAll=document.querySelectorAll('.how-stage .art');
+    function setActive(i){
+      items.forEach(function(li,k){li.classList.toggle('on',k===i);li.classList.toggle('past',k<i)});
+      artsAll.forEach(function(a,k){a.classList.toggle('on',k===i)});
+      if(rail&&items[i]){var r=list.getBoundingClientRect(),li=items[i].getBoundingClientRect();rail.style.height=Math.max(0,li.top-r.top+li.height*.55)+'px';}
+    }
+    var current=-1,ticking=false;
+    function pickNearest(){
+      ticking=false;
+      var mid=innerHeight*.5,best=0,bestD=Infinity;
+      items.forEach(function(li,k){
+        var r=li.getBoundingClientRect();
+        var d=Math.abs((r.top+r.bottom)/2-mid);
+        if(d<bestD){bestD=d;best=k;}
+      });
+      var lr=list.getBoundingClientRect();
+      if(lr.bottom<0||lr.top>innerHeight)return; /* list off screen: leave as is */
+      if(best!==current){current=best;setActive(best);}
+    }
+    function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(pickNearest);}}
+    addEventListener('scroll',onScroll,{passive:true});
+    addEventListener('resize',onScroll);
+    setActive(0);current=0;
+    pickNearest();
+  })();
+
+  /* cursor label over the four artworks */
+  (function(){
+    var label=document.getElementById('cursor-label');if(!label||reduce)return;
+    if(!window.matchMedia('(hover: hover)').matches)return;
+    var x=0,y=0,tx=0,ty=0,raf;
+    function loop(){x+=(tx-x)*.18;y+=(ty-y)*.18;label.style.left=x+'px';label.style.top=y+'px';raf=requestAnimationFrame(loop);}
+    document.querySelectorAll('.state').forEach(function(st){
+      var q=st.querySelector('q');if(!q)return;
+      st.addEventListener('mouseenter',function(e){label.textContent=q.textContent;tx=x=e.clientX;ty=y=e.clientY;label.classList.add('show');cancelAnimationFrame(raf);loop();});
+      st.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;});
+      st.addEventListener('mouseleave',function(){label.classList.remove('show');cancelAnimationFrame(raf);});
+    });
+  })();
 
   /* Steps: hovering a step draws its illustration on the stage */
   var stepEls=document.querySelectorAll('.steps li');
