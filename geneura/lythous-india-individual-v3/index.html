@@ -1,0 +1,1682 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Say hello | Lythous&trade;, Healthcare SMC India</title>
+<meta name="description" content="A room on your campus, and people in it, for anyone who wants to make contact. You do not need a problem to come in.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="We begin with the person you are">
+<meta property="og:description" content="A room on your campus, and people in it, for anyone who wants to make contact. Saying hello is the whole first step.">
+<meta property="og:image" content="https://blackopsmanagementsolutions.github.io/geneura/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/geneura/assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root{
+  --paper:#F7F3EB;
+  --paper-2:#F1EBDF;
+  --card:#FCFAF5;
+  --ink:#221A10;
+  --ink-2:#61523E;
+  --ink-3:#8B7B64;
+  --accent:#A96F24;
+  --accent-deep:#8A5A1D;
+  --night:#161009;
+  --night-2:#211809;
+  --cream:#F6F1E8;
+  --cream-2:#CBBBA2;
+  --danger:#A33A22;
+  --hair:rgba(34,26,16,.14);
+  --hair-soft:rgba(34,26,16,.08);
+  --display:'Newsreader',Georgia,serif;
+  --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+  --wrap:1120px;
+  --sec:clamp(84px,9.5vw,140px);
+  --r:18px;
+  --ease:cubic-bezier(.22,.61,.21,1);
+  --shadow-1:0 1px 2px rgba(34,26,16,.05),0 8px 28px rgba(34,26,16,.07);
+  --shadow-2:0 2px 4px rgba(34,26,16,.06),0 18px 48px rgba(34,26,16,.13);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:rgba(169,111,36,.22)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--cream);padding:10px 18px;z-index:99;border-radius:0 0 10px 0}
+.skip:focus{left:0}
+
+/* Type */
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.06;letter-spacing:-.015em}
+h1{font-size:clamp(46px,7.2vw,88px)}
+h2{font-size:clamp(34px,4.6vw,56px)}
+h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:18px;
+}
+.lede{font-size:clamp(18px,1.7vw,21px);line-height:1.6;color:var(--ink-2);max-width:56ch}
+.small{font-size:14.5px;color:var(--ink-3)}
+.tm{font-size:.42em;vertical-align:super;letter-spacing:0;font-family:var(--sans);font-weight:600}
+
+/* Reveal system */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.st>*{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.st.in>*{opacity:1;transform:none}
+.st.in>*:nth-child(1){transition-delay:.05s}
+.st.in>*:nth-child(2){transition-delay:.13s}
+.st.in>*:nth-child(3){transition-delay:.21s}
+.st.in>*:nth-child(4){transition-delay:.29s}
+.st.in>*:nth-child(5){transition-delay:.37s}
+.st.in>*:nth-child(6){transition-delay:.45s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv,.st>*{opacity:1 !important;transform:none !important;transition:none !important}
+  *,*::before,*::after{animation:none !important;transition-duration:.01s !important}
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.site-head{
+  position:fixed;inset:0 0 auto;z-index:40;
+  transition:background .45s var(--ease),box-shadow .45s var(--ease);
+}
+.site-head::before{
+  content:"";position:absolute;inset:0;
+  background:rgba(247,243,235,0);
+  -webkit-backdrop-filter:blur(0px);backdrop-filter:blur(0px);
+  transition:background .45s var(--ease),-webkit-backdrop-filter .45s var(--ease),backdrop-filter .45s var(--ease);
+}
+.site-head.solid::before{
+  background:rgba(247,243,235,.82);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);
+}
+.site-head.solid{box-shadow:0 1px 0 var(--hair-soft)}
+.head-in{
+  position:relative;max-width:var(--wrap);margin:0 auto;
+  padding:14px clamp(20px,4vw,44px);
+  display:flex;align-items:center;gap:26px;
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.brand img{width:34px;height:34px;border-radius:9px}
+.brand b{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em;display:block;line-height:1.05}
+.brand i{font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.site-head:not(.solid) .brand b{color:var(--cream)}
+.site-head:not(.solid) .brand i{color:var(--cream-2)}
+.site-nav{display:flex;gap:26px;font-size:14.5px;font-weight:500}
+.site-nav a{text-decoration:none;color:var(--ink-2);transition:color .25s}
+.site-nav a:hover{color:var(--ink)}
+.site-head:not(.solid) .site-nav a{color:var(--cream-2)}
+.site-head:not(.solid) .site-nav a:hover{color:var(--cream)}
+@media (max-width:860px){.site-nav{display:none}}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-weight:600;font-size:15.5px;line-height:1;
+  padding:14px 24px;border-radius:100px;text-decoration:none;white-space:nowrap;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,color .3s;
+  will-change:transform;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn-solid{background:var(--ink);color:var(--cream);box-shadow:var(--shadow-1)}
+.btn-solid:hover{box-shadow:var(--shadow-2)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--hair)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-help{background:transparent;color:var(--danger);box-shadow:inset 0 0 0 1.5px rgba(163,58,34,.4)}
+.btn-help:hover{box-shadow:inset 0 0 0 1.5px var(--danger)}
+.btn-lg{padding:17px 30px;font-size:16.5px}
+.head-cta{display:flex;gap:10px}
+.head-cta .btn{padding:11px 19px;font-size:14px}
+.site-head:not(.solid) .btn-help{color:#F3B9A8;box-shadow:inset 0 0 0 1.5px rgba(243,185,168,.44)}
+.site-head:not(.solid) .btn-help:hover{box-shadow:inset 0 0 0 1.5px #F3B9A8}
+.site-head:not(.solid) .btn-solid{background:var(--cream);color:var(--ink)}
+@media (max-width:560px){.head-cta .btn-help{display:none}}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:flex-end;
+  color:var(--cream);overflow:hidden;
+  background:var(--night);
+}
+.hero-media{position:absolute;inset:0}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.14);
+  animation:heroSettle 3.2s var(--ease) forwards;
+}
+@keyframes heroSettle{to{transform:scale(1.03)}}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(22,16,9,.44) 0%,rgba(22,16,9,.18) 42%,rgba(22,16,9,0) 68%),
+    linear-gradient(180deg,rgba(22,16,9,.46) 0%,rgba(22,16,9,.12) 34%,rgba(22,16,9,.42) 66%,rgba(22,16,9,.86) 100%);
+}
+.hero-in{
+  position:relative;width:100%;max-width:var(--wrap);margin:0 auto;
+  padding:150px clamp(20px,4vw,44px) clamp(64px,8vh,104px);
+}
+.hero .eyebrow{
+  color:#F0D49B;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;
+  text-shadow:0 1px 3px rgba(22,16,9,.55),0 2px 18px rgba(22,16,9,.65);
+}
+.hero .aka{
+  color:#EFE6D4;letter-spacing:.14em;font-size:10.5px;
+  text-shadow:0 1px 3px rgba(22,16,9,.55),0 2px 18px rgba(22,16,9,.65);
+}
+.hero h1{margin-bottom:26px;font-size:clamp(40px,7.2vw,88px)}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;white-space:nowrap;transform:translateY(110%);animation:lineUp 1.1s var(--ease) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+@keyframes lineUp{to{transform:none}}
+.hero .lede{color:#E9E1D3;max-width:44ch;margin-bottom:36px;opacity:0;animation:fadeUp 1s var(--ease) .5s forwards}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;opacity:0;animation:fadeUp 1s var(--ease) .7s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .btn-solid{background:var(--cream);color:var(--ink)}
+.hero .btn-help{color:#F3B9A8;box-shadow:inset 0 0 0 1.5px rgba(243,185,168,.44)}
+.hero .btn-help:hover{box-shadow:inset 0 0 0 1.5px #F3B9A8}
+.scroll-cue{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  width:1.5px;height:44px;overflow:hidden;opacity:.55;
+}
+.scroll-cue::after{
+  content:"";position:absolute;inset:0;background:var(--cream);
+  animation:cue 2.2s var(--ease) infinite;
+}
+@keyframes cue{0%{transform:translateY(-100%)}55%{transform:translateY(0)}100%{transform:translateY(100%)}}
+@media (prefers-reduced-motion:reduce){
+  .hero-media img,.hero h1 .line span,.hero .lede,.hero-cta{animation:none;transform:none;opacity:1}
+}
+
+/* ============================================================
+   Ticker
+   ============================================================ */
+.ticker{
+  overflow:hidden;border-block:1px solid var(--hair-soft);
+  padding:14px 0;background:var(--paper);
+}
+.ticker>div{
+  display:flex;gap:34px;width:max-content;
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);animation:tick 34s linear infinite;
+}
+.ticker span{flex:none}
+.ticker .star{color:var(--accent)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker>div{animation:none}}
+
+/* v3: big welcome, arrive options, network block, destination line */
+.hero .welcome-big{
+  display:block;font-family:var(--display);font-weight:500;letter-spacing:-.01em;
+  font-size:clamp(26px,3.4vw,44px);color:#E4C489;margin-bottom:8px;
+  opacity:0;animation:fadeUp 1s var(--ease) .1s forwards;
+}
+.hero .aka-line{margin-bottom:22px;color:var(--cream-2);letter-spacing:.16em}
+.way-cards .c-card[aria-pressed="true"]{border-color:var(--accent);box-shadow:var(--shadow-2);transform:translateY(-5px)}
+.way-cards .c-card[aria-pressed="true"] .ico{background:var(--ink);color:var(--cream)}
+.network{margin-top:clamp(36px,4vw,56px);max-width:64ch;position:relative}
+.network h3{margin-bottom:10px}
+.network p{color:var(--ink-2);margin-bottom:12px}
+.dest{margin-top:20px;font-family:var(--display);font-weight:500;font-size:clamp(20px,2.2vw,26px);color:#E4C489}
+.amb-close{margin-top:18px;font-family:var(--display);font-size:17px;line-height:1.45;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.hero .welcome-big{animation:none;opacity:1}}
+
+/* ============================================================
+   Sections, shared
+   ============================================================ */
+section{padding:var(--sec) 0}
+.sec-head{max-width:62ch;margin-bottom:clamp(40px,4.6vw,64px)}
+.sec-head p{margin-top:18px}
+.hairline{border:0;border-top:1px solid var(--hair-soft);max-width:var(--wrap);margin:0 auto;width:calc(100% - clamp(40px,8vw,88px))}
+
+/* ============================================================
+   Say hello (contact)
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:980px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.contact-grid{grid-template-columns:1fr}}
+.c-card{
+  display:flex;flex-direction:column;gap:6px;
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
+  padding:24px 22px 22px;text-decoration:none;position:relative;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s;
+}
+.c-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-2);border-color:transparent}
+.c-card .ico{
+  width:44px;height:44px;border-radius:13px;margin-bottom:12px;
+  display:grid;place-items:center;background:rgba(169,111,36,.1);color:var(--accent-deep);
+  transition:background .3s,color .3s;
+}
+.c-card:hover .ico{background:var(--ink);color:var(--cream)}
+.c-card .ico svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.c-card b{font-size:17.5px;font-weight:600;letter-spacing:-.01em}
+.c-card span{font-size:14.5px;color:var(--ink-3);line-height:1.5}
+.c-card .go{
+  position:absolute;top:22px;right:20px;color:var(--ink-3);
+  transition:transform .4s var(--ease),color .3s;font-size:17px;
+}
+.c-card:hover .go{transform:translateX(4px);color:var(--ink)}
+.contact-note{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink-3)}
+.contact-note span{display:inline-flex;align-items:center;gap:8px}
+.contact-note svg{width:13px;height:13px;stroke:var(--accent);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   Who is this for
+   ============================================================ */
+.who-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  text-align:center;
+}
+@media (max-width:900px){.who-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.who-grid{grid-template-columns:repeat(2,1fr)}}
+.who-item{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  padding:26px 12px 24px;border-radius:var(--r);
+  background:var(--card);border:1px solid var(--hair-soft);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.who-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-1)}
+.who-item .w-ico{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(169,111,36,.1);color:var(--accent-deep);
+}
+.who-item .w-ico svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.who-item b{font-family:var(--display);font-weight:500;font-size:clamp(17px,1.8vw,21px);letter-spacing:-.01em}
+.who-close{
+  margin-top:clamp(30px,3.6vw,46px);text-align:center;
+  font-family:var(--display);font-weight:500;letter-spacing:-.01em;
+  font-size:clamp(22px,2.6vw,30px);
+}
+.who-close b{
+  font-weight:600;font-style:italic;color:var(--accent-deep);
+  font-size:1.18em;letter-spacing:0;
+}
+
+/* ============================================================
+   Recognise yourself
+   ============================================================ */
+.sec-tint{background:var(--paper-2)}
+.states{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(24px,4vw,56px) clamp(28px,5vw,72px);
+  max-width:1000px;margin:0 auto;
+}
+@media (max-width:520px){.states{grid-template-columns:1fr}}
+.state{display:flex;flex-direction:column;transition:transform .6s var(--ease);cursor:pointer}
+.state:hover{transform:translateY(-6px)}
+.state .simg{
+  width:100%;aspect-ratio:4/3.2;object-fit:cover;display:block;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:radial-gradient(ellipse 74% 125% at 50% 88%,#000 26%,rgba(0,0,0,.72) 48%,transparent 74%);
+          mask-image:radial-gradient(ellipse 74% 125% at 50% 88%,#000 26%,rgba(0,0,0,.72) 48%,transparent 74%);
+  opacity:0;filter:blur(12px);
+  transition:opacity 1.9s var(--ease),filter 1.9s var(--ease);
+}
+.st.in .state .simg{opacity:1;filter:none}
+.st.in li:nth-child(2) .simg{transition-delay:.2s}
+.st.in li:nth-child(3) .simg{transition-delay:.4s}
+.st.in li:nth-child(4) .simg{transition-delay:.6s}
+.state .s-body{
+  padding:4px 8px 0;display:flex;flex-direction:column;gap:12px;flex:1;
+  text-align:center;align-items:center;
+}
+.state q{
+  font-family:var(--display);font-size:clamp(18px,1.8vw,22px);line-height:1.35;
+  quotes:"\201C" "\201D";color:var(--ink);max-width:20ch;
+}
+.state .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-3)}
+
+/* Art bands and woven-in art */
+.band{position:relative;overflow:hidden;padding:0;min-height:clamp(320px,56vh,540px)}
+.band img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  animation:muralDrift 40s ease-in-out infinite alternate;
+}
+.sec-care{position:relative;background:#ECDFC4;overflow:hidden}
+.sec-care .wrap{position:relative}
+.care-bg{
+  position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+  width:min(74%,940px);opacity:.5;mix-blend-mode:multiply;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 74% 76% at 52% 50%,#000 38%,transparent 72%);
+          mask-image:radial-gradient(ellipse 74% 76% at 52% 50%,#000 38%,transparent 72%);
+}
+@media (max-width:900px){.care-bg{width:150%;right:-40%;opacity:.32}}
+.sec-care .feel div{
+  background:rgba(252,250,245,.66);
+  -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
+}
+.night{position:relative;overflow:hidden}
+.night .wrap{position:relative}
+.u-bg{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(1400px,120%);opacity:.3;mix-blend-mode:screen;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 68% 86% at 52% 50%,#000 34%,transparent 74%);
+          mask-image:radial-gradient(ellipse 68% 86% at 52% 50%,#000 34%,transparent 74%);
+}
+.night h2{color:var(--cream)}
+#you.night .state .simg{mix-blend-mode:normal}
+#you.night .state q{color:var(--cream)}
+#you.night .state .num{color:#8D8070}
+#you.night .states-after p{color:#CFC4B2}
+#you.night .inline-cta{color:#E4C489}
+#understand.night .begin-note{color:#CFC4B2}
+#understand.night .ask-cycle span{color:#E4C489}
+#understand.night .fourwords{color:var(--cream)}
+#understand.night .understand-note{color:#CFC4B2}
+#understand.night .chips li{
+  background:rgba(246,241,232,.06);border-color:rgba(246,241,232,.24);
+  color:#D8CCB8;box-shadow:none;
+}
+#understand.night .chips li:hover{border-color:#E4C489;color:#E4C489}
+#understand.night .chips .dim-ico{stroke:#E4C489}
+@media (prefers-reduced-motion:reduce){
+  .band img{animation:none}
+  .state .simg{opacity:1 !important;filter:none !important;transition:none}
+}
+.states-after{margin-top:clamp(36px,4vw,52px);max-width:52ch}
+.states-after p{font-size:clamp(18px,1.7vw,21px);line-height:1.6;color:var(--ink-2)}
+.inline-cta{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  font-weight:600;color:var(--accent-deep);text-decoration:none;font-size:16.5px;
+}
+.inline-cta svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.inline-cta:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   Ways in (cards with sheets)
+   ============================================================ */
+.way-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.way-cards .c-card{flex:0 1 calc((100% - 28px)/3)}
+@media (max-width:980px){.way-cards .c-card{flex-basis:calc((100% - 14px)/2)}}
+@media (max-width:520px){.way-cards .c-card{flex-basis:100%}}
+.way-cards .c-card{text-align:left}
+.way-cards .c-card .link{
+  margin-top:auto;padding-top:12px;font-weight:600;font-size:14px;color:var(--accent-deep);
+}
+.sheet-in h4{
+  font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:20px 0 8px;
+}
+.sheet-in>p{color:var(--ink-2);font-size:15.5px;margin-bottom:10px}
+.sheet-in ul.plain{list-style:none;display:grid;gap:8px}
+.sheet-in ul.plain li{
+  position:relative;padding-left:20px;color:var(--ink-2);font-size:15px;line-height:1.55;
+}
+.sheet-in ul.plain li::before{
+  content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:rgba(169,111,36,.5);
+}
+
+/* ============================================================
+   Inside
+   ============================================================ */
+.where-card{
+  display:flex;gap:20px;align-items:flex-start;
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
+  padding:clamp(24px,3vw,34px);margin-bottom:clamp(28px,3.4vw,44px);
+}
+.where-card .pin{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(169,111,36,.1)}
+.where-card .pin svg{width:22px;height:22px;stroke:var(--accent-deep);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.where-name{font-family:var(--display);font-size:clamp(20px,2vw,24px);font-weight:500;line-height:1.25}
+.where-place{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:6px 0 10px}
+.where-caveat{font-size:14.5px;color:var(--ink-3);max-width:56ch}
+.director-strip{
+  position:relative;margin-top:14px;
+  display:grid;grid-template-columns:auto auto 1fr;gap:clamp(18px,2.4vw,34px);align-items:center;
+  background:#2E2214;color:var(--cream);border-radius:var(--r);
+  padding:clamp(24px,3vw,36px) clamp(24px,3.4vw,44px);
+  box-shadow:var(--shadow-2);
+}
+@media (max-width:820px){
+  .director-strip{grid-template-columns:auto 1fr}
+  .director-strip .d-quote{grid-column:1 / -1}
+}
+.headshot{
+  width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(228,196,137,.1);border:1.5px dashed rgba(228,196,137,.55);
+  font-family:var(--display);font-weight:500;font-size:26px;color:#E4C489;
+  overflow:hidden;
+}
+.headshot img{width:100%;height:100%;object-fit:cover}
+.d-who{min-width:0}
+.d-name{font-weight:600;font-size:17px;line-height:1.3;color:var(--cream)}
+.d-role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#B5A48D;margin-top:6px}
+.d-quote{
+  font-family:var(--display);font-size:clamp(19px,2vw,25px);line-height:1.35;
+  color:#D8CCB8;font-style:italic;
+  padding-left:clamp(0px,2vw,26px);border-left:1px solid rgba(246,241,232,.14);
+}
+@media (max-width:820px){.d-quote{padding-left:0;border-left:0;padding-top:8px}}
+.draft-tag{
+  position:absolute;top:14px;right:14px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#E4C489;border:1px solid rgba(228,196,137,.4);border-radius:100px;
+  padding:4px 9px;background:rgba(228,196,137,.08);
+}
+.shots{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+@media (max-width:760px){.shots{grid-template-columns:1fr}}
+.shots figure{position:relative;border-radius:var(--r);overflow:hidden;background:var(--paper-2)}
+.shots img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform 1.4s var(--ease)}
+.shots figure:hover img{transform:scale(1.045)}
+.shots figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:44px 20px 16px;
+  color:var(--cream);font-size:13.5px;
+  background:linear-gradient(180deg,transparent,rgba(22,16,9,.72));
+}
+.plan{display:grid;gap:clamp(28px,3.6vw,54px);align-items:start;margin-top:clamp(36px,4.2vw,56px)}
+@media (min-width:940px){.plan{grid-template-columns:1.25fr .75fr}}
+.plan-fig{
+  margin:0;background:var(--card);border:1px solid var(--hair-soft);
+  border-radius:var(--r);padding:clamp(16px,2.2vw,26px);box-shadow:var(--shadow-1);
+}
+.plan-svg{width:100%;height:auto;display:block}
+.plan-wall{fill:none;stroke:var(--ink);stroke-width:1.4}
+.plan-door-gap{stroke:var(--card);stroke-width:3}
+.plan-swing{fill:none;stroke:var(--hair);stroke-width:1;stroke-dasharray:3 3}
+.plan-in{stroke:var(--accent);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.plan-in-label{font-family:var(--mono);font-size:9px;letter-spacing:.08em;fill:var(--accent)}
+.zone{cursor:pointer}
+.zone .z{fill:var(--paper-2);stroke:var(--hair);stroke-width:1;transition:fill .3s ease,stroke .3s ease}
+.zone:hover .z,.zone.on .z{fill:rgba(169,111,36,.16);stroke:var(--accent)}
+.zone text{font-family:var(--mono);font-size:9px;letter-spacing:.09em;fill:var(--ink-3);transition:fill .3s ease;pointer-events:none}
+.zone:hover text,.zone.on text{fill:var(--accent-deep)}
+.zone-dot{fill:var(--accent);opacity:0;transition:opacity .3s ease}
+.zone.on .zone-dot{opacity:1}
+.plan-title{margin-bottom:8px}
+.plan-sub{font-size:14.5px;color:var(--ink-3);margin-bottom:22px;max-width:38ch}
+.zone-list{display:grid;border-top:1px solid var(--hair-soft)}
+.zone-btn{
+  display:grid;grid-template-columns:30px 1fr;gap:14px;
+  padding:17px 0;text-align:left;border-bottom:1px solid var(--hair-soft);width:100%;
+}
+.zone-btn .num{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-3);padding-top:3px;transition:color .3s ease}
+.zone-btn b{display:block;font-size:16.5px;font-weight:600;color:var(--ink);transition:color .3s ease}
+.zone-btn .say{
+  display:block;font-size:14.5px;line-height:1.5;color:var(--ink-3);
+  margin-top:0;max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .45s var(--ease),opacity .4s ease,margin-top .45s var(--ease);
+}
+.zone-btn.on .say{max-height:120px;opacity:1;margin-top:5px}
+.zone-btn.on .num{color:var(--accent)}
+.zone-btn.on b{color:var(--accent-deep)}
+.plan-note{font-size:14px;color:var(--ink-3);margin-top:20px;max-width:42ch}
+@media (prefers-reduced-motion:reduce){
+  .zone .z,.zone text,.zone-dot,.zone-btn .num,.zone-btn b{transition:none}
+  .zone-btn .say{max-height:none;opacity:1;margin-top:5px;transition:none}
+}
+
+/* ============================================================
+   Steps
+   ============================================================ */
+.how-grid{display:grid;gap:clamp(28px,3.6vw,56px);align-items:start}
+@media (min-width:940px){.how-grid{grid-template-columns:1fr minmax(280px,360px)}}
+.how-stage{
+  display:none;margin:0;position:sticky;top:110px;
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
+  box-shadow:var(--shadow-1);aspect-ratio:4/5;overflow:hidden;
+}
+@media (min-width:940px){.how-stage{display:block}}
+.how-stage .art{
+  position:absolute;inset:0;width:100%;height:100%;
+  fill:none;stroke:#BCAA8C;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;
+  opacity:0;transition:opacity .5s ease;
+}
+.how-stage .art .hero-figure{stroke:var(--accent)}
+.how-stage .art .dim{opacity:.5}
+.how-stage .art .dash{stroke-dasharray:6 8;opacity:.6;stroke-dashoffset:0 !important}
+.how-stage .art path,.how-stage .art circle{
+  stroke-dasharray:1;stroke-dashoffset:1;
+  transition:stroke-dashoffset 1.1s cubic-bezier(.32,.72,.28,1);
+}
+.how-stage .art.on{opacity:1}
+.how-stage .art.on path,.how-stage .art.on circle{stroke-dashoffset:0}
+.steps li{cursor:default}
+.steps li:hover b{color:var(--accent-deep)}
+@media (prefers-reduced-motion:reduce){
+  .how-stage .art,.how-stage .art path,.how-stage .art circle{transition:none}
+}
+.steps{list-style:none;counter-reset:step;max-width:760px}
+.steps li{
+  display:grid;grid-template-columns:70px 1fr;gap:8px 26px;align-items:baseline;
+  padding:clamp(24px,2.8vw,34px) 0;border-top:1px solid var(--hair-soft);
+}
+.steps li:last-child{border-bottom:1px solid var(--hair-soft)}
+.steps .num{
+  font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--accent);
+}
+.steps b{font-family:var(--display);font-weight:500;font-size:clamp(20px,2.1vw,25px);letter-spacing:-.01em;display:block;margin-bottom:6px}
+.steps p{color:var(--ink-2);font-size:16px;max-width:52ch}
+@media (max-width:560px){.steps li{grid-template-columns:1fr}.steps .num{margin-bottom:-2px}}
+
+/* ============================================================
+   What we try to understand
+   ============================================================ */
+.two-col{display:grid;gap:clamp(28px,4vw,64px)}
+@media (min-width:860px){.two-col{grid-template-columns:1fr 1fr}}
+.begin-note{margin-top:22px;color:var(--ink-2)}
+.ask-cycle{
+  display:grid;gap:16px;margin-top:14px;
+}
+.ask-cycle span{
+  display:block;
+  font-family:var(--display);font-weight:500;letter-spacing:-.01em;
+  font-size:clamp(22px,2.5vw,31px);line-height:1.2;color:var(--accent-deep);
+  opacity:0;
+}
+.ask-cycle span:nth-child(1){animation:ask1 18s ease-in-out infinite}
+.ask-cycle span:nth-child(2){margin-left:16%;animation:ask2 18s ease-in-out infinite}
+.ask-cycle span:nth-child(3){margin-left:5%;animation:ask3 18s ease-in-out infinite}
+.ask-cycle span:nth-child(4){margin-left:22%;animation:ask4 18s ease-in-out infinite}
+@keyframes ask1{
+  0%,1%{opacity:0;transform:translateY(12px)}
+  6%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+@keyframes ask2{
+  0%,14%{opacity:0;transform:translateY(12px)}
+  19%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+@keyframes ask3{
+  0%,27%{opacity:0;transform:translateY(12px)}
+  32%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+@keyframes ask4{
+  0%,40%{opacity:0;transform:translateY(12px)}
+  45%{opacity:1;transform:none}
+  80%{opacity:1;transform:none}
+  90%,100%{opacity:0;transform:none}
+}
+.fourwords{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.4vw,29px);line-height:1.35;letter-spacing:-.01em}
+.fourwords span{display:block}
+.fourwords span+span{color:var(--accent-deep)}
+.understand-note{margin:18px 0 28px;color:var(--ink-2);max-width:40ch}
+.chips{position:relative;list-style:none;min-height:clamp(280px,26vw,360px)}
+.chips li{
+  position:absolute;left:var(--x);top:var(--y);
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--hair);border-radius:100px;
+  padding:10px 18px;background:var(--card);box-shadow:var(--shadow-1);
+  animation:bubDrift var(--dur,16s) ease-in-out var(--delay,0s) infinite alternate;
+  transition:border-color .3s,color .3s;white-space:nowrap;
+}
+.chips li:hover{border-color:var(--accent);color:var(--accent-deep)}
+.chips .dim-ico{
+  width:17px;height:17px;flex:none;
+  stroke:var(--accent-deep);stroke-width:1.6;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+@keyframes bubDrift{
+  from{transform:translate(0,0)}
+  to{transform:translate(var(--dx,6px),var(--dy,-8px))}
+}
+@media (max-width:700px){
+  .chips{min-height:0;display:flex;flex-wrap:wrap;gap:10px}
+  .chips li{position:static;animation-duration:calc(var(--dur,16s)/2)}
+}
+@media (prefers-reduced-motion:reduce){
+  .chips li{animation:none}
+  .ask-cycle{height:auto;display:grid;gap:10px}
+  .ask-cycle span{position:static;opacity:1;animation:none}
+}
+
+/* ============================================================
+   How it should feel
+   ============================================================ */
+.feel{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:980px){.feel{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.feel{grid-template-columns:1fr}}
+.feel div{
+  position:relative;overflow:hidden;
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:var(--r);
+  padding:26px 22px 24px;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.feel div:hover{transform:translateY(-5px);box-shadow:var(--shadow-2)}
+.feel .cap{
+  display:block;font-family:var(--display);font-weight:500;line-height:.9;
+  font-size:clamp(52px,5vw,72px);color:var(--accent);
+  margin-bottom:14px;
+}
+.feel div::after{
+  content:attr(data-cap);position:absolute;right:-8px;top:-22px;
+  font-family:var(--display);font-weight:500;line-height:1;
+  font-size:150px;color:var(--accent);opacity:.06;pointer-events:none;
+  transition:opacity .4s ease,transform .6s var(--ease);
+}
+.feel div:hover::after{opacity:.12;transform:translateY(6px)}
+.feel b{font-family:var(--display);font-weight:500;font-size:clamp(20px,2vw,24px);display:block;margin-bottom:8px}
+.feel span{color:var(--ink-2);font-size:15px;line-height:1.55;display:block;max-width:26ch}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{max-width:760px}
+.faq details{border-top:1px solid var(--hair-soft)}
+.faq details:last-child{border-bottom:1px solid var(--hair-soft)}
+.faq summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;
+  padding:22px 2px;font-weight:600;font-size:clamp(16.5px,1.6vw,18.5px);
+  transition:color .25s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--accent-deep)}
+.faq summary .plus{
+  flex:none;margin-left:auto;width:22px;height:22px;position:relative;opacity:.55;
+  transition:transform .45s var(--ease),opacity .3s;
+}
+.faq summary .plus::before,.faq summary .plus::after{
+  content:"";position:absolute;background:currentColor;border-radius:2px;
+  top:50%;left:50%;translate:-50% -50%;
+}
+.faq summary .plus::before{width:15px;height:1.8px}
+.faq summary .plus::after{width:1.8px;height:15px;transition:transform .45s var(--ease)}
+.faq details[open] summary .plus{transform:rotate(45deg);opacity:1}
+.faq .a{overflow:hidden}
+.faq .a p{padding:0 40px 24px 2px;color:var(--ink-2);max-width:58ch}
+
+/* ============================================================
+   Mural band
+   ============================================================ */
+.mural{
+  position:relative;padding:0;overflow:hidden;
+  min-height:clamp(420px,78vh,720px);
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.mural-bg{position:absolute;inset:0}
+.mural-bg img{
+  width:100%;height:100%;object-fit:cover;object-position:50% 40%;
+  animation:muralDrift 36s ease-in-out infinite alternate;
+}
+@keyframes muralDrift{from{transform:scale(1.02)}to{transform:scale(1.09)}}
+.mural-glow{
+  position:absolute;left:53.5%;top:60%;width:34vmin;height:34vmin;
+  transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(circle,rgba(255,196,92,.55) 0%,rgba(255,196,92,.18) 42%,transparent 70%);
+  filter:blur(6px);mix-blend-mode:soft-light;
+  animation:glowBreathe 5.5s ease-in-out infinite alternate;
+}
+@keyframes glowBreathe{from{opacity:.45;transform:translate(-50%,-50%) scale(.92)}to{opacity:1;transform:translate(-50%,-50%) scale(1.12)}}
+.mural-line{
+  position:relative;margin:0 20px clamp(36px,5vw,64px);text-align:center;max-width:22ch;
+  font-family:var(--display);font-weight:500;letter-spacing:-.01em;
+  font-size:clamp(24px,3.2vw,40px);line-height:1.25;color:var(--ink);
+  padding:18px 30px;border-radius:20px;
+  background:radial-gradient(closest-side,rgba(247,243,235,.88),rgba(247,243,235,.55) 70%,transparent);
+}
+@media (prefers-reduced-motion:reduce){
+  .mural-bg img,.mural-glow{animation:none}
+}
+
+/* ============================================================
+   Night close: a year from now + ready when you are
+   ============================================================ */
+.night{background:var(--night);color:var(--cream)}
+.night .eyebrow{color:#E4C489}
+.night .lede{color:#CFC4B2}
+.year-arc{display:flex;align-items:flex-end;gap:clamp(8px,1.4vw,18px);height:120px;margin-bottom:18px;list-style:none}
+.year-arc li{
+  flex:1;border-radius:6px 6px 2px 2px;
+  background:linear-gradient(180deg,#E4C489,#A96F24);
+  height:calc(16% + var(--i)*7.6%);
+  opacity:calc(.25 + var(--i)*.068);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform 1s var(--ease) calc(var(--i)*70ms);
+}
+.in .year-arc li{transform:scaleY(1)}
+.year-ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8D8070;margin-bottom:clamp(44px,5vw,64px)}
+.year-copy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,72px);align-items:start}
+@media (max-width:820px){.year-copy{grid-template-columns:1fr}}
+.year-copy h2{font-size:clamp(28px,3.4vw,42px);line-height:1.15;color:var(--cream)}
+.year-copy p{color:#CFC4B2;max-width:46ch}
+.year-copy strong{color:var(--cream);font-weight:600}
+
+.ready{padding-top:clamp(70px,8vw,120px)}
+.ready-in{
+  text-align:center;max-width:680px;margin:0 auto;
+}
+.ready h2{color:var(--cream);margin-bottom:16px}
+.ready .lede{margin:0 auto 40px;max-width:40ch}
+.ready-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.ready .btn-solid{background:var(--cream);color:var(--ink)}
+.ready .btn-ghost{color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(246,241,232,.32)}
+.ready .btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--cream)}
+.ready .hello-hint{margin-top:26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:#8D8070}
+.lockup{
+  margin-top:clamp(72px,9vw,130px);text-align:center;
+  font-family:var(--display);font-weight:500;letter-spacing:-.01em;
+  font-size:clamp(24px,3.2vw,38px);line-height:1.3;
+  display:flex;flex-wrap:wrap;gap:6px 26px;justify-content:center;
+}
+.lockup span{opacity:0;transform:translateY(14px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.lockup.in span{opacity:1;transform:none}
+.lockup.in span:nth-child(2){transition-delay:.3s}
+.lockup.in span:nth-child(3){transition-delay:.6s}
+.lockup.in span:nth-child(4){transition-delay:.9s;color:#E4C489}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-foot{background:var(--night);color:#AFA292;padding:0 0 46px;font-size:14.5px}
+.site-foot .wrap{border-top:1px solid rgba(246,241,232,.1);padding-top:clamp(44px,5vw,64px)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:clamp(28px,4vw,56px)}
+@media (max-width:980px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
+.site-foot h4{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7E7060;margin-bottom:16px}
+.site-foot ul{list-style:none}
+.site-foot li{margin-bottom:9px}
+.site-foot a,.site-foot .linky{color:#AFA292;text-decoration:none;transition:color .25s;font-size:14.5px;text-align:left;padding:0}
+.site-foot a:hover,.site-foot .linky:hover{color:var(--cream)}
+.foot-brand b{font-family:var(--display);font-weight:500;font-size:24px;color:var(--cream);display:block}
+.foot-brand i{font-family:var(--mono);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7E7060;display:block;margin:4px 0 18px}
+.foot-brand p{max-width:34ch;margin-bottom:14px}
+.foot-brand .lic{font-size:13px;color:#7E7060;max-width:38ch}
+.crisis{background:rgba(246,241,232,.05);border:1px solid rgba(246,241,232,.1);border-radius:16px;padding:22px;line-height:1.7}
+.crisis b{color:var(--cream);display:block;margin-bottom:8px}
+.crisis a{color:#E4C489;text-decoration:none;font-weight:600}
+.crisis a:hover{color:var(--cream)}
+.foot-bar{
+  display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between;
+  margin-top:clamp(36px,4vw,54px);padding-top:24px;
+  border-top:1px solid rgba(246,241,232,.08);font-size:13px;color:#7E7060;
+}
+
+/* ============================================================
+   Floating dock
+   ============================================================ */
+.dock{
+  position:fixed;left:50%;bottom:20px;z-index:35;
+  transform:translate(-50%,90px);opacity:0;
+  display:flex;gap:8px;padding:8px;border-radius:100px;
+  background:rgba(28,21,12,.82);
+  -webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);
+  box-shadow:0 12px 40px rgba(22,16,9,.35);
+  transition:transform .6s var(--ease),opacity .6s var(--ease);
+}
+.dock.show{transform:translate(-50%,0);opacity:1}
+.dock .btn{padding:12px 22px;font-size:14.5px}
+.dock .btn-solid{background:var(--cream);color:var(--ink)}
+.dock .btn-help{color:#F3B9A8;box-shadow:inset 0 0 0 1.5px rgba(243,185,168,.4)}
+
+/* ============================================================
+   Sheets (dialogs)
+   ============================================================ */
+dialog.sheet{
+  border:0;border-radius:22px;padding:0;
+  width:min(480px,calc(100vw - 32px));
+  background:var(--card);color:var(--ink);
+  box-shadow:0 30px 90px rgba(22,16,9,.4);
+  margin:auto;
+}
+dialog.sheet::backdrop{background:rgba(22,16,9,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
+@keyframes sheetIn{from{opacity:0;transform:translateY(26px) scale(.98)}to{opacity:1;transform:none}}
+.sheet-in{padding:30px 28px 28px;position:relative}
+.sheet-x{
+  position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;font-size:20px;color:var(--ink-3);
+  background:var(--paper-2);transition:background .25s,color .25s;
+}
+.sheet-x:hover{background:var(--ink);color:var(--cream)}
+.sheet-in h3{margin-bottom:6px}
+.sheet-in .sub{color:var(--ink-3);font-size:15px;margin-bottom:22px;max-width:34ch}
+.sheet-rows{list-style:none;display:flex;flex-direction:column;gap:10px}
+.sheet-rows a{
+  display:flex;align-items:center;gap:16px;text-decoration:none;
+  background:var(--paper);border:1px solid var(--hair-soft);border-radius:16px;
+  padding:16px 18px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.sheet-rows a:hover{transform:translateY(-2px);box-shadow:var(--shadow-1)}
+.sheet-rows .ico{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(169,111,36,.1);color:var(--accent-deep)}
+.sheet-rows .ico svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sheet-rows b{display:block;font-size:16px}
+.sheet-rows span{display:block;font-size:13.5px;color:var(--ink-3)}
+.sheet-note{margin-top:18px;font-size:13.5px;color:var(--ink-3);text-align:center}
+.urgent-rows a{background:#FBF4EC;flex-wrap:wrap}
+.urgent-rows .num{font-family:var(--display);font-size:22px;font-weight:600;color:var(--danger);letter-spacing:0;flex:none}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head" id="head">
+  <div class="head-in">
+    <a class="brand" href="#top"><span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#arrive">How you got here</a>
+      <a href="#hello">Say hello</a>
+      <a href="#inside">Inside</a>
+      <a href="#after">How it works</a>
+      <a href="#questions">FAQs</a>
+    </nav>
+    <div class="head-cta">
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+      <button class="btn btn-solid" type="button" data-open="hello">Say hello</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 01 · Hero -->
+  <section class="hero" id="top" style="padding:0">
+    <div class="hero-media"><img src="/geneura/assets/room-wide.jpg" alt="A Lythous&trade; room: daylight, a sunrise mural, low seating in a circle."></div>
+    <div class="hero-in">
+      <span class="welcome-big">Welcome to Lythous<span class="tm">&trade;</span></span>
+      <span class="eyebrow aka-line">Formerly known as Lighthouse</span>
+      <h1><span class="line"><span>We begin</span></span><span class="line"><span>by seeing you.</span></span></h1>
+      <p class="lede">You do not need to identify or choose a service, or know which
+        professional you need.<br>
+        We start with your life, your circumstances, your interests, and who you want
+        to become.</p>
+      <div class="hero-cta">
+        <button class="btn btn-solid btn-lg" type="button" data-open="hello">Say hello</button>
+        <button class="btn btn-help btn-lg" type="button" data-open="urgent">I need help now</button>
+      </div>
+    </div>
+    <span class="scroll-cue" aria-hidden="true"></span>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+    <span>Connected</span><span class="star">&#10022;</span><span>Acknowledged</span><span class="star">&#10022;</span><span>Respected</span><span class="star">&#10022;</span><span>Empowered</span><span class="star">&#10022;</span>
+  </div></div>
+
+  <!-- 02 · How did you get here today -->
+  <section id="arrive">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Welcome</span>
+        <h2>How did you get here today?</h2>
+      </div>
+      <div class="way-cards st" id="arrive-options">
+        <button class="c-card" type="button" data-open="ambassador" aria-pressed="false">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.1"/><path d="M5 20.5c0-3.7 3.1-6.6 7-6.6s7 2.9 7 6.6"/></svg></span>
+          <b>An Ambassador</b>
+          <span>Someone whose job is to notice, and to walk with you.</span>
+          <span class="link">What is an Ambassador?</span>
+        </button>
+        <button class="c-card" type="button" data-open="listener" aria-pressed="false">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/></svg></span>
+          <b>A Listener</b>
+          <span>A real person on the other end, at any hour.</span>
+          <span class="link">What is a Listener?</span>
+        </button>
+        <button class="c-card" type="button" data-open="online" aria-pressed="false">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="4.6" width="16.8" height="10.8" rx="1.2"/><path d="M2 19.2h20"/></svg></span>
+          <b>Online</b>
+          <span>You found us on a screen. A person is on the other side of it.</span>
+          <span class="link">How that works</span>
+        </button>
+        <button class="c-card" type="button" data-open="poster" aria-pressed="false">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="1.2"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></svg></span>
+          <b>A poster or a QR code</b>
+          <span>It may have said Lighthouse. You are in the right place.</span>
+          <span class="link">Formerly known as Lighthouse</span>
+        </button>
+        <button class="c-card" type="button" data-open="community" aria-pressed="false">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
+          <b>Someone referred me</b>
+          <span>A friend, a classmate, a teacher, anyone in your community.</span>
+          <span class="link">How that works</span>
+        </button>
+        <button class="c-card" type="button" data-open="hello" aria-pressed="false">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="12" r="1.6"/></svg></span>
+          <b>Another way</b>
+          <span>Whichever way you found us, you are in the right place.</span>
+          <span class="link">Say hello</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 04 · Recognise yourself -->
+  <section class="night" id="you">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">What brings you here today?</span>
+        <h2>Recognise yourself in any of these?</h2>
+      </div>
+      <ul class="states st" style="list-style:none">
+        <li class="state">
+          <img class="simg" src="/geneura/assets/art-state-1.webp" alt="A painted figure standing at ease on a hillside, watching a small sun rise.">
+          <div class="s-body"><q>I don&rsquo;t think anything is wrong.</q><span class="num">01</span></div>
+        </li>
+        <li class="state">
+          <img class="simg" src="/geneura/assets/art-state-2.webp" alt="A painted figure sitting with knees drawn in beneath a dark tangle, one thread of golden light reaching their shoulder.">
+          <div class="s-body"><q>Something is wrong. I can&rsquo;t name it.</q><span class="num">02</span></div>
+        </li>
+        <li class="state">
+          <img class="simg" src="/geneura/assets/art-state-3.webp" alt="A painted figure reaching across a gap toward a glowing doorway on the far hill.">
+          <div class="s-body"><q>I know what I need. But, I just can&rsquo;t get to it.</q><span class="num">03</span></div>
+        </li>
+        <li class="state">
+          <img class="simg" src="/geneura/assets/art-state-4.webp" alt="A painted figure peering around a half-open door with warm light spilling through.">
+          <div class="s-body"><q>I&rsquo;m just curious.</q><span class="num">04</span></div>
+        </li>
+      </ul>
+      <div class="states-after rv">
+        <p>One of them, none of them, or all four. You do not need a reason to reach
+          out. Curiosity is enough.</p>
+        <button class="inline-cta" type="button" data-open="hello">Say hello
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Say hello -->
+  <section id="hello">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Say hello</span>
+        <h2>Saying hello is the first step.</h2>
+        <p class="lede">Whichever way suits you today.</p>
+      </div>
+      <div class="contact-grid st">
+        <a class="c-card" href="https://wa.me/919634676724?text=Hello">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg></span>
+          <b>WhatsApp us</b>
+          <span>&ldquo;Hello&rdquo; is already typed for you.</span>
+          <span class="go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="c-card" href="tel:+919634676724">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
+          <b>Call us</b>
+          <span>Speak to a person.</span>
+          <span class="go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="c-card" href="sms:+919634676724">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg></span>
+          <b>Send a text</b>
+          <span>Send a text message to a real person.</span>
+          <span class="go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="c-card" href="#inside">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 20.5V4.5h9v16"/><path d="M5 20.5h15"/><circle cx="14.2" cy="12.6" r=".9"/></svg></span>
+          <b>Walk in</b>
+          <span>See the room, and where to find it.</span>
+          <span class="go" aria-hidden="true">&darr;</span>
+        </a>
+      </div>
+      <p class="contact-note rv">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>No appointment</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>No paperwork</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>No waiting list</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>Nothing to prepare</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 03 · Who is this for -->
+  <section id="who" style="background:#ECDFC4">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Who this is for</span>
+        <h2>Who is this for?</h2>
+      </div>
+      <div class="who-grid st">
+        <div class="who-item">
+          <span class="w-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 8.6 12 4.6l8.6 4-8.6 4z"/><path d="M6.8 10.8v4.4c0 1.5 2.3 2.8 5.2 2.8s5.2-1.3 5.2-2.8v-4.4"/><path d="M20.6 8.6v5.2"/></svg></span>
+          <b>Students</b>
+        </div>
+        <div class="who-item">
+          <span class="w-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.6C10.3 5.3 7.9 4.9 4 5.1v12.8c3.9-.2 6.3.2 8 1.5 1.7-1.3 4.1-1.7 8-1.5V5.1c-3.9-.2-6.3.2-8 1.5z"/><path d="M12 6.6v12.8"/></svg></span>
+          <b>Faculty</b>
+        </div>
+        <div class="who-item">
+          <span class="w-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4.4" width="14" height="15.2" rx="1.6"/><circle cx="12" cy="10" r="2.2"/><path d="M8.4 16.6c0-1.8 1.6-3.2 3.6-3.2s3.6 1.4 3.6 3.2"/></svg></span>
+          <b>Staff</b>
+        </div>
+        <div class="who-item">
+          <span class="w-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="7.6" r="2.4"/><circle cx="16" cy="7.6" r="2.4"/><path d="M3.6 19c0-2.6 2-4.6 4.4-4.6s4.4 2 4.4 4.6"/><path d="M11.6 19c0-2.6 2-4.6 4.4-4.6s4.4 2 4.4 4.6"/></svg></span>
+          <b>Families</b>
+        </div>
+        <div class="who-item">
+          <span class="w-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
+          <b>The community</b>
+        </div>
+      </div>
+      <p class="who-close rv"><b>Anyone</b> can walk in.</p>
+    </div>
+  </section>
+
+
+  <section class="band rv" aria-label="Mural of a long wall with five open doors, each glowing with the same warm light, and one person walking toward the nearest">
+    <img src="/geneura/assets/art-doors.webp" alt="">
+  </section>
+
+  <!-- 05 · Inside -->
+  <section id="inside">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Inside our Lythous<span class="tm">&trade;</span> node</span>
+        <h2>Come and pay us a visit.</h2>
+      </div>
+      <div class="where-card rv">
+        <span class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s7-6.1 7-11.1a7 7 0 1 0-14 0c0 5 7 11.1 7 11.1z"/><circle cx="12" cy="10.2" r="2.7"/></svg></span>
+        <div>
+          <p class="where-name">Major Ram Veer Singh Shiksha Sansthan</p>
+          <p class="where-place">Shikohabad &middot; Firozabad &middot; Uttar Pradesh</p>
+          <p class="where-caveat">The exact building and the opening hours are confirmed
+            with your campus when it opens, and posted here and at the door.</p>
+        </div>
+      </div>
+      <div class="shots st">
+        <figure><img src="/geneura/assets/room-window.jpg" alt="Daylight through sheer curtains onto low seating and a sunrise mural.">
+          <figcaption>Daylight and low seating instead of office furniture.</figcaption></figure>
+        <figure><img src="/geneura/assets/room-seating.jpg" alt="Seating arranged in a circle around a low table.">
+          <figcaption>A circle around a low table, not across a desk.</figcaption></figure>
+      </div>
+      <div class="director-strip rv">
+        <span class="draft-tag">Awaiting approval</span>
+        <span class="headshot" aria-hidden="true">RB</span>
+        <div class="d-who">
+          <p class="d-name">Director Ram Bresh Bhadauriya (Yadav)</p>
+          <p class="d-role">Founding Lythous<span class="tm">&trade;</span> Partner &middot; Major Ram Veer Singh Shiksha Sansthan</p>
+        </div>
+        <p class="d-quote">A short message from Director Ram to his students will appear
+          here, in his own words.</p>
+      </div>
+      <div class="plan">
+        <figure class="plan-fig rv">
+          <svg class="plan-svg" viewBox="0 0 720 480" aria-hidden="true" focusable="false">
+            <rect class="plan-wall" x="36" y="36" width="648" height="408"/>
+            <g class="zone"><rect class="z" x="52" y="352" width="150" height="76"/><text x="64" y="374">ARRIVAL</text><circle class="zone-dot" cx="188" cy="368" r="3.5"/></g>
+            <g class="zone"><rect class="z" x="52" y="52" width="230" height="286"/><text x="64" y="74">REFLECTION</text><circle class="zone-dot" cx="268" cy="68" r="3.5"/></g>
+            <g class="zone"><rect class="z" x="296" y="196" width="200" height="232"/><text x="308" y="218">EXPRESSIVE</text><circle class="zone-dot" cx="482" cy="212" r="3.5"/></g>
+            <g class="zone"><rect class="z" x="296" y="52" width="200" height="130"/><text x="308" y="74">COLLABORATIVE</text><circle class="zone-dot" cx="482" cy="68" r="3.5"/></g>
+            <g class="zone"><rect class="z" x="510" y="52" width="158" height="376"/><text x="522" y="74">PRIVATE</text><circle class="zone-dot" cx="654" cy="68" r="3.5"/></g>
+            <path class="plan-door-gap" d="M36 400 v-46"/>
+            <path class="plan-swing" d="M36 354 a46 46 0 0 1 46 46"/>
+            <path class="plan-in" d="M4 377 h26"/><path class="plan-in" d="M24 372 l6 5 -6 5"/>
+            <text class="plan-in-label" x="6" y="366">IN</text>
+          </svg>
+        </figure>
+        <div class="rv">
+          <h3 class="plan-title">Five spaces, and a door you can walk through.</h3>
+          <p class="plan-sub">Select a space to see what it is for. You are never sent
+            to one. You choose.</p>
+          <div class="zone-list">
+            <button class="zone-btn on" type="button" aria-expanded="true"><span class="num">01</span><span><b>Arrival</b><span class="say">Phones go down. A moment to land before anything is asked of you.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">02</span><span><b>Reflection</b><span class="say">Quiet and low light, with nothing expected of you.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">03</span><span><b>Expressive</b><span class="say">Making something, with nothing you have to explain.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">04</span><span><b>Collaborative</b><span class="say">Groups and peer work. The part that builds belonging.</span></span></button>
+            <button class="zone-btn" type="button" aria-expanded="false"><span class="num">05</span><span><b>Private</b><span class="say">One to one, behind a door that closes.</span></span></button>
+          </div>
+          <p class="plan-note">This plan shows the idea, not an exact layout. Each node
+            is fitted to the space the university provides.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · After you say hello -->
+  <section class="sec-tint" id="after">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">What happens next</span>
+        <h2>After you say hello.</h2>
+      </div>
+      <div class="how-grid">
+        <ol class="steps st">
+          <li><span class="num">01</span>
+            <div><b>Recognition</b>
+            <p>You reach out, or an Ambassador notices you. Either way, it starts with a
+              person, not a form.</p></div></li>
+          <li><span class="num">02</span>
+            <div><b>Engagement</b>
+            <p>You talk to a Listener, on your terms. In the room, or by phone, text or
+              WhatsApp.</p></div></li>
+          <li><span class="num">03</span>
+            <div><b>Navigation</b>
+            <p>Together you work out what would actually help, and who is the right
+              resource to help you.</p></div></li>
+          <li><span class="num">04</span>
+            <div><b>Escalation</b>
+            <p>If necessary, you are connected with the right person. It could be an
+              Ambassador, a clinician, a psychologist or a psychiatrist.</p></div></li>
+          <li><span class="num">05</span>
+            <div><b>Follow-through</b>
+            <p>We don&rsquo;t just show you the next door. We stay with you until you get
+              through it.</p></div></li>
+        </ol>
+        <figure class="how-stage rv" aria-hidden="true">
+          <svg class="art on" viewBox="0 0 320 400" focusable="false"><g><circle pathLength="1" cx="108" cy="150" r="10"/><path pathLength="1" d="M93 173.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="154" cy="138" r="10"/><path pathLength="1" d="M139 161.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="196" cy="152" r="10"/><path pathLength="1" d="M181 175.5 a15 15 0 0 1 30 0"/></g><g class="hero-figure"><circle pathLength="1" cx="246" cy="244" r="10"/><path pathLength="1" d="M231 267.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" class="dash" d="M96 246 h108"/><path pathLength="1" d="M196 238 l10 8 -10 8"/><path pathLength="1" d="M54 310h212"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><g class="hero-figure"><circle pathLength="1" cx="104" cy="168" r="10"/><path pathLength="1" d="M89 191.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="216" cy="168" r="10"/><path pathLength="1" d="M201 191.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" d="M120 268h80"/><path pathLength="1" d="M134 268v20M186 268v20"/><path pathLength="1" d="M54 310h212"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><g class="hero-figure"><circle pathLength="1" cx="80" cy="176" r="10"/><path pathLength="1" d="M65 199.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" d="M112 224h40"/><path pathLength="1" d="M152 224 L226 156"/><path pathLength="1" class="dash" d="M152 224h74"/><path pathLength="1" class="dash" d="M152 224 L226 292"/><circle pathLength="1" cx="238" cy="146" r="8"/><circle pathLength="1" class="dim" cx="238" cy="224" r="8"/><circle pathLength="1" class="dim" cx="238" cy="302" r="8"/><path pathLength="1" d="M54 310h212"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><path pathLength="1" d="M96 96h128v208H96z"/><path pathLength="1" d="M96 130h128"/><path pathLength="1" d="M124 166h76M124 202h76M124 238h56"/><circle pathLength="1" cx="110" cy="166" r="5"/><circle pathLength="1" cx="110" cy="202" r="5"/><circle pathLength="1" cx="110" cy="238" r="5"/><path pathLength="1" class="hero-figure" d="M96 166h-30"/><path pathLength="1" class="dash" d="M224 202h44"/><path pathLength="1" d="M258 194l10 8-10 8"/></svg>
+          <svg class="art" viewBox="0 0 320 400" focusable="false"><g class="hero-figure"><circle pathLength="1" cx="96" cy="186" r="10"/><path pathLength="1" d="M81 209.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="140" cy="186" r="10"/><path pathLength="1" d="M125 209.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" d="M176 262h44"/><path pathLength="1" d="M212 254l8 8-8 8"/><path pathLength="1" d="M238 310V186h56v124"/><circle pathLength="1" cx="282" cy="248" r="4"/><path pathLength="1" d="M54 310h252"/></svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06b · Become an Ambassador -->
+  <section id="ambassador">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">Become an Ambassador</span>
+          <h2>Or come the other way round.</h2>
+        </div>
+        <div class="rv">
+          <p class="lede">Some people walk in not because they need something, but
+            because they want to be the person somebody else can walk up to.</p>
+          <p style="margin-top:14px;color:var(--ink-2)">An Ambassador is the first point
+            of human contact. In a Lythous<span class="tm">&trade;</span> node, in a bookshop, in a
+            coffee shop, on a park bench. You are trained to notice, to listen, and to
+            walk with somebody.</p>
+          <p style="margin-top:14px;color:var(--ink-2)"><strong>An Ambassador does not have
+            to know what is wrong. They simply refuse to let someone face it
+            alone.</strong></p>
+          <button class="inline-cta" type="button" data-open="ambassador">What an
+            Ambassador actually does
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · What we try to understand -->
+  <section class="night" id="understand">
+    <img class="u-bg" src="/geneura/assets/art-path.webp" alt="" aria-hidden="true">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="rv">
+          <span class="eyebrow">What we try to understand</span>
+          <h2>Please tell us more about you!</h2>
+          <p class="begin-note">We begin by asking:</p>
+          <div class="ask-cycle" aria-label="Who are you? What matters to you? What is possible for you? Who do you want to become?">
+            <span aria-hidden="true">Who are you?</span>
+            <span aria-hidden="true">What matters to you?</span>
+            <span aria-hidden="true">What is possible for you?</span>
+            <span aria-hidden="true">Who do you want to become?</span>
+          </div>
+        </div>
+        <div class="rv">
+          <p class="fourwords" style="margin-bottom:clamp(22px,2.6vw,34px)">
+            <span>We organise our care around the unique individual that you
+              are.</span></p>
+          <p class="understand-note">Your life is integrated, not separated into
+            pieces. So the help you get should be the same.</p>
+          <ul class="chips rv">
+            <li style="--x:2%;--y:10%;--dur:16s;--delay:0s;--dx:7px;--dy:-11px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.2-4.4-7.2-9.4a4 4 0 0 1 7.2-2.4 4 4 0 0 1 7.2 2.4c0 5-7.2 9.4-7.2 9.4z"/></svg><b>Health</b></li>
+            <li style="--x:30%;--y:2%;--dur:19s;--delay:-4s;--dx:-8px;--dy:9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.4 20.6v-3.2a6.9 6.9 0 1 0-9.1-6.5c0 1.7.6 3.2 1.6 4.4v2.4h2.6v2.9"/><path d="M11.4 10.6c0-1.6 2-1.6 2-2.9"/></svg><b>Mind</b></li>
+            <li style="--x:52%;--y:12%;--dur:14s;--delay:-8s;--dx:6px;--dy:10px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="7.6" r="2.4"/><circle cx="16" cy="7.6" r="2.4"/><path d="M3.6 19c0-2.6 2-4.6 4.4-4.6s4.4 2 4.4 4.6"/><path d="M11.6 19c0-2.6 2-4.6 4.4-4.6s4.4 2 4.4 4.6"/></svg><b>Family</b></li>
+            <li style="--x:70%;--y:1%;--dur:21s;--delay:-2s;--dx:-6px;--dy:-9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8.6" cy="12" r="4.8"/><circle cx="15.4" cy="12" r="4.8"/></svg><b>Relationships</b></li>
+            <li style="--x:9%;--y:38%;--dur:17s;--delay:-6s;--dx:9px;--dy:7px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 6.6C10.3 5.3 7.9 4.9 4 5.1v12.8c3.9-.2 6.3.2 8 1.5 1.7-1.3 4.1-1.7 8-1.5V5.1c-3.9-.2-6.3.2-8 1.5z"/><path d="M12 6.6v12.8"/></svg><b>Study</b></li>
+            <li style="--x:38%;--y:32%;--dur:20s;--delay:-11s;--dx:-7px;--dy:-10px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="7.6" width="17.6" height="11.8" rx="1.5"/><path d="M8.6 7.6V5.6a1.6 1.6 0 0 1 1.6-1.6h3.6a1.6 1.6 0 0 1 1.6 1.6v2"/><path d="M3.2 12.6h17.6"/></svg><b>Work</b></li>
+            <li style="--x:64%;--y:42%;--dur:15s;--delay:-3s;--dx:8px;--dy:-6px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.4"/><path d="M9.4 8.6h5.2M9.4 11h4.4"/><path d="M12.9 8.6c1.4 0 2.2.9 2.2 1.9s-.8 1.9-2.2 1.9H9.4l4.4 4.4"/></svg><b>Money</b></li>
+            <li style="--x:4%;--y:68%;--dur:18s;--delay:-9s;--dx:-9px;--dy:8px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.8 10.4 12 3.9l8.2 6.5v9.6H3.8z"/><path d="M9.4 20v-5.4h5.2V20"/></svg><b>Home</b></li>
+            <li style="--x:33%;--y:72%;--dur:22s;--delay:-5s;--dx:7px;--dy:9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="1"/><path d="M3.2 12h17.6M9.4 6.2V12M14.6 12v5.8"/></svg><b>Obstacles</b></li>
+            <li style="--x:62%;--y:66%;--dur:16s;--delay:-13s;--dx:-8px;--dy:-7px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.9 14.5 9l5.6.8-4 4 .9 5.6-5-2.7-5 2.7.9-5.6-4-4L9.5 9z"/></svg><b>Abilities</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · How it should feel -->
+  <section class="sec-care" id="feel">
+    <img class="care-bg" src="/geneura/assets/art-circle.webp" alt="" aria-hidden="true">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Our operating system</span>
+        <h2>You are a person here, not a case.</h2>
+        <p class="lede">CARE<span class="tm">&trade;</span> is our operating system. Connected,
+          Acknowledged, Respected, Empowered.</p>
+      </div>
+      <div class="feel st">
+        <div data-cap="C"><span class="cap" aria-hidden="true">C</span><b>Connected</b><span>You
+          are not working this out on your own.</span></div>
+        <div data-cap="A"><span class="cap" aria-hidden="true">A</span><b>Acknowledged</b><span>Somebody
+          knows you came, and remembers when you come back.</span></div>
+        <div data-cap="R"><span class="cap" aria-hidden="true">R</span><b>Respected</b><span>Nobody
+          asks you what is wrong with you.</span></div>
+        <div data-cap="E"><span class="cap" aria-hidden="true">E</span><b>Empowered</b><span>You
+          leave knowing what happens next, and who is doing it.</span></div>
+      </div>
+      <div class="network rv">
+        <h3>A human-to-human network</h3>
+        <p>Lythous<span class="tm">&trade;</span> is not a directory, a referral line, or a collection
+          of disconnects. It is a network of people who know how to receive you, introduce
+          you to one another, and remain responsible for the relationship.</p>
+        <p>A listener is the front door. An ambassador is the navigator. Clinicians,
+          psychologists and psychiatrists are the resources when they are needed.
+          Everything after that is follow-through.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band rv" aria-label="Mural of an Ambassador carrying a lantern toward someone sitting alone on a bench, a thread of light already connecting them">
+    <img src="/geneura/assets/art-bench.webp" alt="" style="object-position:50% 62%">
+  </section>
+
+  <!-- 09 · Questions -->
+  <section id="questions">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">FAQs</span>
+        <h2>Common questions you may have.</h2>
+      </div>
+      <div class="faq rv">
+        <details>
+          <summary>What if I do not know what to say?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>You do not have to know. &ldquo;I do not really know why I am
+            here&rdquo; is a fine place to start, and you can say nothing at all for a
+            while.</p></div>
+        </details>
+        <details>
+          <summary>Will I be judged?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>No. Nobody asks you what is wrong with you.</p></div>
+        </details>
+        <details>
+          <summary>What if it is not serious enough?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>There is no bar to clear. Curiosity is enough.</p></div>
+        </details>
+        <details>
+          <summary>How long does this take?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>Come when it suits you. Stay as long as you like.</p></div>
+        </details>
+        <details>
+          <summary>Is there a form to fill in?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>No. It is a conversation, over however long it takes.</p></div>
+        </details>
+        <details>
+          <summary>Will it be written down?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>You decide what you tell us. You can ask at any point what has
+            been written down, and who can see it.</p></div>
+        </details>
+        <details>
+          <summary>Can I bring someone, or stop?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="a"><p>Bring anyone you like. Stop whenever you want, and come back
+            later.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · Mural band -->
+  <section class="mural rv" aria-label="Mural of a person holding up a lantern while people gather from every side">
+    <div class="mural-bg"><img src="/geneura/assets/art-lantern.webp" alt=""></div>
+    <span class="mural-glow" aria-hidden="true"></span>
+  </section>
+
+  <!-- 10 · Night close -->
+  <section class="night" id="year" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="rv" id="year-viz">
+        <ul class="year-arc" aria-hidden="true">
+          <li style="--i:0"></li><li style="--i:1"></li><li style="--i:2"></li>
+          <li style="--i:3"></li><li style="--i:4"></li><li style="--i:5"></li>
+          <li style="--i:6"></li><li style="--i:7"></li><li style="--i:8"></li>
+          <li style="--i:9"></li><li style="--i:10"></li><li style="--i:11"></li>
+        </ul>
+        <div class="year-ends"><span>Today</span><span>A year from now</span></div>
+      </div>
+      <div class="year-copy">
+        <h2 class="rv">One year from now, you may not be a different person. But you may
+          see yourself differently.</h2>
+        <div class="rv">
+          <p>You may understand what you need, recognise strengths you had overlooked,
+            and feel connected to people and possibilities you could not see before.</p>
+          <p style="margin-top:14px"><strong>A Lythous<span class="tm">&trade;</span> node does not change who you are.
+            It helps reveal who you can become.</strong></p>
+          <p class="dest">Lythous<span class="tm">&trade;</span> is not a place. It is a destination.</p>
+        </div>
+      </div>
+
+      <div class="ready rv">
+        <div class="ready-in">
+          <h2>Ready when you are.</h2>
+          <p class="lede">Message, call, text, or walk in. You do not need to know what
+            to say.</p>
+          <div class="ready-btns">
+            <a class="btn btn-solid btn-lg" href="https://wa.me/919634676724?text=Hello">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg>
+              WhatsApp us</a>
+            <a class="btn btn-ghost btn-lg" href="tel:+919634676724">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg>
+              +91 96346 76724</a>
+            <a class="btn btn-ghost btn-lg" href="sms:+919634676724">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg>
+              Send a text</a>
+          </div>
+          <p class="hello-hint">&ldquo;Hello&rdquo; is enough.</p>
+        </div>
+        <p class="lockup" id="lockup"><span>We see you.</span><span>We connect
+          you.</span><span>We stay with you.</span><span>You become.</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="dock" id="dock">
+  <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+  <button class="btn btn-solid" type="button" data-open="hello">Say hello</button>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <b>Lythous<span class="tm">&trade;</span></b>
+        <i>Healthcare SMC India</i>
+        <p>A room on your campus, and people in it, for anyone who wants to make
+          contact.</p>
+        <p class="lic">Delivered in India by HealthcareSMC-Geneura LLP under licence
+          from Geneura AI, Inc.</p>
+      </div>
+      <div><h4>Ways in</h4><ul>
+        <li><a href="https://wa.me/919634676724?text=Hello">WhatsApp us</a></li>
+        <li><a href="tel:+919634676724">+91 96346 76724</a></li>
+        <li><a href="sms:+919634676724">Send a text</a></li>
+        <li><a href="#inside">Where to find us</a></li>
+        <li><a href="/geneura/lythous-india-institution/">For institutions</a></li></ul></div>
+      <div><h4>About</h4><ul>
+        <li><span style="color:#7E7060">Geneura AI, Inc.</span></li>
+        <li><a href="https://geneura.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="https://geneura.ai/terms" target="_blank" rel="noopener">Terms of Use</a></li>
+        <li><a href="https://geneura.ai/intellectual-property" target="_blank" rel="noopener">Intellectual Property Notice</a></li></ul></div>
+      <div><div class="crisis"><b>If someone is in immediate danger</b>
+        Call <a href="tel:112">112</a> for emergency services, anywhere in India.
+        Tele-MANAS is <a href="tel:14416">14416</a>, free and open day and night.
+        KIRAN is <a href="tel:18005990019">1800 599 0019</a>.
+        Healthcare SMC India: <a href="tel:+919634676724">+91 96346 76724</a>.</div></div>
+    </div>
+    <div class="foot-bar">
+      <span>Not a clinical service. Nobody who uses one becomes a patient.</span>
+      <span>Lythous&trade; and related marks are trademarks of Geneura AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Say hello sheet -->
+<dialog class="sheet" id="sheet-hello" aria-labelledby="hello-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="hello-title">Say hello</h3>
+    <p class="sub">Whichever is easiest. A person answers, whichever you choose.</p>
+    <ul class="sheet-rows">
+      <li><a href="https://wa.me/919634676724?text=Hello">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.6-4.5A8.4 8.4 0 1 1 20.5 11.6z"/><path d="M8.9 8.5c.2 2.6 2.5 5.1 5.3 5.9l1.1-1.3 2 .8v1.7c-3.6.4-7.9-3.3-8.6-7h1.4z"/></svg></span>
+        <span><b>WhatsApp</b><span>&ldquo;Hello&rdquo; is already typed for you.</span></span></a></li>
+      <li><a href="tel:+919634676724">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 3.5h3l1.2 3.6-2 1.4a11 11 0 0 0 5.9 5.9l1.4-2 3.6 1.2v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2z"/></svg></span>
+        <span><b>Call +91 96346 76724</b><span>Speak to a person.</span></span></a></li>
+      <li><a href="sms:+919634676724">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 5.6h17.2v10.2H9.6l-4 3.4v-3.4H3.4z"/><path d="M8.4 10.7h7.2"/></svg></span>
+        <span><b>Text</b><span>Send a text message to a real person.</span></span></a></li>
+    </ul>
+    <p class="sheet-note">You do not need to know what to say.</p>
+  </div>
+</dialog>
+
+<!-- Urgent sheet -->
+<dialog class="sheet" id="sheet-urgent" aria-labelledby="urgent-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="urgent-title">Get help right now</h3>
+    <p class="sub">If you need someone right now, do not hesitate. These lines are free
+      and open now.</p>
+    <ul class="sheet-rows urgent-rows">
+      <li><a href="tel:112">
+        <span class="num">112</span>
+        <span><b>Emergency services</b><span>Police, ambulance and fire, anywhere in
+          India</span></span></a></li>
+      <li><a href="tel:14416">
+        <span class="num">14416</span>
+        <span><b>Tele-MANAS</b><span>Free, day and night, in twenty languages</span></span></a></li>
+      <li><a href="tel:18005990019">
+        <span class="num">1800&nbsp;599&nbsp;0019</span>
+        <span><b>KIRAN</b><span>The national rehabilitation helpline</span></span></a></li>
+      <li><a href="tel:+919634676724">
+        <span class="num">+91&nbsp;96346&nbsp;76724</span>
+        <span><b>Healthcare SMC India</b><span>Each campus gets its own number when its
+          node opens</span></span></a></li>
+    </ul>
+  </div>
+</dialog>
+
+<!-- Ways-in sheets -->
+<dialog class="sheet" id="sheet-ambassador" aria-labelledby="amb-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="amb-title">What a Lythous<span class="tm">&trade;</span> Ambassador actually does</h3>
+    <h4>They notice</h4>
+    <ul class="plain">
+      <li>The person who is always alone</li>
+      <li>The person who has stopped turning up</li>
+      <li>The person whose behaviour or energy has changed</li>
+      <li>The person who may not know where, or how, to begin</li>
+    </ul>
+    <h4>They connect</h4>
+    <ul class="plain">
+      <li>Say hello</li>
+      <li>Listen without judgement</li>
+      <li>Ask what might help today</li>
+      <li>Explain how Lythous<span class="tm">&trade;</span> can support the person</li>
+      <li>Walk in with them instead of pointing towards a door</li>
+    </ul>
+    <h4>They stay alongside</h4>
+    <ul class="plain">
+      <li>Help the person make the first connection</li>
+      <li>Reduce the fear and friction of asking for support</li>
+      <li>Follow through appropriately</li>
+      <li>Stay alongside until the person is safely connected to the next part of their
+        journey</li>
+    </ul>
+    <h4>What they do not do</h4>
+    <p>An Ambassador does not diagnose, investigate, counsel, or treat.</p>
+    <p>They do not replace clinicians, counsellors, navigators, or emergency services.</p>
+    <p>They recognise the limits of their role, respect privacy and consent, and connect
+      the person to the appropriately trained people within Lythous<span class="tm">&trade;</span>.</p>
+    <p class="amb-close"><strong>An Ambassador does not have to know what is wrong.<br>
+      They simply refuse to let someone face it alone.</strong></p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-listener" aria-labelledby="lis-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="lis-title">A Listener</h3>
+    <p>A Listener is the first human you reach. A person.</p>
+    <h4>Why it matters</h4>
+    <p>At three in the morning, somebody who is frightened should reach a human being.
+      That is the whole point of it.</p>
+    <p class="small">Call, text or message Healthcare SMC India on
+      <a href="tel:+919634676724">+91 96346 76724</a>. If you are in immediate danger,
+      call 112, or Tele-MANAS on 14416.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-node" aria-labelledby="node-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="node-title">Walk into a room</h3>
+    <p>A Lythous<span class="tm">&trade;</span> node is a room on campus with people in it. You can walk
+      in without an appointment and without telling anyone why.</p>
+    <h4>What is inside</h4>
+    <ul class="plain">
+      <li>A reception, with an Ambassador who says hello</li>
+      <li>A safe room, to get away from the noise, or to make a private call</li>
+      <li>A reflection room, quiet and low lit, with nothing expected of you</li>
+      <li>A clinical room, for when a doctor is the right person</li>
+      <li>A common area, for whatever that campus needs it to be</li>
+    </ul>
+    <p class="small">Every node is fitted to the place it is in, so no two are the
+      same.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-online" aria-labelledby="onl-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="onl-title">Online</h3>
+    <p>Walking into a room is a lot to ask of some people on some days. You do not have
+      to.</p>
+    <p>Call, text or message and you reach the same people. Where a campus has a virtual
+      Lythous<span class="tm">&trade;</span> node, you can start there and come in later, or never come in
+      at all.</p>
+    <p class="small">Whatever your comfort is, that is the right way in.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-community" aria-labelledby="com-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="com-title">Someone you know</h3>
+    <p>You do not have to be the one who makes contact. A friend, a classmate, a
+      teacher, a warden, a family member, anybody in your community can start it with
+      you or for you.</p>
+    <p>Faculty and Ambassadors work together, so a teacher who is worried about somebody
+      has a real person to take that to.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="sheet-poster" aria-labelledby="pos-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="pos-title">A poster or a QR code</h3>
+    <p>If you arrived here from a poster, a billboard or a QR code that said Lighthouse,
+      you are in the right place. Lythous<span class="tm">&trade;</span> is the current name. They are not two
+      different things.</p>
+    <p class="small">Formerly known as Lighthouse.</p>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Header: solid after leaving the hero */
+  var head=document.getElementById('head');
+  var dock=document.getElementById('dock');
+  var hero=document.getElementById('top');
+  var foot=document.querySelector('.site-foot');
+  var heroVisible=true,footVisible=false;
+  function sync(){
+    head.classList.toggle('solid',!heroVisible);
+    dock.classList.toggle('show',!heroVisible&&!footVisible);
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){heroVisible=e.isIntersecting});sync();
+    },{rootMargin:'-72px 0px 0px 0px'}).observe(hero);
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){footVisible=e.isIntersecting});sync();
+    },{threshold:.04}).observe(foot);
+
+    /* Reveals */
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+      });
+    },{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.rv,.st,.lockup').forEach(function(el){io.observe(el)});
+  }else{
+    head.classList.add('solid');dock.classList.add('show');
+    document.querySelectorAll('.rv,.st,.lockup').forEach(function(el){el.classList.add('in')});
+  }
+
+  /* Sheets */
+  document.addEventListener('click',function(ev){
+    var opener=ev.target.closest('[data-open]');
+    if(opener){
+      var opts=opener.closest('#arrive-options');
+      if(opts){opts.querySelectorAll('.c-card').forEach(function(c){c.setAttribute('aria-pressed',c===opener?'true':'false')});}
+      var d=document.getElementById('sheet-'+opener.getAttribute('data-open'));
+      if(d)d.showModal();
+      return;
+    }
+    var closer=ev.target.closest('[data-close]');
+    if(closer){closer.closest('dialog').close();return;}
+    var dlg=ev.target.closest('dialog.sheet');
+    if(dlg && ev.target===dlg)dlg.close(); /* click on backdrop */
+  });
+
+  /* Room plan: the list is the control, the drawing echoes it */
+  var zones=document.querySelectorAll('.zone');
+  var zbtns=document.querySelectorAll('.zone-btn');
+  function pick(i){
+    zones.forEach(function(z,k){z.classList.toggle('on',k===i)});
+    zbtns.forEach(function(b,k){
+      b.classList.toggle('on',k===i);
+      b.setAttribute('aria-expanded',k===i?'true':'false');
+    });
+  }
+  zones.forEach(function(z,i){
+    z.addEventListener('mouseenter',function(){pick(i)});
+    z.addEventListener('click',function(){pick(i)});
+  });
+  zbtns.forEach(function(b,i){
+    b.addEventListener('click',function(){pick(i)});
+    b.addEventListener('mouseenter',function(){pick(i)});
+    b.addEventListener('focus',function(){pick(i)});
+  });
+
+  /* The four states open the hello sheet */
+  document.querySelectorAll('.state').forEach(function(li){
+    li.setAttribute('tabindex','0');
+    li.setAttribute('role','button');
+    li.addEventListener('click',function(){
+      var d=document.getElementById('sheet-hello');if(d)d.showModal();
+    });
+    li.addEventListener('keydown',function(ev){
+      if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();
+        var d=document.getElementById('sheet-hello');if(d)d.showModal();}
+    });
+  });
+
+  /* Steps: hovering a step draws its illustration on the stage */
+  var stepEls=document.querySelectorAll('.steps li');
+  var arts=document.querySelectorAll('.how-stage .art');
+  if(stepEls.length && arts.length){
+    stepEls.forEach(function(li,i){
+      li.addEventListener('mouseenter',function(){
+        arts.forEach(function(a,k){a.classList.toggle('on',k===i)});
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
