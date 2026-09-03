@@ -234,6 +234,20 @@ h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
 @keyframes tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker>div{animation:none}}
 
+/* v3: Become an Ambassador section */
+.sec-amb{position:relative;background:#EADCBF;overflow:hidden}
+.sec-amb .wrap{position:relative}
+.amb-bg{
+  position:absolute;left:-6%;top:50%;transform:translateY(-50%);
+  width:min(62%,820px);opacity:.6;mix-blend-mode:multiply;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 72% 74% at 46% 50%,#000 36%,transparent 72%);
+          mask-image:radial-gradient(ellipse 72% 74% at 46% 50%,#000 36%,transparent 72%);
+}
+.sec-amb .two-col{align-items:center}
+.sec-amb h2{font-size:clamp(38px,5vw,62px)}
+@media (max-width:900px){
+  .amb-bg{width:150%;left:-30%;top:auto;bottom:-10%;transform:none;opacity:.28}
+}
 /* v3: big welcome, arrive options, network block, destination line */
 .hero .welcome-big{
   display:block;font-family:var(--display);font-weight:500;letter-spacing:-.01em;
@@ -868,6 +882,42 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 .sheet-note{margin-top:18px;font-size:13.5px;color:var(--ink-3);text-align:center}
 .urgent-rows a{background:#FBF4EC;flex-wrap:wrap}
 .urgent-rows .num{font-family:var(--display);font-size:22px;font-weight:600;color:var(--danger);letter-spacing:0;flex:none}
+
+/* ===== REVIEW LAYER: remove this block and every <mark class="chg"> to clear ===== */
+.chg{display:none}
+body.notes-on .chg{display:inline-flex}
+.chg{align-items:center;font:600 10.5px/1 var(--mono);letter-spacing:.08em;
+  color:#fff;background:#1E5EFF;border-radius:6px;padding:4px 7px;vertical-align:middle;
+  margin-right:8px;box-shadow:0 2px 8px rgba(30,94,255,.35);position:relative;z-index:5;
+  cursor:help;white-space:nowrap;text-transform:none;font-style:normal;opacity:1!important;
+  transform:none!important;filter:none!important;
+}
+.chg.dec{background:#C2410C;box-shadow:0 2px 8px rgba(194,65,12,.35)}
+.lockup .chg,.ask-cycle .chg{opacity:1!important}
+.chg-legend{
+  position:fixed;left:16px;bottom:16px;z-index:60;width:min(360px,calc(100vw - 32px));
+  max-height:min(62vh,560px);overflow:auto;background:#fff;color:#111;border-radius:14px;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);font:13px/1.45 var(--sans);border:1px solid rgba(0,0,0,.08);
+}
+.chg-legend summary{cursor:pointer;padding:12px 14px;font-weight:700;background:#1E5EFF;color:#fff;border-radius:14px;list-style:none}
+.chg-legend[open] summary{border-radius:14px 14px 0 0}
+.chg-legend summary::-webkit-details-marker{display:none}
+.chg-legend ol{list-style:none;padding:10px 14px 12px}
+.chg-legend li{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:6px 0;border-top:1px solid rgba(0,0,0,.06);align-items:start}
+.chg-legend li:first-child{border-top:0}
+.chg-legend .k{font:600 10.5px/1.2 var(--mono);color:#fff;background:#1E5EFF;border-radius:5px;padding:4px 6px;text-align:center;margin-top:2px}
+.chg-legend .k.dec{background:#C2410C}
+.chg-legend .k.blk{background:#6B7280}
+.chg-legend .k.done{background:#15803D}
+.chg-legend .note{color:#374151}
+.chg-legend .note b{color:#111}
+.chg-legend a{color:#1E5EFF}
+.notes-toggle{
+  margin:10px 14px 0;width:calc(100% - 28px);padding:9px 12px;border-radius:9px;border:0;
+  background:#111;color:#fff;font:600 12.5px var(--sans);cursor:pointer;
+}
+body:not(.notes-on) .notes-toggle{background:#1E5EFF}
+@media (max-width:700px){.chg-legend{max-height:40vh}}
 </style>
 </head>
 <body>
@@ -876,8 +926,8 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 
 <header class="site-head" id="head">
   <div class="head-in">
-    <a class="brand" href="#top"><span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
-    <nav class="site-nav" aria-label="Sections">
+    <a class="brand" href="#top"><mark class="chg" title="Geneura logo removed from the header. Text lockup only. Favicon kept, your call.">A1</mark><span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
+    <nav class="site-nav" aria-label="Sections"><mark class="chg" title="Nav now: How you got here (new), Say hello, Inside, How it works, FAQs. Who it is for dropped to keep five.">NAV</mark>
       <a href="#arrive">How you got here</a>
       <a href="#hello">Say hello</a>
       <a href="#inside">Inside</a>
@@ -897,16 +947,17 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   <section class="hero" id="top" style="padding:0">
     <div class="hero-media"><img src="/geneura/assets/room-wide.jpg" alt="A Lythous&trade; room: daylight, a sunrise mural, low seating in a circle."></div>
     <div class="hero-in">
-      <span class="welcome-big">Welcome to Lythous<span class="tm">&trade;</span></span>
-      <span class="eyebrow aka-line">Formerly known as Lighthouse</span>
-      <h1><span class="line"><span>We begin</span></span><span class="line"><span>by seeing you.</span></span></h1>
-      <p class="lede">You do not need to identify or choose a service, or know which
+      <span class="welcome-big"><mark class="chg" title="Welcome made big and prominent, the first thing you see.">B3</mark>Welcome to Lythous<span class="tm">&trade;</span></span>
+      <span class="eyebrow aka-line"><mark class="chg" title="Was: Also known as a Lighthouse node. Now: Formerly known as Lighthouse. Header stays Lythous.">A2</mark>Formerly known as Lighthouse</span>
+      <h1><span class="line"><span><mark class="chg" title="Was: We begin with the person you are. Now: We begin by seeing you.">B1</mark>We begin</span></span><span class="line"><span>by seeing you.</span></span></h1>
+      <p class="lede"><mark class="chg" title="Was: The world often begins with a problem... Now: Jay's line plus your list, with We start with as the verb.">B2</mark>You do not need to identify or choose a service, or know which
         professional you need.<br>
         We start with your life, your circumstances, your interests, and who you want
         to become.</p>
       <div class="hero-cta">
         <button class="btn btn-solid btn-lg" type="button" data-open="hello">Say hello</button>
         <button class="btn btn-help btn-lg" type="button" data-open="urgent">I need help now</button>
+        <mark class="chg dec" title="DECISION: Say hello kept on all buttons and the sheet. Jay rejected it only as the section framing; you said a CTA is still needed.">C3</mark>
       </div>
     </div>
     <span class="scroll-cue" aria-hidden="true"></span>
@@ -924,7 +975,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Welcome</span>
-        <h2>How did you get here today?</h2>
+        <h2><mark class="chg" title="NEW SECTION, replaces Say hello at the top. Jay: who are they saying hello to? Six options, each opens a popup.">C1</mark>How did you get here today?</h2>
       </div>
       <div class="way-cards st" id="arrive-options">
         <button class="c-card" type="button" data-open="ambassador" aria-pressed="false">
@@ -933,7 +984,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           <span>Someone whose job is to notice, and to walk with you.</span>
           <span class="link">What is an Ambassador?</span>
         </button>
-        <button class="c-card" type="button" data-open="listener" aria-pressed="false">
+        <button class="c-card" type="button" data-open="listener" aria-pressed="false"><mark class="chg" title="Listener explanation is now a popup inside this interaction, not its own section. The old Ways in section is removed.">C4</mark>
           <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/></svg></span>
           <b>A Listener</b>
           <span>A real person on the other end, at any hour.</span>
@@ -945,7 +996,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           <span>You found us on a screen. A person is on the other side of it.</span>
           <span class="link">How that works</span>
         </button>
-        <button class="c-card" type="button" data-open="poster" aria-pressed="false">
+        <button class="c-card" type="button" data-open="poster" aria-pressed="false"><mark class="chg" title="New poster / QR option with a new popup, built from the already approved naming copy.">C1</mark>
           <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="1.2"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></svg></span>
           <b>A poster or a QR code</b>
           <span>It may have said Lighthouse. You are in the right place.</span>
@@ -972,7 +1023,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   <section class="night" id="you">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">What brings you here today?</span>
+        <span class="eyebrow"><mark class="chg" title="Second question, separate from how you arrived. The four states now answer it. Was: Where you are.">C2</mark>What brings you here today?</span>
         <h2>Recognise yourself in any of these?</h2>
       </div>
       <ul class="states st" style="list-style:none">
@@ -1007,7 +1058,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Say hello</span>
-        <h2>Saying hello is the first step.</h2>
+        <h2><mark class="chg" title="MOVED. Contact routes were the first section; they now follow the two questions. Copy unchanged.">C1</mark>Saying hello is the first step.</h2>
         <p class="lede">Whichever way suits you today.</p>
       </div>
       <div class="contact-grid st">
@@ -1110,7 +1161,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span class="headshot" aria-hidden="true">RB</span>
         <div class="d-who">
           <p class="d-name">Director Ram Bresh Bhadauriya (Yadav)</p>
-          <p class="d-role">Founding Lythous<span class="tm">&trade;</span> Partner &middot; Major Ram Veer Singh Shiksha Sansthan</p>
+          <p class="d-role"><mark class="chg dec" title="DECISION: Founding Lythous Partner (the call) vs Founding University Partner (Jay's email). Photo and quote still blocked on Chris (G2). Directions blocked on campus (G3).">G1</mark>Founding Lythous<span class="tm">&trade;</span> Partner &middot; Major Ram Veer Singh Shiksha Sansthan</p>
         </div>
         <p class="d-quote">A short message from Director Ram to his students will appear
           here, in his own words.</p>
@@ -1159,23 +1210,23 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <ol class="steps st">
           <li><span class="num">01</span>
             <div><b>Recognition</b>
-            <p>You reach out, or an Ambassador notices you. Either way, it starts with a
+            <p><mark class="chg dec" title="Tightened to the call. DECISION: not a form kept.">E1</mark>You reach out, or an Ambassador notices you. Either way, it starts with a
               person, not a form.</p></div></li>
           <li><span class="num">02</span>
             <div><b>Engagement</b>
-            <p>You talk to a Listener, on your terms. In the room, or by phone, text or
+            <p><mark class="chg" title="Names the Listener. Was: You talk, on your terms.">E2</mark>You talk to a Listener, on your terms. In the room, or by phone, text or
               WhatsApp.</p></div></li>
           <li><span class="num">03</span>
             <div><b>Navigation</b>
-            <p>Together you work out what would actually help, and who is the right
+            <p><mark class="chg" title="Was: who already near you can give it. Now: who is the right resource to help you.">E3</mark>Together you work out what would actually help, and who is the right
               resource to help you.</p></div></li>
           <li><span class="num">04</span>
             <div><b>Escalation</b>
-            <p>If necessary, you are connected with the right person. It could be an
+            <p><mark class="chg" title="Was: a written plan says who acts. Jay: not always a plan, and not always needed. Now: If necessary, connected with the right person.">E4</mark>If necessary, you are connected with the right person. It could be an
               Ambassador, a clinician, a psychologist or a psychiatrist.</p></div></li>
           <li><span class="num">05</span>
             <div><b>Follow-through</b>
-            <p>We don&rsquo;t just show you the next door. We stay with you until you get
+            <p><mark class="chg" title="Jay's own line. Was: Your Ambassador goes with you until you have arrived.">E5</mark>We don&rsquo;t just show you the next door. We stay with you until you get
               through it.</p></div></li>
         </ol>
         <figure class="how-stage rv" aria-hidden="true">
@@ -1190,26 +1241,25 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   </section>
 
   <!-- 06b · Become an Ambassador -->
-  <section id="ambassador">
+  <section class="sec-amb" id="ambassador">
+    <img class="amb-bg" src="/geneura/assets/art-bench.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="two-col">
         <div class="rv">
-          <span class="eyebrow">Become an Ambassador</span>
-          <h2>Or come the other way round.</h2>
+          <span class="eyebrow">Or come the other way round</span>
+          <h2><mark class="chg" title="Was: eyebrow Become an Ambassador, H2 Or come the other way round. Swapped, and the section given the bench mural as its background, a deeper sand ground and a solid button.">F5</mark>Become an Ambassador.</h2>
         </div>
         <div class="rv">
           <p class="lede">Some people walk in not because they need something, but
             because they want to be the person somebody else can walk up to.</p>
-          <p style="margin-top:14px;color:var(--ink-2)">An Ambassador is the first point
+          <p style="margin-top:14px;color:var(--ink-2)"><mark class="chg" title="First point of human contact, full stop. Not on a campus. Places named.">F1</mark> <mark class="chg" title="walk WITH somebody, never walk in with.">F2</mark>An Ambassador is the first point
             of human contact. In a Lythous<span class="tm">&trade;</span> node, in a bookshop, in a
             coffee shop, on a park bench. You are trained to notice, to listen, and to
             walk with somebody.</p>
-          <p style="margin-top:14px;color:var(--ink-2)"><strong>An Ambassador does not have
+          <p style="margin-top:14px;color:var(--ink-2)"><mark class="chg" title="The not asked to diagnose sentence is gone; replaced with the closing line from Jay's new copy.">F3</mark><strong>An Ambassador does not have
             to know what is wrong. They simply refuse to let someone face it
             alone.</strong></p>
-          <button class="inline-cta" type="button" data-open="ambassador">What an
-            Ambassador actually does
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+          <mark class="chg" title="The popup behind this link is rebuilt on Jay's new copy: notice, connect, stay alongside, what they do not do.">F4</mark><button class="btn btn-solid btn-lg" type="button" data-open="ambassador" style="margin-top:22px">What an Ambassador actually does</button>
         </div>
       </div>
     </div>
@@ -1259,7 +1309,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <img class="care-bg" src="/geneura/assets/art-circle.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">Our operating system</span>
+        <span class="eyebrow"><mark class="chg" title="CARE is our operating system, Jay's words. Was: the standard every node is held to.">D1</mark>Our operating system</span>
         <h2>You are a person here, not a case.</h2>
         <p class="lede">CARE<span class="tm">&trade;</span> is our operating system. Connected,
           Acknowledged, Respected, Empowered.</p>
@@ -1275,19 +1325,14 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           leave knowing what happens next, and who is doing it.</span></div>
       </div>
       <div class="network rv">
-        <h3>A human-to-human network</h3>
+        <h3><mark class="chg" title="Human-to-human network copy moved INTO CARE, from Jay's draft.">D2</mark> <mark class="chg" title="Clinicians, psychologists, psychiatrists introduced inside the CARE flow, not as ways in.">D3</mark>A human-to-human network</h3>
         <p>Lythous<span class="tm">&trade;</span> is not a directory, a referral line, or a collection
           of disconnects. It is a network of people who know how to receive you, introduce
           you to one another, and remain responsible for the relationship.</p>
         <p>A listener is the front door. An ambassador is the navigator. Clinicians,
-          psychologists and psychiatrists are the resources when they are needed.
-          Everything after that is follow-through.</p>
+          psychologists and psychiatrists are the resources when they are needed.</p>
       </div>
     </div>
-  </section>
-
-  <section class="band rv" aria-label="Mural of an Ambassador carrying a lantern toward someone sitting alone on a bench, a thread of light already connecting them">
-    <img src="/geneura/assets/art-bench.webp" alt="" style="object-position:50% 62%">
   </section>
 
   <!-- 09 · Questions -->
@@ -1360,7 +1405,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
             and feel connected to people and possibilities you could not see before.</p>
           <p style="margin-top:14px"><strong>A Lythous<span class="tm">&trade;</span> node does not change who you are.
             It helps reveal who you can become.</strong></p>
-          <p class="dest">Lythous<span class="tm">&trade;</span> is not a place. It is a destination.</p>
+          <p class="dest"><mark class="chg" title="Jay: not a place, it is a destination. Placed here. Note it contradicts the old India line about not being the destination.">H1</mark>Lythous<span class="tm">&trade;</span> is not a place. It is a destination.</p>
         </div>
       </div>
 
@@ -1382,7 +1427,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           </div>
           <p class="hello-hint">&ldquo;Hello&rdquo; is enough.</p>
         </div>
-        <p class="lockup" id="lockup"><span>We see you.</span><span>We connect
+        <p class="lockup" id="lockup"><mark class="chg" title="We stay with you added to the lockup. Done on 2 September.">H2</mark><span>We see you.</span><span>We connect
           you.</span><span>We stay with you.</span><span>You become.</span></p>
       </div>
     </div>
@@ -1480,7 +1525,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 <dialog class="sheet" id="sheet-ambassador" aria-labelledby="amb-title">
   <div class="sheet-in">
     <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
-    <h3 id="amb-title">What a Lythous<span class="tm">&trade;</span> Ambassador actually does</h3>
+    <h3 id="amb-title"><mark class="chg" title="Jay's copy, British spelling, em dashes removed. Walk in with them instead of pointing towards a door kept as he wrote it.">F4</mark>What a Lythous<span class="tm">&trade;</span> Ambassador actually does</h3>
     <h4>They notice</h4>
     <ul class="plain">
       <li>The person who is always alone</li>
@@ -1582,6 +1627,53 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <p class="small">Formerly known as Lighthouse.</p>
   </div>
 </dialog>
+
+<details class="chg-legend">
+  <summary>Review layer &middot; changes from the Jay call, 2 Sept &middot; hover any badge</summary>
+  <ol>
+    <li><span class="k">A1</span><span class="note"><b>Header logo removed.</b> Text lockup only. Favicon kept.</span></li>
+    <li><span class="k">A2</span><span class="note"><b>Formerly known as Lighthouse.</b> Header stays Lythous&trade;.</span></li>
+    <li><span class="k dec">A3</span><span class="note"><b>No change.</b> Healthcare SMC spacing parked on the call.</span></li>
+    <li><span class="k">B1</span><span class="note"><b>H1:</b> We begin by seeing you.</span></li>
+    <li><span class="k">B2</span><span class="note"><b>Lede</b> rewritten around not needing to choose a service.</span></li>
+    <li><span class="k">B3</span><span class="note"><b>Big Welcome</b> at the top.</span></li>
+    <li><span class="k">C1</span><span class="note"><b>How did you get here today?</b> New section replaces Say hello at the top. Six options, each a popup. Contact routes moved below the two questions.</span></li>
+    <li><span class="k">C2</span><span class="note"><b>What brings you here today?</b> now heads the four states.</span></li>
+    <li><span class="k dec">C3</span><span class="note"><b>Decision:</b> Say hello kept on buttons and sheet.</span></li>
+    <li><span class="k">C4</span><span class="note"><b>Listener is a popup</b> option. Ways in section removed as a duplicate.</span></li>
+    <li><span class="k">D1</span><span class="note"><b>CARE is our operating system.</b></span></li>
+    <li><span class="k">D2</span><span class="note"><b>Human-to-human network</b> copy moved into CARE.</span></li>
+    <li><span class="k">D3</span><span class="note"><b>Clinicians, psychologists, psychiatrists</b> introduced inside CARE.</span></li>
+    <li><span class="k dec">E1</span><span class="note"><b>Recognition</b> tightened. Decision: not a form kept.</span></li>
+    <li><span class="k">E2</span><span class="note"><b>Engagement</b> names the Listener.</span></li>
+    <li><span class="k">E3</span><span class="note"><b>Navigation:</b> the right resource to help you.</span></li>
+    <li><span class="k">E4</span><span class="note"><b>Escalation:</b> if necessary, connected with the right person.</span></li>
+    <li><span class="k">E5</span><span class="note"><b>Follow-through:</b> we stay with you until you get through the door.</span></li>
+    <li><span class="k">F1</span><span class="note"><b>First point of human contact</b>, not on a campus.</span></li>
+    <li><span class="k">F2</span><span class="note"><b>Walk with</b>, never walk in with.</span></li>
+    <li><span class="k">F3</span><span class="note"><b>Diagnose sentence removed</b>, closing line from Jay's copy.</span></li>
+    <li><span class="k">F4</span><span class="note"><b>Ambassador popup</b> rebuilt on Jay's new copy.</span></li>
+    <li><span class="k">F5</span><span class="note"><b>Become an Ambassador</b> as the H2, Or come the other way round as the line above, bench mural as background, solid button.</span></li>
+    <li><span class="k dec">G1</span><span class="note"><b>Decision:</b> Founding Lythous&trade; Partner (call) or Founding University Partner (email).</span></li>
+    <li><span class="k blk">G2</span><span class="note"><b>Blocked on Chris:</b> photo and quote.</span></li>
+    <li><span class="k blk">G3</span><span class="note"><b>Blocked on campus:</b> building, hours, directions.</span></li>
+    <li><span class="k">H1</span><span class="note"><b>Not a place, a destination</b>, placed in the closing section.</span></li>
+    <li><span class="k done">H2</span><span class="note"><b>We stay with you</b> in the lockup. Done 2 Sept.</span></li>
+    <li><span class="k done">I1</span><span class="note"><b>Technology section</b> not added, per the call.</span></li>
+    <li><span class="k">NAV</span><span class="note"><b>Nav</b> gains How you got here, drops Who it is for.</span></li>
+  </ol>
+  <button class="notes-toggle" type="button" id="notes-toggle">Hide the badges</button>
+  <p style="padding:8px 14px 12px;color:#6B7280;font-size:12px">The whole layer is removable in one pass once you have reviewed it.</p>
+</details>
+<script>
+(function(){
+  var on=true;try{on=localStorage.getItem('lythousNotes')!=='off'}catch(e){}
+  var b=document.getElementById('notes-toggle');
+  function sync(){document.body.classList.toggle('notes-on',on);b.textContent=on?'Hide the badges':'Show the badges';}
+  b.addEventListener('click',function(){on=!on;try{localStorage.setItem('lythousNotes',on?'on':'off')}catch(e){}sync();});
+  sync();
+})();
+</script>
 
 <script>
 (function(){
