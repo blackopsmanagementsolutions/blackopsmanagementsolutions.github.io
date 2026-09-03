@@ -311,6 +311,74 @@ section{position:relative}
   .grain{display:none}
 }
 
+
+/* ============================================================
+   Light: the lantern motif
+   ============================================================ */
+/* 1. Cursor lantern over the dark sections (pointer devices) */
+.lantern-light{
+  position:fixed;left:0;top:0;width:900px;height:900px;margin:-450px 0 0 -450px;
+  border-radius:50%;pointer-events:none;z-index:2;opacity:0;
+  background:radial-gradient(circle,rgba(255,206,120,.34) 0%,rgba(255,196,92,.16) 22%,rgba(255,180,70,.05) 45%,transparent 66%);
+  mix-blend-mode:screen;filter:blur(2px);
+  transition:opacity .6s var(--ease);
+  animation:lanternFlicker 3.1s ease-in-out infinite;
+}
+.lantern-light.show{opacity:1}
+@keyframes lanternFlicker{
+  0%,100%{transform:scale(1)}
+  17%{transform:scale(1.035)}
+  31%{transform:scale(.985)}
+  52%{transform:scale(1.05)}
+  68%{transform:scale(.99)}
+  84%{transform:scale(1.02)}
+}
+@media (hover:none){.lantern-light{display:none}}
+
+/* 2. Dark sections light up as you arrive (every device) */
+.night::before{
+  content:"";position:absolute;left:50%;top:38%;width:min(120vw,1400px);aspect-ratio:1;
+  transform:translate(-50%,-50%) scale(.55);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(228,196,137,.20) 0%,rgba(228,196,137,.08) 30%,transparent 62%);
+  opacity:.55;
+}
+@supports (animation-timeline: view()) {
+  .night::before{animation:lightUp linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+  @keyframes lightUp{from{opacity:0;transform:translate(-50%,-50%) scale(.35)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+}
+
+/* 3. The lantern glyph, with a living flame */
+.lantern-svg{display:block;fill:none;stroke:#E4C489;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.lantern-svg .halo{fill:rgba(255,196,92,.22);stroke:none;filter:blur(6px);transform-origin:24px 40px;animation:haloPulse 2.9s ease-in-out infinite}
+.lantern-svg .flame{fill:#F2B65A;stroke:none;transform-origin:24px 43px;animation:flame 1.9s ease-in-out infinite}
+.lantern-svg .flame-core{fill:#FFF1CF;stroke:none;transform-origin:24px 40px;animation:flame 1.9s ease-in-out -0.6s infinite}
+@keyframes flame{
+  0%,100%{transform:scale(1,1) rotate(0deg)}
+  22%{transform:scale(.94,1.08) rotate(-3deg)}
+  41%{transform:scale(1.04,.95) rotate(2deg)}
+  63%{transform:scale(.97,1.05) rotate(-1.5deg)}
+  81%{transform:scale(1.02,.98) rotate(3deg)}
+}
+@keyframes haloPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.18);opacity:1}}
+.lantern-lg{display:block;width:64px;margin:0 auto 22px;position:relative}
+.lantern-lg .lantern-svg{width:64px;height:96px}
+.lantern-sm{display:inline-flex;width:14px;height:21px;margin-right:9px;vertical-align:-3px}
+.lantern-sm .lantern-svg{width:14px;height:21px;stroke:currentColor;stroke-width:2.6}
+.lantern-sm .lantern-svg .halo{display:none}
+.lantern-sm .lantern-svg .flame{fill:#E4A23A}
+.lantern-sm .lantern-svg .flame-core{fill:#FFF1CF}
+
+/* 4. The mural's own lantern now flickers as well as breathes */
+.mural-glow{animation:glowBreathe 5.5s ease-in-out infinite alternate,muralFlicker 2.7s ease-in-out infinite}
+@keyframes muralFlicker{0%,100%{filter:blur(6px) brightness(1)}23%{filter:blur(6px) brightness(1.22)}47%{filter:blur(7px) brightness(.94)}71%{filter:blur(6px) brightness(1.15)}}
+
+@media (prefers-reduced-motion:reduce){
+  .lantern-light{display:none}
+  .night::before{animation:none;opacity:.55;transform:translate(-50%,-50%) scale(1)}
+  .lantern-svg .halo,.lantern-svg .flame,.lantern-svg .flame-core{animation:none}
+  .mural-glow{animation:none}
+}
+
 /* v3: Become an Ambassador section */
 .sec-amb{position:relative;background:#EADCBF;overflow:hidden}
 .sec-amb .wrap{position:relative}
@@ -875,9 +943,10 @@ section{padding:var(--sec) 0}
 }
 .lockup span{opacity:0;transform:translateY(14px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .lockup.in span{opacity:1;transform:none}
-.lockup.in span:nth-child(2){transition-delay:.3s}
-.lockup.in span:nth-child(3){transition-delay:.6s}
-.lockup.in span:nth-child(4){transition-delay:.9s;color:#E4C489}
+.lockup.in span:nth-of-type(2){transition-delay:.3s}
+.lockup.in span:nth-of-type(3){transition-delay:.6s}
+.lockup.in span:nth-of-type(4){transition-delay:.9s}
+.lockup.in span:last-of-type{color:#E4C489}
 
 /* ============================================================
    Footer
@@ -1002,6 +1071,7 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
 <a class="skip" href="#main">Skip to content</a>
 <canvas class="grain" id="grain" aria-hidden="true"></canvas>
 <div class="cursor-label" id="cursor-label" aria-hidden="true"></div>
+<div class="lantern-light" id="lantern-light" aria-hidden="true"></div>
 
 <header class="site-head" id="head">
   <div class="head-in">
@@ -1490,6 +1560,15 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
 
       <div class="ready rv">
         <div class="ready-in">
+          <span class="lantern-lg"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>
           <h2>Ready when you are.</h2>
           <p class="lede">Message, call, text, or walk in. You do not need to know what
             to say.</p>
@@ -1515,7 +1594,15 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
 
 <div class="dock" id="dock">
   <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
-  <button class="btn btn-solid" type="button" data-open="hello">Say hello</button>
+  <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
 </div>
 
 <footer class="site-foot">
@@ -1913,6 +2000,20 @@ body:not(.notes-on) .notes-toggle{background:#1E5EFF}
     addEventListener('resize',onScroll);
     setActive(0);current=0;
     pickNearest();
+  })();
+
+  /* cursor lantern: follows the pointer, lit only over the dark sections */
+  (function(){
+    var light=document.getElementById('lantern-light');if(!light||reduce)return;
+    if(!window.matchMedia('(hover: hover)').matches)return;
+    var x=innerWidth/2,y=innerHeight/2,tx=x,ty=y,over=0,raf=null;
+    function loop(){x+=(tx-x)*.12;y+=(ty-y)*.12;light.style.left=x+'px';light.style.top=y+'px';raf=requestAnimationFrame(loop);}
+    document.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;if(raf===null)loop();},{passive:true});
+    document.querySelectorAll('.night').forEach(function(sec){
+      sec.addEventListener('mouseenter',function(){over++;light.classList.add('show');});
+      sec.addEventListener('mouseleave',function(){over=Math.max(0,over-1);if(!over)light.classList.remove('show');});
+    });
+    document.addEventListener('mouseleave',function(){light.classList.remove('show');over=0;});
   })();
 
   /* cursor label over the four artworks */
