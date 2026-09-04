@@ -380,6 +380,18 @@ section{position:relative}
 }
 
 
+/* Sheet call to action: every popup ends on the ask */
+.sheet-cta{
+  display:flex;gap:10px;flex-wrap:wrap;
+  margin:24px -28px -28px;padding:20px 28px 22px;
+  border-top:1px solid var(--hair-soft);background:var(--paper);
+  border-radius:0 0 22px 22px;
+}
+.sheet-cta .btn{flex:1 1 auto;justify-content:center;padding:13px 18px;font-size:15px}
+.sheet-cta .btn-solid{background:var(--ink);color:var(--cream)}
+.sheet-cta .lantern-sm .lantern-svg{stroke:currentColor}
+@media (max-width:420px){.sheet-cta{flex-direction:column}}
+
 /* ============================================================
    Finishing polish: the small things
    ============================================================ */
@@ -1690,6 +1702,9 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span><b>Text</b><span>Send a text message to a real person.</span></span></a></li>
     </ul>
     <p class="sheet-note">You do not need to know what to say.</p>
+    <div class="sheet-cta">
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1716,6 +1731,17 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span><b>Healthcare SMC India</b><span>Each campus gets its own number when its
           node opens</span></span></a></li>
     </ul>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+    </div>
   </div>
 </dialog>
 
@@ -1754,6 +1780,18 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       the person to the appropriately trained people within Lythous<span class="tm">&trade;</span>.</p>
     <p class="amb-close"><strong>An Ambassador does not have to know what is wrong.<br>
       They simply refuse to let someone face it alone.</strong></p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1768,6 +1806,18 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <p class="small">Call, text or message Healthcare SMC India on
       <a href="tel:+919634676724">+91 96346 76724</a>. If you are in immediate danger,
       call 112, or Tele-MANAS on 14416.</p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1787,6 +1837,18 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </ul>
     <p class="small">Every node is fitted to the place it is in, so no two are the
       same.</p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1794,12 +1856,24 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   <div class="sheet-in">
     <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
     <h3 id="onl-title">Online</h3>
-    <p>Walking into a room is a lot to ask of some people on some days. You do not have
-      to.</p>
-    <p>Call, text or message and you reach the same people. Where a campus has a virtual
-      Lythous<span class="tm">&trade;</span> node, you can start there and come in later, or never come in
-      at all.</p>
-    <p class="small">Whatever your comfort is, that is the right way in.</p>
+    <p>You found us on a screen. That counts. A message is a real way in, not a lesser
+      one.</p>
+    <p>Call, text or WhatsApp and you reach exactly the same people you would meet in the
+      room. You can stay online as long as you like, come in later, or never come in at
+      all.</p>
+    <p class="small">Whatever is easiest today is the right way in.</p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1810,8 +1884,20 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <p>You do not have to be the one who makes contact. A friend, a classmate, a
       teacher, a warden, a family member, anybody in your community can start it with
       you or for you.</p>
-    <p>Faculty and Ambassadors work together, so a teacher who is worried about somebody
-      has a real person to take that to.</p>
+    <p>Faculty and Ambassadors work together to help people they feel might benefit
+      from Lythous<span class="tm">&trade;</span>.</p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1820,9 +1906,21 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
     <h3 id="pos-title">A poster or a QR code</h3>
     <p>If you arrived here from a poster, a billboard or a QR code that said Lighthouse,
-      you are in the right place. Lythous<span class="tm">&trade;</span> is the current name. They are not two
-      different things.</p>
+      you are in the right place. Lythous<span class="tm">&trade;</span> is the current
+      name.</p>
     <p class="small">Formerly known as Lighthouse.</p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Say hello</button>
+      <button class="btn btn-help" type="button" data-open="urgent">I need help now</button>
+    </div>
   </div>
 </dialog>
 
@@ -1869,7 +1967,12 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       var opts=opener.closest('#arrive-options');
       if(opts){opts.querySelectorAll('.c-card').forEach(function(c){c.setAttribute('aria-pressed',c===opener?'true':'false')});}
       var d=document.getElementById('sheet-'+opener.getAttribute('data-open'));
-      if(d)d.showModal();
+      if(!d)return;
+      var from=opener.closest('dialog.sheet');
+      if(from&&from!==d){                 /* swap one popup for another */
+        closeSheet(from);
+        setTimeout(function(){if(!d.open)d.showModal();},reduce?0:290);
+      }else if(!d.open){d.showModal();}
       return;
     }
     var closer=ev.target.closest('[data-close]');
