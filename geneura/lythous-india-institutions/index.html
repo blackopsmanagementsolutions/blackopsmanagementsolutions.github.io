@@ -1300,6 +1300,8 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 .hero .std{display:block;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F0D49B}
 
 /* close */
+.dock .btn-ghost{color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(246,241,232,.5)}
+.dock .btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--cream)}
 .ready .lede{max-width:46ch}
 .foot-swap{margin-top:18px;font-size:14px;color:#AFA292}
 .foot-swap a{color:#E4C489}
@@ -1689,7 +1691,40 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </div>
   </section>
 
-  <!-- 08 · Become -->
+  <!-- 08 · Readiness assessment -->
+  <section class="asmt" id="assess">
+    <div class="wrap" id="asmt">
+      <div class="asmt-intro rv">
+        <span class="label">Start here</span>
+        <h2>How ready is your campus to reach the person who never asks?</h2>
+        <p class="lede">Fifteen questions, three minutes. You get a readiness score, the gaps
+          we found, and a short summary you can forward internally. No obligation, and no
+          sales call unless you ask for one.</p>
+        <button class="btn btn-solid btn-lg" id="asmt-open" type="button">Take the readiness assessment</button>
+        <p class="asmt-note">Your answers stay in this browser. Nothing is recorded about
+          anybody who does not send it.</p>
+      </div>
+      <div class="asmt-body" id="asmt-body" hidden>
+        <div class="asmt-rail">
+          <div class="asmt-rail-in">
+            <p class="mono">Readiness assessment</p>
+            <p class="mono" id="asmt-count" aria-live="polite">0 of 15</p>
+          </div>
+          <div class="asmt-track" aria-hidden="true"><div class="asmt-fill" id="asmt-fill"></div></div>
+        </div>
+        <p class="lede" style="margin-bottom:clamp(30px,4vw,46px)">Answer for the institution
+          as a whole, from what you already know. Nothing here needs looking up, and there is
+          no answer that counts against you.</p>
+        <form id="asmt-form" novalidate></form>
+        <div class="asmt-go">
+          <button class="btn btn-solid btn-lg" id="asmt-submit" type="button" disabled>See the result</button>
+          <p class="asmt-left" id="asmt-left"></p>
+        </div>
+        <div class="asmt-result" id="asmt-result" hidden></div>
+      </div>
+    </div>
+  </section>
+  <!-- 09 · Become -->
   <section class="night" id="become" style="padding-bottom:0">
     <div class="wrap">
       <div class="rv" id="year-viz">
@@ -1742,39 +1777,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     </div>
   </section>
 
-  <!-- 09 · Readiness assessment -->
-  <section class="asmt" id="assess">
-    <div class="wrap" id="asmt">
-      <div class="asmt-intro rv">
-        <span class="label">Start here</span>
-        <h2>How ready is your campus to reach the person who never asks?</h2>
-        <p class="lede">Fifteen questions, three minutes. You get a readiness score, the gaps
-          we found, and a short summary you can forward internally. No obligation, and no
-          sales call unless you ask for one.</p>
-        <button class="btn btn-solid btn-lg" id="asmt-open" type="button">Take the readiness assessment</button>
-        <p class="asmt-note">Your answers stay in this browser. Nothing is recorded about
-          anybody who does not send it.</p>
-      </div>
-      <div class="asmt-body" id="asmt-body" hidden>
-        <div class="asmt-rail">
-          <div class="asmt-rail-in">
-            <p class="mono">Readiness assessment</p>
-            <p class="mono" id="asmt-count" aria-live="polite">0 of 15</p>
-          </div>
-          <div class="asmt-track" aria-hidden="true"><div class="asmt-fill" id="asmt-fill"></div></div>
-        </div>
-        <p class="lede" style="margin-bottom:clamp(30px,4vw,46px)">Answer for the institution
-          as a whole, from what you already know. Nothing here needs looking up, and there is
-          no answer that counts against you.</p>
-        <form id="asmt-form" novalidate></form>
-        <div class="asmt-go">
-          <button class="btn btn-solid btn-lg" id="asmt-submit" type="button" disabled>See the result</button>
-          <p class="asmt-left" id="asmt-left"></p>
-        </div>
-        <div class="asmt-result" id="asmt-result" hidden></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <div class="dock" id="dock">
