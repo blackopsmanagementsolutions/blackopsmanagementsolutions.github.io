@@ -1287,6 +1287,18 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 @media (max-width:760px){.becomes{grid-template-columns:1fr}}
 .dest{margin-top:20px}
 
+/* CARE, woven through */
+.care-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:8px}
+.care-tag::before{content:attr(data-cap);display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--accent-deep);color:var(--cream);font-family:var(--display);font-size:11.5px;letter-spacing:0}
+.night .care-tag{color:#E4C489}.night .care-tag::before{background:#E4C489;color:var(--night)}
+.steps li .care-tag{margin-bottom:4px}
+.covers .cov .care-tag{display:flex;margin-bottom:6px}
+.care-block{margin-top:clamp(48px,5.5vw,80px)}
+.care-block .feel{margin-top:clamp(22px,2.6vw,34px)}
+.care-line{margin-top:22px;max-width:64ch;color:var(--ink-2)}
+.care-line strong{color:var(--ink)}
+.hero .std{display:block;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F0D49B}
+
 /* close */
 .ready .lede{max-width:46ch}
 .foot-swap{margin-top:18px;font-size:14px;color:#AFA292}
@@ -1328,7 +1340,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       <p class="aud"><span>Universities</span><span>Employers</span><span>Healthcare organisations</span><span>Communities</span></p>
       <p class="lede">Lythous<span class="tm">&trade;</span> is Human Infrastructure<span class="tm">&trade;</span>: the people, places and follow-through that
         form around each person you serve, so that nobody has to work out alone where to
-        turn. Delivered in India by HealthcareSMC-Geneura LLP.</p>
+        turn. Delivered in India by HealthcareSMC-Geneura LLP.<span class="std">Operated to one standard: CARE<span class="tm">&trade;</span></span></p>
       <div class="hero-cta">
         <a class="btn btn-solid btn-lg" href="#assess">How ready is your campus?</a>
         <button class="btn btn-ghost btn-lg" type="button" data-open="hello" style="color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(246,241,232,.5)">Talk to us</button>
@@ -1470,6 +1482,21 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       </div>
       <p class="around-note rv">The right people, services and resources form around the
         person. Not the other way round.</p>
+      <div class="care-block rv">
+        <div class="sec-head" style="margin-bottom:0">
+          <span class="eyebrow">Our operating system</span>
+          <h2>CARE<span class="tm">&trade;</span> is the standard every node is held to.</h2>
+        </div>
+        <div class="feel st">
+          <div data-cap="C"><span class="cap" aria-hidden="true">C</span><b>Connected</b><span>To a person first, and then to whatever they actually need. Nobody is handed a list.</span></div>
+          <div data-cap="A"><span class="cap" aria-hidden="true">A</span><b>Acknowledged</b><span>Somebody knows they came, and remembers when they come back. Nothing has to be repeated.</span></div>
+          <div data-cap="R"><span class="cap" aria-hidden="true">R</span><b>Respected</b><span>Nobody asks what is wrong with them. Nothing is recorded or passed on without them knowing.</span></div>
+          <div data-cap="E"><span class="cap" aria-hidden="true">E</span><b>Empowered</b><span>They leave knowing what happens next, and who is doing it. So do you, in the figures.</span></div>
+        </div>
+        <p class="care-line"><strong>Four words, everywhere.</strong> They are the words on the door of every
+          node, the test for every step below, and the measure behind every figure you are
+          shown. You will see them tagged through the rest of this page.</p>
+      </div>
       <div class="network rv" style="max-width:none">
         <div class="two-col">
           <div>
@@ -1477,9 +1504,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
             <p>Lythous<span class="tm">&trade;</span> is not a directory, a referral line, or a collection of
               disconnects. It is a network of people who know how to receive a person,
               introduce them to one another, and remain responsible for the relationship.</p>
-            <p>Our operating system is CARE<span class="tm">&trade;</span>: Connected, Acknowledged, Respected,
-              Empowered. It is the standard every node is held to, and the four words a
-              person should be able to use about how it felt.</p>
           </div>
           <div class="pair" style="margin-top:0">
             <div><q>Care moves. The relationship remains.</q><span>A person may be introduced to many people. The one who received them stays responsible.</span></div>
@@ -1503,13 +1527,13 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <p class="lede">A Lythous<span class="tm">&trade;</span> node is a staffed room on your site. Anyone you are
           responsible for can walk in without an appointment and without telling anyone
           why. Behind the room stand trained people, a written protocol for the person at
-          risk, and a network of independent professionals.</p>
+          risk, and a network of independent professionals. All of it held to CARE<span class="tm">&trade;</span>.</p>
       </div>
 
       <div class="roles st">
-        <div><b>Ambassadors</b><p>The first point of human contact. Trained to notice the person who is always alone, or who stopped turning up, and to walk with them rather than point at a door. Drawn from your own students, staff and community.</p></div>
-        <div><b>Listeners</b><p>The first human a person reaches by phone, text or WhatsApp, at any hour. A person, not a menu. Somebody who is frightened at three in the morning should reach a human being.</p></div>
-        <div><b>The network</b><p>Independent, credentialled professionals across India, each practising in their own right. A node connects a person to them and stays with the person until they have arrived. It does not deliver care itself.</p></div>
+        <div><span class="care-tag" data-cap="A">Acknowledged</span><b>Ambassadors</b><p>The first point of human contact. Trained to notice the person who is always alone, or who stopped turning up, and to walk with them rather than point at a door. Drawn from your own students, staff and community.</p></div>
+        <div><span class="care-tag" data-cap="C">Connected</span><b>Listeners</b><p>The first human a person reaches by phone, text or WhatsApp, at any hour. A person, not a menu. Somebody who is frightened at three in the morning should reach a human being.</p></div>
+        <div><span class="care-tag" data-cap="R">Respected</span><b>The network</b><p>Independent, credentialled professionals across India, each practising in their own right. A node connects a person to them and stays with the person until they have arrived. It does not deliver care itself.</p></div>
       </div>
 
       <div class="sub-head rv">
@@ -1560,23 +1584,23 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       <div class="how-grid">
         <ol class="steps st"><span class="rail" aria-hidden="true"></span>
           <li><span class="num">01</span>
-            <div><b>Recognition</b>
+            <div><span class="care-tag" data-cap="A">Acknowledged</span><b>Recognition</b>
             <p>The person reaches out, or an Ambassador notices them. Either way, it starts
               with a person, not a form.</p></div></li>
           <li><span class="num">02</span>
-            <div><b>Engagement</b>
+            <div><span class="care-tag" data-cap="C">Connected</span><b>Engagement</b>
             <p>They talk to a Listener, on their terms. In the room, or by phone, text or
               WhatsApp.</p></div></li>
           <li><span class="num">03</span>
-            <div><b>Navigation</b>
+            <div><span class="care-tag" data-cap="R">Respected</span><b>Navigation</b>
             <p>Together they work out what would actually help, and who is the right resource,
               starting with the ones the institution already has.</p></div></li>
           <li><span class="num">04</span>
-            <div><b>Escalation</b>
+            <div><span class="care-tag" data-cap="C">Connected</span><b>Escalation</b>
             <p>If necessary, the person is connected with the right person or resource. A written
               protocol names who acts for anyone at risk, in what order, and how fast.</p></div></li>
           <li><span class="num">05</span>
-            <div><b>Follow-through</b>
+            <div><span class="care-tag" data-cap="E">Empowered</span><b>Follow-through</b>
             <p>We do not just show the next door. We stay with the person until they get
               through it, and somebody checks back afterwards.</p></div></li>
         </ol>
@@ -1612,13 +1636,13 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <p>A map, line by line, with the source for every claim. Not a compliance assessment, and not legal advice.</p>
       </div>
       <ul class="covers rv">
-        <li><span class="ask">A written wellbeing policy, published and reviewed each year<i>Guideline I</i></span><span class="cov">A deployment supplies the policy document and the annual review cycle.</span></li>
-        <li><span class="ask">Formal referral linkages with external professionals<i>Guideline II</i></span><span class="cov">The network of eleven independent professionals, each credentialled and practising in their own right, under a formal arrangement.</span></li>
-        <li><span class="ask">Consistent, informal and confidential support for small groups of students<i>Guideline III</i></span><span class="cov">Ambassadors and Listeners. The informal layer is written into the guideline itself.</span></li>
-        <li><span class="ask">Written protocols for immediate referral, prominently displayed<i>Guideline V</i></span><span class="cov">The escalation protocol: who acts, in what order, how fast. Posted in the node and known to every Ambassador.</span></li>
-        <li><span class="ask">All staff trained twice a year by certified professionals<i>Guideline VI</i></span><span class="cov">Ambassador and staff training, run on a twice-yearly cycle with the network&rsquo;s professionals.</span></li>
-        <li><span class="ask">Regular sensitisation sessions for parents and guardians<i>Guideline IX</i></span><span class="cov">Sessions for families, from the same room and the same people.</span></li>
-        <li><span class="ask">Anonymised records and an annual report to the regulator<i>Guideline X</i></span><span class="cov">Figures with no names attached: how many came, how many were connected onward, how many arrived. Once a year, a report you can put in front of a regulator.</span></li>
+        <li><span class="ask">A written wellbeing policy, published and reviewed each year<i>Guideline I</i></span><span class="cov"><span class="care-tag" data-cap="R">Respected</span>A deployment supplies the policy document and the annual review cycle.</span></li>
+        <li><span class="ask">Formal referral linkages with external professionals<i>Guideline II</i></span><span class="cov"><span class="care-tag" data-cap="C">Connected</span>The network of eleven independent professionals, each credentialled and practising in their own right, under a formal arrangement.</span></li>
+        <li><span class="ask">Consistent, informal and confidential support for small groups of students<i>Guideline III</i></span><span class="cov"><span class="care-tag" data-cap="A">Acknowledged</span>Ambassadors and Listeners. The informal layer is written into the guideline itself.</span></li>
+        <li><span class="ask">Written protocols for immediate referral, prominently displayed<i>Guideline V</i></span><span class="cov"><span class="care-tag" data-cap="C">Connected</span>The escalation protocol: who acts, in what order, how fast. Posted in the node and known to every Ambassador.</span></li>
+        <li><span class="ask">All staff trained twice a year by certified professionals<i>Guideline VI</i></span><span class="cov"><span class="care-tag" data-cap="E">Empowered</span>Ambassador and staff training, run on a twice-yearly cycle with the network&rsquo;s professionals.</span></li>
+        <li><span class="ask">Regular sensitisation sessions for parents and guardians<i>Guideline IX</i></span><span class="cov"><span class="care-tag" data-cap="C">Connected</span>Sessions for families, from the same room and the same people.</span></li>
+        <li><span class="ask">Anonymised records and an annual report to the regulator<i>Guideline X</i></span><span class="cov"><span class="care-tag" data-cap="E">Empowered</span>Figures with no names attached: how many came, how many were connected onward, how many arrived. Once a year, a report you can put in front of a regulator.</span></li>
       </ul>
       <div class="covers-note rv">
         <p><strong>Nobody who uses a node becomes a patient.</strong> When someone needs professional
@@ -1686,9 +1710,9 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         </div>
       </div>
       <div class="becomes st">
-        <div><b>People come forward who never would have.</b><p>Not the students who already book appointments, but the ones who were never going to.</p></div>
-        <div><b>The services you already pay for get used, and used earlier.</b><p>A node does not add another service. It makes the ones you have easier to reach, while it is still a conversation.</p></div>
-        <div><b>You can see whether it is working.</b><p>Figures with no names attached: how many came, how many were connected onward, how many arrived. Once a year, a report for your regulator that never carries anybody&rsquo;s name.</p></div>
+        <div><span class="care-tag" data-cap="A">Acknowledged</span><b>People come forward who never would have.</b><p>Not the students who already book appointments, but the ones who were never going to.</p></div>
+        <div><span class="care-tag" data-cap="C">Connected</span><b>The services you already pay for get used, and used earlier.</b><p>A node does not add another service. It makes the ones you have easier to reach, while it is still a conversation.</p></div>
+        <div><span class="care-tag" data-cap="E">Empowered</span><b>You can see whether it is working.</b><p>Figures with no names attached: how many came, how many were connected onward, how many arrived. Once a year, a report for your regulator that never carries anybody&rsquo;s name.</p></div>
       </div>
 
       <div class="ready rv">
