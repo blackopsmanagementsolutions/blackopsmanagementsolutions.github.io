@@ -496,7 +496,7 @@ dialog.sheet.closing{animation:sheetOut .28s var(--ease) forwards}
 /* r2: THE KEY lockup, the network around you, institutions */
 
 .around{--rx:min(27vw,280px);--ry:clamp(112px,13vw,142px);position:relative;height:calc(var(--ry)*2 + 120px);max-width:760px;margin:clamp(32px,4vw,52px) auto 0}
-.around .fire{position:absolute;left:50%;top:50%;width:min(175%,1240px);transform:translate(-50%,-50%);opacity:.78;mix-blend-mode:multiply;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 46% 50% at 50% 50%,#000 34%,transparent 74%);mask-image:radial-gradient(ellipse 46% 50% at 50% 50%,#000 34%,transparent 74%)}
+.around .fire{position:absolute;left:50%;top:50%;width:min(210vw,2800px);max-width:none;transform:translate(-50%,-50%);opacity:.34;mix-blend-mode:multiply;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 24%,transparent 72%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 24%,transparent 72%)}
 .around{height:calc(var(--ry)*2 + 260px)}
 .around::before{content:"";position:absolute;left:50%;top:50%;width:calc(var(--rx)*2);height:calc(var(--ry)*2);transform:translate(-50%,-50%);border:1px dashed rgba(34,26,16,.22);border-radius:50%}
 .around .you{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;display:grid;place-items:center;overflow:visible;background:var(--ink);color:var(--cream);font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:-.01em;box-shadow:0 0 0 10px rgba(34,26,16,.06),var(--shadow-2)}
@@ -508,7 +508,7 @@ dialog.sheet.closing{animation:sheetOut .28s var(--ease) forwards}
 @media (max-width:700px){
   .around{height:auto;display:flex;flex-direction:column;align-items:center;gap:18px}
   .around::before{display:none}
-  .around .fire{width:150%;opacity:.4}
+  .around .fire{width:240vw;opacity:.26}
   .around .you{position:relative;left:auto;top:auto;transform:none}
   .around ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
   .around li{position:static;transform:none;white-space:normal;text-align:center}
@@ -516,7 +516,7 @@ dialog.sheet.closing{animation:sheetOut .28s var(--ease) forwards}
 @supports not (width: calc(cos(0deg) * 1px)){
   .around{height:auto;display:flex;flex-direction:column;align-items:center;gap:18px}
   .around::before{display:none}
-  .around .fire{width:150%;opacity:.4}
+  .around .fire{width:240vw;opacity:.26}
   .around .you{position:relative;left:auto;top:auto;transform:none}
   .around ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
   .around li{position:static;transform:none;white-space:normal;text-align:center}
@@ -526,7 +526,7 @@ dialog.sheet.closing{animation:sheetOut .28s var(--ease) forwards}
 .signpost{padding:clamp(28px,3.4vw,44px) 0}
 .signpost-in{display:flex;align-items:center;justify-content:space-between;gap:22px;text-decoration:none;color:var(--ink-2);font-size:clamp(16px,1.5vw,19px);line-height:1.5;padding:22px clamp(20px,2.6vw,32px);border-radius:var(--r);background:var(--card);border:1px solid var(--hair-soft);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
 .signpost-in:hover{transform:translateY(-3px);box-shadow:var(--shadow-1)}
-.signpost-in b{display:block;color:var(--ink);font-family:var(--display);font-weight:500;font-size:clamp(19px,1.9vw,24px);letter-spacing:-.01em;margin-top:2px}
+.signpost-in b{display:block;color:var(--ink);font-family:var(--display);font-weight:500;font-size:clamp(21px,2.2vw,30px);line-height:1.25;letter-spacing:-.01em;margin-bottom:8px}
 .signpost-in .go{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--cream);font-size:20px}
 
 /* ============================================================
