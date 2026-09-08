@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Say hello | Lythous&trade;, Healthcare SMC India</title>
+<title>Say hello | Lythous&trade;, HealthcareSMC-Geneura LLP</title>
 <meta name="description" content="A room on your campus, and people in it, for anyone who wants to make contact. You do not need a problem to come in.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="We begin with the person you are">
@@ -492,6 +492,41 @@ dialog.sheet.closing{animation:sheetOut .28s var(--ease) forwards}
 .amb-close{margin-top:18px;font-family:var(--display);font-size:17px;line-height:1.45;color:var(--ink)}
 @media (prefers-reduced-motion:reduce){.hero .welcome-big{animation:none;opacity:1}}
 
+/* r2: THE KEY lockup, the network around you, institutions */
+
+.around{--rx:min(27vw,280px);--ry:clamp(112px,13vw,142px);position:relative;height:calc(var(--ry)*2 + 120px);max-width:760px;margin:clamp(32px,4vw,52px) auto 0}
+.around .fire{position:absolute;left:50%;top:50%;width:min(210vw,2800px);max-width:none;transform:translate(-50%,-50%);opacity:.34;mix-blend-mode:multiply;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 24%,transparent 72%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 24%,transparent 72%)}
+.around{height:calc(var(--ry)*2 + 260px)}
+.around::before{content:"";position:absolute;left:50%;top:50%;width:calc(var(--rx)*2);height:calc(var(--ry)*2);transform:translate(-50%,-50%);border:1px dashed rgba(34,26,16,.22);border-radius:50%}
+.around .you{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;display:grid;place-items:center;overflow:visible;background:var(--ink);color:var(--cream);font-family:var(--display);font-weight:500;font-size:24px;letter-spacing:-.01em;box-shadow:0 0 0 10px rgba(34,26,16,.06),var(--shadow-2)}
+.around ul{list-style:none;margin:0;padding:0}
+.around li{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translate(calc(cos(var(--a))*var(--rx)),calc(sin(var(--a))*var(--ry)));font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--hair);border-radius:100px;padding:10px 18px;background:rgba(252,250,245,.86);box-shadow:var(--shadow-1);white-space:nowrap}
+.around li .tm{font-size:.5em}
+.around-note{margin:26px auto 0;max-width:52ch;text-align:center;font-family:var(--display);font-weight:500;font-size:clamp(19px,2vw,24px);line-height:1.4;color:var(--ink)}
+@media (max-width:700px){
+  .around{height:auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .around::before{display:none}
+  .around .fire{width:240vw;opacity:.26}
+  .around .you{position:relative;left:auto;top:auto;transform:none}
+  .around ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .around li{position:static;transform:none;white-space:normal;text-align:center}
+}
+@supports not (width: calc(cos(0deg) * 1px)){
+  .around{height:auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .around::before{display:none}
+  .around .fire{width:240vw;opacity:.26}
+  .around .you{position:relative;left:auto;top:auto;transform:none}
+  .around ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .around li{position:static;transform:none;white-space:normal;text-align:center}
+}
+
+.brand i{white-space:nowrap}
+.signpost{padding:clamp(28px,3.4vw,44px) 0}
+.signpost-in{display:flex;align-items:center;justify-content:space-between;gap:22px;text-decoration:none;color:var(--ink-2);font-size:clamp(16px,1.5vw,19px);line-height:1.5;padding:22px clamp(20px,2.6vw,32px);border-radius:var(--r);background:var(--card);border:1px solid var(--hair-soft);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.signpost-in:hover{transform:translateY(-3px);box-shadow:var(--shadow-1)}
+.signpost-in b{display:block;color:var(--ink);font-family:var(--display);font-weight:500;font-size:clamp(21px,2.2vw,30px);line-height:1.25;letter-spacing:-.01em;margin-bottom:8px}
+.signpost-in .go{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--cream);font-size:20px}
+
 /* ============================================================
    Sections, shared
    ============================================================ */
@@ -866,14 +901,15 @@ section{padding:var(--sec) 0}
 .fourwords span{display:block}
 .fourwords span+span{color:var(--accent-deep)}
 .understand-note{margin:18px 0 28px;color:var(--ink-2);max-width:40ch}
-.chips{position:relative;list-style:none;min-height:clamp(280px,26vw,360px)}
+.chips{position:relative;list-style:none;min-height:clamp(300px,28vw,390px)}
 .chips li{
   position:absolute;left:var(--x);top:var(--y);
   display:inline-flex;align-items:center;gap:9px;
   font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--ink-2);border:1px solid var(--hair);border-radius:100px;
   padding:10px 18px;background:var(--card);box-shadow:var(--shadow-1);
-  animation:bubDrift var(--dur,16s) ease-in-out var(--delay,0s) infinite alternate;
+  animation:integrate 18s cubic-bezier(.65,0,.35,1) var(--stagger,0s) infinite;animation-play-state:paused;
+  will-change:transform;
   transition:border-color .3s,color .3s;white-space:nowrap;
 }
 .chips li:hover{border-color:var(--accent);color:var(--accent-deep)}
@@ -882,13 +918,23 @@ section{padding:var(--sec) 0}
   stroke:var(--accent-deep);stroke-width:1.6;fill:none;
   stroke-linecap:round;stroke-linejoin:round;
 }
-@keyframes bubDrift{
-  from{transform:translate(0,0)}
-  to{transform:translate(var(--dx,6px),var(--dy,-8px))}
+.chips.in li{animation-play-state:running}
+/* separate, come together into one piece, hold, separate again */
+@keyframes integrate{
+  0%,10%{transform:translate(0,0)}
+  40%,62%{transform:translate(var(--ix,0px),var(--iy,0px))}
+  92%,100%{transform:translate(0,0)}
 }
+@keyframes integrateGlow{
+  0%,22%{border-color:rgba(246,241,232,.24);color:#D8CCB8;background:rgba(246,241,232,.06);box-shadow:none}
+  40%,62%{border-color:#E4C489;color:#F0D49B;background:rgba(228,196,137,.14);box-shadow:0 0 0 1px rgba(228,196,137,.35),0 0 28px rgba(228,196,137,.16)}
+  80%,100%{border-color:rgba(246,241,232,.24);color:#D8CCB8;background:rgba(246,241,232,.06);box-shadow:none}
+}
+#understand.night .chips li{animation-name:integrate,integrateGlow;animation-duration:18s,18s;animation-timing-function:cubic-bezier(.65,0,.35,1),ease-in-out;animation-delay:var(--stagger,0s),var(--stagger,0s);animation-iteration-count:infinite,infinite}
+#understand.night .chips li:hover{animation-play-state:paused}
 @media (max-width:700px){
   .chips{min-height:0;display:flex;flex-wrap:wrap;gap:10px}
-  .chips li{position:static;animation-duration:calc(var(--dur,16s)/2)}
+  .chips li{position:static;animation:none;will-change:auto}
 }
 @media (prefers-reduced-motion:reduce){
   .chips li{animation:none}
@@ -1111,6 +1157,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 .sheet-note{margin-top:18px;font-size:13.5px;color:var(--ink-3);text-align:center}
 .urgent-rows a{background:#FBF4EC;flex-wrap:wrap}
 .urgent-rows .num{font-family:var(--display);font-size:22px;font-weight:600;color:var(--danger);letter-spacing:0;flex:none}
+
 </style>
 </head>
 <body>
@@ -1122,7 +1169,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 
 <header class="site-head" id="head">
   <div class="head-in">
-    <a class="brand" href="#top"><span><b>Lythous<span class="tm">&trade;</span></b><i>Healthcare SMC India</i></span></a>
+    <a class="brand" href="#top"><span><b>Lythous<span class="tm">&trade;</span></b><i>HealthcareSMC-Geneura LLP</i></span></a>
     <nav class="site-nav" aria-label="Sections">      <a href="#arrive">How you got here</a>
       <a href="#hello">Say hello</a>
       <a href="#inside">Inside</a>
@@ -1143,7 +1190,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <div class="hero-media"><img src="/geneura/assets/room-wide.jpg" alt="A Lythous&trade; room: daylight, a sunrise mural, low seating in a circle."></div>
     <div class="hero-in">
       <span class="welcome-big">Welcome to Lythous<span class="tm">&trade;</span></span>
-      <span class="eyebrow aka-line">Formerly known as Lighthouse</span>
       <h1><span class="line"><span>We begin</span></span><span class="line"><span>by seeing you.</span></span></h1>
       <p class="lede">You do not need to identify or choose a service, or know which
         professional you need.<br>
@@ -1191,8 +1237,8 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         </button>
         <button class="c-card" type="button" data-open="poster" aria-pressed="false">          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="1.2"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></svg></span>
           <b>A poster or a QR code</b>
-          <span>It may have said Lighthouse. You are in the right place.</span>
-          <span class="link">Formerly known as Lighthouse</span>
+          <span>Whichever poster or code brought you here, you are in the right place.</span>
+          <span class="link">How that works</span>
         </button>
         <button class="c-card" type="button" data-open="community" aria-pressed="false">
           <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg></span>
@@ -1317,7 +1363,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           <b>The community</b>
         </div>
       </div>
-      <p class="who-close rv"><b>Anyone</b> can walk in.</p>
+      <p class="who-close rv"><b>Anyone</b> can benefit from being seen. <b>Everyone</b> matters.</p>
     </div>
   </section>
 
@@ -1331,7 +1377,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Inside our Lythous<span class="tm">&trade;</span> node</span>
-        <h2>Come and pay us a visit.</h2>
+        <h2>Come in and start your journey.</h2>
       </div>
       <div class="where-card rv">
         <span class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s7-6.1 7-11.1a7 7 0 1 0-14 0c0 5 7 11.1 7 11.1z"/><circle cx="12" cy="10.2" r="2.7"/></svg></span>
@@ -1406,20 +1452,21 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
               person, not a form.</p></div></li>
           <li><span class="num">02</span>
             <div><b>Engagement</b>
-            <p>You talk to a Listener, on your terms. In the room, or by phone, text or
-              WhatsApp.</p></div></li>
+            <p>You talk to a Listener<span class="tm">&trade;</span> and/or Ambassador<span class="tm">&trade;</span>, on your terms. In
+              the room, or by phone, text or WhatsApp.</p></div></li>
           <li><span class="num">03</span>
             <div><b>Navigation</b>
             <p>Together you work out what would actually help, and who is the right
               resource to help you.</p></div></li>
           <li><span class="num">04</span>
             <div><b>Escalation</b>
-            <p>If necessary, you are connected with the right person. It could be an
-              Ambassador, a clinician, a psychologist or a psychiatrist.</p></div></li>
+            <p>If necessary, you are connected with the right person or resource. It
+              could be an Ambassador, a clinician, a physician, a psychologist, a
+              psychiatrist, or a community resource.</p></div></li>
           <li><span class="num">05</span>
             <div><b>Follow-through</b>
-            <p>We don&rsquo;t just show you the next door. We stay with you until you get
-              through it.</p></div></li>
+            <p>This is a shared path and a shared journey that help you
+              become&hellip;</p></div></li>
         </ol>
         <figure class="how-stage rv" aria-hidden="true">
           <svg class="art on" viewBox="0 0 320 400" focusable="false"><g><circle pathLength="1" cx="108" cy="150" r="10"/><path pathLength="1" d="M93 173.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="154" cy="138" r="10"/><path pathLength="1" d="M139 161.5 a15 15 0 0 1 30 0"/></g><g><circle pathLength="1" cx="196" cy="152" r="10"/><path pathLength="1" d="M181 175.5 a15 15 0 0 1 30 0"/></g><g class="hero-figure"><circle pathLength="1" cx="246" cy="244" r="10"/><path pathLength="1" d="M231 267.5 a15 15 0 0 1 30 0"/></g><path pathLength="1" class="dash" d="M96 246 h108"/><path pathLength="1" d="M196 238 l10 8 -10 8"/><path pathLength="1" d="M54 310h212"/></svg>
@@ -1451,8 +1498,9 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         </div>
         <div class="rv">
           <p class="fourwords" style="margin-bottom:clamp(22px,2.6vw,34px)">
-            <span>We organise our care around the unique individual that you
-              are.</span></p>
+            <span>We don&rsquo;t give you what we have. We give you what you need.</span>
+            <span>Because there is no standard you and there should be no standard
+              path.</span></p>
           <p class="understand-note">Your life is integrated, not separated into
             pieces. So the help you get should be the same.</p>
           <ul class="chips rv">
@@ -1466,6 +1514,11 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
             <li style="--x:4%;--y:68%;--dur:18s;--delay:-9s;--dx:-9px;--dy:8px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.8 10.4 12 3.9l8.2 6.5v9.6H3.8z"/><path d="M9.4 20v-5.4h5.2V20"/></svg><b>Home</b></li>
             <li style="--x:33%;--y:72%;--dur:22s;--delay:-5s;--dx:7px;--dy:9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="1"/><path d="M3.2 12h17.6M9.4 6.2V12M14.6 12v5.8"/></svg><b>Obstacles</b></li>
             <li style="--x:62%;--y:66%;--dur:16s;--delay:-13s;--dx:-8px;--dy:-7px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.9 14.5 9l5.6.8-4 4 .9 5.6-5-2.7-5 2.7.9-5.6-4-4L9.5 9z"/></svg><b>Abilities</b></li>
+            <li style="--x:80%;--y:26%;--dur:18s;--delay:-7s;--dx:-7px;--dy:9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.5 14.2A7.8 7.8 0 0 1 9.8 4.5a7.8 7.8 0 1 0 9.7 9.7z"/></svg><b>Sleep</b></li>
+            <li style="--x:70%;--y:84%;--dur:15s;--delay:-10s;--dx:8px;--dy:-8px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 12.5c0-4.4 3.6-8 8-8h5v5c0 4.4-3.6 8-8 8H6z"/><path d="M6 20.5l8-8"/></svg><b>Nutrition</b></li>
+            <li style="--x:74%;--y:49%;--dur:19s;--delay:-1s;--dx:-9px;--dy:8px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="14.2" cy="5.4" r="1.8"/><path d="M9.4 21l2.3-6.1-3.1-2.4 1.7-4.8 4 1.3 2.3 3.4"/><path d="M8.6 12.7L6 15.8"/><path d="M14.3 9.7l3.3 1.2"/></svg><b>Movement</b></li>
+            <li style="--x:12%;--y:90%;--dur:17s;--delay:-12s;--dx:8px;--dy:-9px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="7" cy="8.5" r="2.4"/><circle cx="17" cy="8.5" r="2.4"/><circle cx="12" cy="16.5" r="2.4"/><path d="M8.9 10.2 10.4 14.6"/><path d="M15.1 10.2 13.6 14.6"/><path d="M9.4 8.5h5.2"/></svg><b>Community</b></li>
+            <li style="--x:42%;--y:92%;--dur:21s;--delay:-5s;--dx:7px;--dy:-10px"><svg class="dim-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.5V9"/><path d="M12 9c0-3 2.4-5 5.5-5 0 3-2.4 5-5.5 5z"/><path d="M12 13c0-3-2.4-5-5.5-5 0 3 2.4 5 5.5 5z"/></svg><b>Potential</b></li>
           </ul>
         </div>
       </div>
@@ -1474,7 +1527,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
 
   <!-- 08 · How it should feel -->
   <section class="sec-care" id="feel">
-    <img class="care-bg" src="/geneura/assets/art-circle.webp" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Our operating system</span>
@@ -1497,9 +1549,22 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <p>Lythous<span class="tm">&trade;</span> is not a directory, a referral line, or a collection
           of disconnects. It is a network of people who know how to receive you, introduce
           you to one another, and remain responsible for the relationship.</p>
-        <p>A listener is the front door. An ambassador is the navigator. Clinicians,
-          psychologists and psychiatrists are the resources called upon when needed.</p>
       </div>
+      <div class="around rv" role="img" aria-label="You in the centre, with a Listener, an Ambassador, a Clinician, a Physician, a Psychologist, a Psychiatrist, and wellness and community resources forming around you">
+        <img class="fire" src="/geneura/assets/art-circle.webp" alt="" aria-hidden="true">
+        <span class="you">You</span>
+        <ul aria-hidden="true">
+          <li style="--a:-90deg">Listener<span class="tm">&trade;</span></li>
+          <li style="--a:-38.6deg">Ambassador<span class="tm">&trade;</span></li>
+          <li style="--a:12.9deg">Clinician<span class="tm">&trade;</span></li>
+          <li style="--a:64.3deg">Physician</li>
+          <li style="--a:115.7deg">Psychologist</li>
+          <li style="--a:167.1deg">Psychiatrist</li>
+          <li style="--a:218.6deg">Wellness and community resources</li>
+        </ul>
+      </div>
+      <p class="around-note rv">The network does not move you through a predetermined sequence. The right
+        people, services and resources form around you.</p>
     </div>
   </section>
 
@@ -1570,6 +1635,20 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
           <button class="btn btn-solid btn-lg" type="button" data-open="ambassador" style="margin-top:22px">What an Ambassador actually does</button>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 09b · Signpost for institutions -->
+  <section class="sec-tint signpost" id="institutions">
+    <div class="wrap">
+      <div class="sec-head rv" style="margin-bottom:18px">
+        <span class="eyebrow">For institutions</span>
+      </div>
+      <a class="signpost-in rv" href="/geneura/lythous-india-institutions/">
+        <span><b>Are you a university, an employer, a healthcare organisation or a community?</b>
+          Here is how to bring Lythous<span class="tm">&trade;</span> to your people.</span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </section>
 
@@ -1656,18 +1735,19 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <div class="foot-grid">
       <div class="foot-brand">
         <b>Lythous<span class="tm">&trade;</span></b>
-        <i>Healthcare SMC India</i>
+        <i>HealthcareSMC-Geneura LLP</i>
         <p>A room on your campus, and people in it, for anyone who wants to make
           contact.</p>
-        <p class="lic">Delivered in India by HealthcareSMC-Geneura LLP under licence
-          from Geneura AI, Inc.</p>
+        <p class="lic">Delivered in India by HealthcareSMC-Geneura LLP under license from
+          Geneura AI<span class="tm">&trade;</span>, Inc.</p>
+        <p class="lic">Formerly known as Lighthouse in India.</p>
       </div>
       <div><h4>Ways in</h4><ul>
         <li><a href="https://wa.me/919634676724?text=Hello">WhatsApp us</a></li>
         <li><a href="tel:+919634676724">+91 96346 76724</a></li>
         <li><a href="sms:+919634676724">Send a text</a></li>
         <li><a href="#inside">Where to find us</a></li>
-        <li><a href="/geneura/lythous-india-institution/">For institutions</a></li></ul></div>
+        <li><a href="/geneura/lythous-india-institutions/">For institutions</a></li></ul></div>
       <div><h4>About</h4><ul>
         <li><span style="color:#7E7060">Geneura AI, Inc.</span></li>
         <li><a href="https://geneura.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
@@ -1677,7 +1757,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         Call <a href="tel:112">112</a> for emergency services, anywhere in India.
         Tele-MANAS is <a href="tel:14416">14416</a>, free and open day and night.
         KIRAN is <a href="tel:18005990019">1800 599 0019</a>.
-        Healthcare SMC India: <a href="tel:+919634676724">+91 96346 76724</a>.</div></div>
+        HealthcareSMC-Geneura LLP: <a href="tel:+919634676724">+91 96346 76724</a>.</div></div>
     </div>
     <div class="foot-bar">
       <span>Not a clinical service. Nobody who uses one becomes a patient.</span>
@@ -1730,7 +1810,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <span><b>KIRAN</b><span>The national rehabilitation helpline</span></span></a></li>
       <li><a href="tel:+919634676724">
         <span class="num">+91&nbsp;96346&nbsp;76724</span>
-        <span><b>Healthcare SMC India</b><span>Each campus gets its own number when its
+        <span><b>HealthcareSMC-Geneura LLP</b><span>Each campus gets its own number when its
           node opens</span></span></a></li>
     </ul>
     <div class="sheet-cta">
@@ -1805,7 +1885,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <h4>Why it matters</h4>
     <p>At three in the morning, somebody who is frightened should reach a human being.
       That is the whole point of it.</p>
-    <p class="small">Call, text or message Healthcare SMC India on
+    <p class="small">Call, text or message HealthcareSMC-Geneura LLP on
       <a href="tel:+919634676724">+91 96346 76724</a>. If you are in immediate danger,
       call 112, or Tele-MANAS on 14416.</p>
     <div class="sheet-cta">
@@ -1907,10 +1987,9 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
   <div class="sheet-in">
     <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
     <h3 id="pos-title">A poster or a QR code</h3>
-    <p>If you arrived here from a poster, a billboard or a QR code that said Lighthouse,
-      you are in the right place. Lythous<span class="tm">&trade;</span> is the current
-      name.</p>
-    <p class="small">Formerly known as Lighthouse.</p>
+    <p>If you arrived here from a poster, a billboard or a QR code, you are in the right
+      place. Some of the older material carries our former name. Lythous<span class="tm">&trade;</span>
+      is the current name, and the people are the same.</p>
     <div class="sheet-cta">
       <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
   <circle class="halo" cx="24" cy="40" r="17"/>
@@ -2197,6 +2276,39 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       });
     });
   }
+})();
+</script>
+<script>
+(function(){
+  /* Chips: compute where each one sits once the pieces come together.
+     One tight block, rows centred, in the middle of the field. */
+  var field=document.querySelector('#understand .chips');
+  if(!field||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var chips=[].slice.call(field.querySelectorAll('li'));
+  function layout(){
+    if(getComputedStyle(field).display==='flex')return; /* stacked layout on phones */
+    var fw=field.clientWidth,fh=field.clientHeight,gap=8,maxW=Math.min(fw*.82,560);
+    var rows=[],row=[],w=0;
+    chips.forEach(function(c){
+      var cw=c.offsetWidth;
+      if(row.length&&w+gap+cw>maxW){rows.push({items:row,w:w});row=[];w=0;}
+      row.push(c);w+=(row.length>1?gap:0)+cw;
+    });
+    if(row.length)rows.push({items:row,w:w});
+    var rh=chips[0].offsetHeight,bh=rows.length*rh+(rows.length-1)*gap,top=(fh-bh)/2;
+    rows.forEach(function(r,i){
+      var x=(fw-r.w)/2,y=top+i*(rh+gap);
+      r.items.forEach(function(c){
+        c.style.setProperty('--ix',(x-c.offsetLeft).toFixed(1)+'px');
+        c.style.setProperty('--iy',(y-c.offsetTop).toFixed(1)+'px');
+        x+=c.offsetWidth+gap;
+      });
+    });
+  }
+  chips.forEach(function(c,i){c.style.setProperty('--stagger',(i*0.07).toFixed(2)+'s')});
+  layout();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layout);
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(layout,150)});
 })();
 </script>
 </body>
