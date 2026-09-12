@@ -249,15 +249,7 @@ h3{font-size:clamp(22px,2.4vw,27px);line-height:1.2}
 .words.in .w:nth-child(7){transition-delay:.38s}.words.in .w:nth-child(8){transition-delay:.44s}
 .words.in .w:nth-child(n+9){transition-delay:.5s}
 
-/* 3. Section indices, editorial */
-.sec-index{
-  position:absolute;left:clamp(20px,4vw,44px);top:clamp(28px,3.4vw,44px);
-  font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--ink-3);
-  writing-mode:vertical-rl;transform:rotate(180deg);opacity:.75;pointer-events:none;
-}
-.night .sec-index{color:#8D8070}
 section{position:relative}
-@media (max-width:900px){.sec-index{display:none}}
 
 /* 4. Scroll-driven parallax on the art, CSS only where supported */
 @supports (animation-timeline: view()) {
@@ -2140,15 +2132,6 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
       var wo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');wo.unobserve(e.target);}})},{threshold:.3});
       heads.forEach(function(h){if(h.classList.contains('words'))wo.observe(h)});
     }else{heads.forEach(function(h){h.classList.add('in')})}
-  })();
-
-  /* section indices */
-  (function(){
-    var n=0;
-    document.querySelectorAll('main > section').forEach(function(sec){
-      if(sec.classList.contains('hero')||sec.classList.contains('band')||sec.classList.contains('mural'))return;
-      n++;var i=document.createElement('span');i.className='sec-index';i.textContent=(n<10?'0':'')+n;sec.appendChild(i);
-    });
   })();
 
   /* steps: advance with scroll, fill the rail */
