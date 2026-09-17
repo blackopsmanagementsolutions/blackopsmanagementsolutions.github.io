@@ -404,10 +404,10 @@ section[id]{scroll-margin-top:84px}
 .site-head:not(.solid) .site-nav a.active{color:var(--cream)}
 
 /* footer links: same underline draw */
-.site-foot ul a{position:relative}
-.site-foot ul a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;
+.site-foot ul a,.site-foot ul .linky{position:relative}
+.site-foot ul a::after,.site-foot ul .linky::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;
   transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-.site-foot ul a:hover::after{transform:scaleX(1)}
+.site-foot ul a:hover::after,.site-foot ul .linky:hover::after{transform:scaleX(1)}
 
 /* cards: tilt toward the pointer with a soft glare */
 .c-card,.who-item{transform-style:preserve-3d;will-change:transform}
@@ -1805,7 +1805,7 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
         <li><a href="https://wa.me/919634676724?text=Hello">WhatsApp us</a></li>
         <li><a href="tel:+919634676724">+91 96346 76724</a></li>
         <li><a href="/geneura/lythous-india-ramveersingh/">For students and families</a></li>
-        <li><span style="color:#7E7060">Geneura AI, Inc.</span></li>
+        <li><button class="linky" type="button" data-open="about">Geneura AI, Inc.</button></li>
         <li><a href="https://geneura.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
         <li><a href="https://geneura.ai/terms" target="_blank" rel="noopener">Terms of Use</a></li>
         <li><a href="https://geneura.ai/intellectual-property" target="_blank" rel="noopener">Intellectual Property Notice</a></li></ul></div>
@@ -1842,6 +1842,36 @@ dialog.sheet[open]{animation:sheetIn .5s var(--ease)}
     <p class="sheet-note">Or take the readiness assessment first and bring the result.</p>
     <div class="sheet-cta">
       <a class="btn btn-ghost" href="#assess" data-close>Readiness assessment</a>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- About Geneura sheet -->
+<dialog class="sheet" id="sheet-about" aria-labelledby="about-title">
+  <div class="sheet-in">
+    <button class="sheet-x" type="button" data-close aria-label="Close">&times;</button>
+    <h3 id="about-title">About Geneura</h3>
+    <p>Geneura is building Human Infrastructure<span class="tm">&trade;</span> for a world ready to
+      go Beyond Wellness.<span class="tm">&trade;</span></p>
+    <p>We help individuals and organizations better understand what matters, then connect the
+      people, services, resources, and support needed around them.</p>
+    <p>Through Lythous<span class="tm">&trade;</span> Beyond Wellness Centers and the Beyond
+      Wellness<span class="tm">&trade;</span> Network, we strengthen what already exists, identify
+      what&rsquo;s missing, and create a more connected human experience.</p>
+    <p>Because going Beyond Wellness isn&rsquo;t about building more.</p>
+    <p class="amb-close"><strong>It&rsquo;s about seeing more. Understanding more. Connecting
+      more.</strong></p>
+    <div class="sheet-cta">
+      <button class="btn btn-solid" type="button" data-open="hello"><span class="lantern-sm"><svg class="lantern-svg" viewBox="0 0 48 72" aria-hidden="true" focusable="false">
+  <circle class="halo" cx="24" cy="40" r="17"/>
+  <path class="frame" d="M20 4h8M24 4v5M15 9h18l3 6H12z"/>
+  <path class="frame" d="M14 15v34h20V15"/>
+  <path class="frame" d="M14 49l-2 6h24l-2-6M20 55v6h8v-6"/>
+  <path class="frame" d="M18 20v26M30 20v26"/>
+  <path class="flame" d="M24 26c-3 4-6 7-6 11a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>
+  <path class="flame-core" d="M24 32c-1.4 2-2.6 3.4-2.6 5.2a2.6 2.6 0 0 0 5.2 0c0-1.8-1.2-3.2-2.6-5.2z"/>
+</svg></span>Talk to us</button>
     </div>
   </div>
 </dialog>
